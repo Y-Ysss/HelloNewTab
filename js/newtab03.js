@@ -28,7 +28,6 @@ function BookmarkNode(bookmark) {
                     $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '</ul></div>');
                 } else {
                     $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '</ul></div>');
-
                 }
                 joinBkmrk = "";
             }
@@ -45,11 +44,14 @@ function searchView(inputWord) {
         type_new = $(inputWord).find('#search').val();
         if (type_new == "") {
             $('#searchReset').css('color', '#678');
-            $('#searchResult').css('top', '-500px');
+            $('#searchResult').css('top', '0px', );
+            $('#searchResult').css('height', '0px');
         } else {
             $('#searchReset').css('color', '#fff');
             $('#searchResult').css('top', '50px');
+            $('#searchResult').css('height', '400px');
             $('#systemLinkArea').css('top', '-5px');
+            $('#sysMenu').removeClass('sysMenuView');
         }
         if (type_old != type_new) {
             type_old = type_new;
@@ -77,7 +79,6 @@ function searchNode(node) {
     }
     if (node.url) {
         var title = node.title == "" ? node.url : node.title;
-        // 三項演算子
         joinResult += '<a href="' + node.url + '"><img class="favicon" src="chrome://favicon/' + node.url + '">' + title + '</a>';
     }
 }
@@ -86,29 +87,39 @@ function searchNode(node) {
 // =================================================================================
 
 $(function() {
-    $('#search').keyup(searchView(this));
+    $('#bodyMain').freetile({
+        selector: '.cntntModule',
+        animate: true
+    });
 
     $('#searchReset').click(function() {
         $('#search').val("");
     });
 
-    // $('#searchResult').funcResizeBox({});
+    $(document).keypress(function(event) {
+        $('#search').focus();
+    });
+    $('#search').keyup(searchView(this)); //call function searchView()
 
     $(document).click(function(event) {
-        if ('#searchResult a') {
+        if ('#searchResult > a') {
             $('#search').val("");
             $('#searchReset').css('color', '#678');
-            $('#searchResult').css('top', '-500px');
+            $('#searchResult').css('top', '0px');
+            $('#searchResult').css('height', '0px');
         }
         if (!$(event.target).closest('#searchResult').length && !$(event.target).closest('#search').length) {
-            $('#searchResult').css('top', '-500px');
+            $('#searchResult').css('top', '0px');
+            $('#searchResult').css('height', '0px');
         }
     });
-    $('#topIcon').click(function() {
+    $('#sysMenu').click(function() {
         if ($('#systemLinkArea').css("top") == "-5px") {
             $('#systemLinkArea').css('top', '50px');
+            $('#sysMenu').addClass('sysMenuView');
         } else {
             $('#systemLinkArea').css('top', '-5px');
+            $('#sysMenu').removeClass('sysMenuView');
         }
     });
 

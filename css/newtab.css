@@ -8,6 +8,7 @@ html {
 
 body {
     font-size: 1.8rem;
+    /*font-size: 1.6rem;*/
     margin: 0;
 }
 
@@ -37,11 +38,6 @@ ul {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-#topIcon {
-    margin: 8px;
-    -webkit-filter: grayscale(60%);
-}
-
 #searchGroup {
     /*height: 40px;*/
     left: 50px;
@@ -51,7 +47,7 @@ ul {
 #search {
     width: 300px;
     font-size: 2rem;
-    padding: 15px 8px 4px 8px;
+    padding: 18px 8px 0px 8px;
     display: block;
     border: none;
     color: #678;
@@ -72,7 +68,7 @@ ul {
     pointer-events: none;
     left: 5px;
     top: 15px;
-    -webkit-transition: 0.4s ease all;
+    -webkit-transition: 0.5s ease all;
 }
 
 #search:focus ~ #SearchLabel {
@@ -86,7 +82,7 @@ ul {
     width: 150px;
     margin: 2px;
     border-bottom: 1px solid #fff;
-    -webkit-transition: 0.4s ease all;
+    -webkit-transition: 0.5s ease all;
 }
 
 #search:focus ~ .bar {
@@ -103,10 +99,10 @@ ul {
 }
 
 #searchResult {
-    top: -500px;
+    top: 0px;
     left: 40px;
     width: 400px;
-    height: 500px;
+    height: 0px;
     background-color: rgba(240, 240, 240, 0.98);
     padding: 15px;
     position: fixed;
@@ -115,8 +111,9 @@ ul {
     overflow-y: auto;
     white-space: nowrap;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.4);
-    -webkit-transition: 0.4s;
+    -webkit-transition: 0.8s ease all;
 }
+
 
 #searchResult a {
     height: 28px;
@@ -172,6 +169,7 @@ ul {
 }
 
 .cntntModule {
+    /*width: 150px;*/
     width: 160px;
     border: 1px solid #ccc;
     margin: 15px;
@@ -253,7 +251,7 @@ ul {
     margin: 15px;
 }
 
-.form_tggl::after {
+.form_tggl:after {
     top: 2px;
     left: 2px;
     height: 16px;
@@ -272,7 +270,7 @@ ul {
     /*border:1px solid #ffffff;*/
 }
 
-.form_tggl_on::after {
+.form_tggl_on:after {
     left: 22px;
 }
 
@@ -309,4 +307,49 @@ ul {
     border: 1px solid #fff;
     margin: 5px;
     padding: 5px;
+}
+
+/*==========================================================================*/
+.menuBtn{
+    height: 50px;
+    width: 50px;
+    /*background: #fff;*/
+    position: absolute;
+}
+
+.menuBtn span,
+.menuBtn span:before,
+.menuBtn span:after {
+    width: 30px;
+    height: 3px;
+    border-radius: 1px;
+    background-color: #eee;
+    content: '';
+    display:block;
+    position: absolute;
+    transition: all .4s;
+}
+
+.menuBtn span{
+    top: 20px;
+    margin: 5px 10px 0 10px;
+}
+.menuBtn span:before{
+    top: -8px;
+}
+
+.menuBtn span:after{
+    top: 8px;
+}
+
+.sysMenuView span{
+    -webkit-transform:rotate(90deg) scaleX(0.8);
+    background-color: 
+}
+.sysMenuView span:before{
+    -webkit-transform: translate3d(9px, 5px, 0) rotate(35deg) scaleX(0.4);
+}
+
+.sysMenuView span:after{
+    -webkit-transform: translate3d(9px, -5px, 0) rotate(-35deg) scaleX(0.4);
 }
