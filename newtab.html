@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello_NewTab</title>
+    <link rel="stylesheet" type="text/css" href="css/newtab.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/chromeContext.css"> -->
+    <link rel="icon" type="image/png" href="img/icon_016.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="img/icon_032.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/icon_096.png" sizes="96x96">
+    <base target="_blank">
+    <script type="text/javascript" src="js/lib/jquery.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.freetile.js"></script>
+    <script type="text/javascript" src="js/lib/jquery.chromeContext.js"></script>
+    <script type="text/javascript" src="js/newtab03.js"></script>
+</head>
+
+<body>
+    <div id="bodyHead">
+    	<img id="topIcon" src="img/icon_032.png">
+        <div id="searchGroup" style="display: inline-block;">
+            <input id="search" type="text" required>
+            <span class="bar"></span>
+            <span id="searchReset">×</span>
+            <label id="SearchLabel">Search</label>
+        </div>
+        <div class="form_tggl" id="tggl1" style="right: 30px;"></div>
+    </div>
+    <div id="searchResult"></div>
+    <div id="systemLinkArea">
+    	<a class="systemLink" href="chrome://apps/"><img class="faviconBig" src="chrome://favicon/chrome://apps/">App</a>
+    	<a class="systemLink" href="chrome://bookmarks/"><img class="faviconBig" src="chrome://favicon/chrome://bookmarks/">Bookmark</a>
+    	<a class="systemLink" href="chrome://history/"><img class="faviconBig" src="chrome://favicon/chrome://history/">History</a>
+    	<a class="systemLink" href="chrome://downloads/"><img class="faviconBig" src="chrome://favicon/chrome://downloads/">Download</a>
+    	<a class="systemLink" href="chrome://extensions/"><img class="faviconBig" src="chrome://favicon/chrome://extensions/">Extension</a>
+    	<a class="systemLink" href="chrome://settings/"><img class="faviconBig" src="chrome://favicon/chrome://settings/">Setting</a>
+    	<a href="option.html"><img class="faviconBig" src="img/icon_016.png">Option</a>
+    </div>
+    <div id="bodyMain">
+    </div>
+</body>
+
+</html>
