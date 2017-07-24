@@ -1,0 +1,59 @@
+html {
+    font-size: 50%;
+    font-family: Meiryo;
+}
+body {
+    font-size: 1.8rem;
+    background-color: #f7f7f7;
+    letter-spacing: 1px;
+	transition: 1s;
+}
+a {
+	color: #000;
+    text-decoration: none;
+}
+a:hover{
+    color: #226cbb;
+}
+
+.body_main {
+	height: 100%;
+	padding: 25px;
+	overflow: auto;
+}
+.cardArea {
+	height: 100%;
+	width: 40%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    float: left;
+}
+.card_cntnt{
+    margin: 15px;
+    padding: 5px;
+    /*border-bottom: 1px solid #bdbdbd;*/
+    display: block;
+    position: relative;
+}
+
+/*=================================================================================*/
+/*Scrollbar*/
+
+::-webkit-scrollbar {
+    width: auto;
+    height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(199, 202, 204, .7);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(199, 202, 204, .7);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+
+/*=================================================================================*/
