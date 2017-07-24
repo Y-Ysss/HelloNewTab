@@ -16,18 +16,18 @@ a:hover{
     color: #226cbb;
 }
 
-.body_main {
-	height: 100%;
-	padding: 25px;
-	overflow: auto;
+#bodyMain {
+	padding-top: 30px;
+    margin: 0 auto;
 }
 .cardArea {
-	height: 100%;
-	width: 40%;
+	width: 44%;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    padding: 20px;
+    padding: 1%;
+    margin: 10px 1.7% 10px 1.7%;
     float: left;
+    word-wrap: break-word;
 }
 .card_cntnt{
     margin: 15px;

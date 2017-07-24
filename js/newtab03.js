@@ -92,6 +92,8 @@ $(function() {
         $('#search').val("");
     });
 
+    // $('#searchResult').funcResizeBox({});
+
     $(document).click(function(event) {
         if ('#searchResult a') {
             $('#search').val("");
