@@ -16,6 +16,7 @@ chrome.bookmarks.getTree(function(itemTree) {
         percentPosition: true
         // fitWidth: true
     });
+    rippleEffect();
 });
 // ============================
 function BookmarkNode(bookmark) {
@@ -27,16 +28,16 @@ function BookmarkNode(bookmark) {
             });
             if (joinBkmrk != "") {
                 if (bookmark.title.slice(0, 1) == "'") {
-                    $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '</ul></div>');
+                    $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '</ul></div>');
                 } else {
-                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '</ul></div>');
+                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '</ul></div>');
                 }
                 joinBkmrk = "";
             }
         }
     } else {
         var title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
-        joinBkmrk += '<li><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' + bookmark.url + '">' + title + '</a></li>';
+        joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' + bookmark.url + '">' + title + '</a></li>';
     }
 }
 // =================================================================================
@@ -88,6 +89,39 @@ function searchNode(node) {
 }
 
 // =================================================================================
+function rippleEffect(){
+    var ripple, ripples, RippleEffect, loc, cover, coversize, style, x, y, i, num;
+
+    //クラス名rippleの要素を取得
+    ripples = document.querySelectorAll('.ripple');
+    //位置を取得
+    RippleEffect = function(e) {
+        ripple = this; //クリックされたボタンを取得
+        cover = document.createElement('span'); //span作る
+        coversize = ripple.offsetWidth; //要素の幅を取得
+        loc = ripple.getBoundingClientRect(); //絶対座標の取得
+        x = e.pageX - loc.left - window.pageXOffset - (coversize / 2);
+        y = e.pageY - loc.top - window.pageYOffset - (coversize / 2);
+        pos = 'top:' + y + 'px; left:' + x + 'px; height:' + coversize + 'px; width:' + coversize + 'px;';
+
+        //spanを追加
+        ripple.appendChild(cover);
+        cover.setAttribute('style', pos);
+        cover.setAttribute('class', 'rp-effect'); //クラス名追加
+
+        //しばらくしたらspanを削除
+        setTimeout(function() {
+            var list = document.getElementsByClassName("rp-effect");
+            for (var i = list.length - 1; i >= 0; i--) { //末尾から順にすべて削除
+                list[i].parentNode.removeChild(list[i]);
+            }
+        }, 4000)
+    };
+    for (i = 0, num = ripples.length; i < num; i++) {
+        ripple = ripples[i];
+        ripple.addEventListener('mousedown', RippleEffect);
+    }
+}
 // =================================================================================
 function hideSearchResult(){
     $('#search').val("");
@@ -96,6 +130,7 @@ function hideSearchResult(){
     $('#searchResult').css('height', '0px');
 
 }
+// =================================================================================
 // =================================================================================
 
 $(function() {
