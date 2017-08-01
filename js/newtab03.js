@@ -10,9 +10,15 @@ chrome.bookmarks.getTree(function(itemTree) {
             });
         }
     });
-    $('#bodyMain').freetile({
-        selector: '.cntntModule',
-        animate: true
+    // $('#bodyMain').freetile({
+    //     selector: '.cntntModule',
+    //     animate: true
+    // });
+    
+    $('#bodyMain').masonry({
+        itemSelector: '.cntntModule',
+        percentPosition: true
+        // fitWidth: true
     });
 });
 // ============================
@@ -44,7 +50,7 @@ function searchView(inputWord) {
         type_new = $(inputWord).find('#search').val();
         if (type_new == "") {
             $('#searchReset').css('color', '#678');
-            $('#searchResult').css('top', '0px', );
+            $('#searchResult').css('top', '0px');
             $('#searchResult').css('height', '0px');
         } else {
             $('#searchReset').css('color', '#fff');
@@ -87,10 +93,10 @@ function searchNode(node) {
 // =================================================================================
 
 $(function() {
-    $('#bodyMain').freetile({
-        selector: '.cntntModule',
-        animate: true
-    });
+    // $('#bodyMain').freetile({
+    //     selector: '.cntntModule',
+    //     animate: true
+    // });
 
     $('#searchReset').click(function() {
         $('#search').val("");
