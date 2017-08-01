@@ -21,6 +21,7 @@ a:hover{
     margin: 0 auto;
 }
 .cardArea {
+    height: auto;
 	width: 44%;
     color: #345;
     background-color: #ffffff;
@@ -29,6 +30,7 @@ a:hover{
     margin: 10px 1.7% 10px 1.7%;
     float: left;
     word-wrap: break-word;
+
 }
 .card_cntnt{
     margin: 15px;

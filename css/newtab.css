@@ -104,7 +104,7 @@ ul {
     width: 400px;
     height: 0px;
     background-color: rgba(240, 240, 240, 0.98);
-    padding: 15px;
+    /*padding: 15px;*/
     position: fixed;
     z-index: 25;
     overflow-x: hidden;
@@ -118,14 +118,14 @@ ul {
 #searchResult a {
     height: 28px;
     width: 100%;
-    /*margin: 2px;*/
+    margin: 8px;
     padding: 5px z-index: 1;
     color: #345;
     display: block;
 }
 
 #searchResult a:hover {
-    margin-left: -5px;
+    margin-left: 2px;
 }
 /*=================================================================================*/
 #systemLinkArea {
@@ -205,13 +205,12 @@ ul {
     position: relative;
 }
 
-.cntntModule ul li a {
+.cntntModule ul li:hover{
+    background: #f3f3f3;
+    margin-left: -6px;
+    -webkit-transition: 0.25s ease all;
 }
 
-.cntntModule ul li a:hover {
-    /*color: #34f;*/
-    margin-left: -5px;
-}
 
 .favicon {
     top: 2px;
@@ -224,23 +223,8 @@ ul {
 
 .hideModule {
     opacity: 0;
-/*    -webkit-animation-duration: 0.3s;
-    -webkit-animation-name: fade-in;*/
+    -webkit-transition: 0.3s ease all;
 }
-
-/*@-webkit-keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 0.5;
-    }
-    100% {
-        opacity: 1;
-    }
-}*/
-
-
 
 /*=================================================================================*/
 
