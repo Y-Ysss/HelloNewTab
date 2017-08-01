@@ -198,7 +198,7 @@ ul {
 .cntntModule ul li {
     width: 100%;
     height: 24px;
-    padding: 4px 8px 4px 8px;
+    padding: 6px 8px 2px 8px;
     /*margin: 6px 8px 6px 8px;*/
     display: block;
     /*overflow: hidden;*/
@@ -210,7 +210,6 @@ ul {
     margin-left: -6px;
     -webkit-transition: 0.25s ease all;
 }
-
 
 .favicon {
     top: 2px;

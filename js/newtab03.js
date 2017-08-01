@@ -14,7 +14,6 @@ chrome.bookmarks.getTree(function(itemTree) {
     $('#bodyMain').masonry({
         itemSelector: '.cntntModule',
         percentPosition: true
-        // fitWidth: true
     });
     rippleEffect();
 });
