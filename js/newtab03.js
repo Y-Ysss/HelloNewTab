@@ -114,6 +114,10 @@ $(function() {
         if($('#search').val() != ''){
             $('#search').focus();
         }
+        // if (!$(event.target).closest('#searchResult').length && !$(event.target).closest('#searchGroup').length) {
+        //     $('#searchResult').css('top', '0px');
+        //     $('#searchResult').css('height', '0px');
+        // }
     });
     $('#sysMenu').click(function() {
         if ($('#systemLinkArea').css("top") == "-5px") {
