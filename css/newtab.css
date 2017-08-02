@@ -314,7 +314,7 @@ ul {
     width: 30px;
     height: 3px;
     border-radius: 1px;
-    background-color: #eee;
+    background-color: #f3f3f3;
     content: '';
     display:block;
     position: absolute;
@@ -358,19 +358,12 @@ ul {
   border-radius: 50%;
   opacity: 0.35;/*波紋の濃さ*/
   transform: scale(0);
-  background: #789;/*波紋色*/
+  background: #37819e;/*波紋色*/
   animation: ripple 1s;
   pointer-events: none; 
 }
 
 @-webkit-keyframes ripple {
-  to {
-    opacity: 0;
-    transform: scale(2.0);
-  }
-}
-
-@keyframes ripple {
   to {
     opacity: 0;
     transform: scale(2.0);
