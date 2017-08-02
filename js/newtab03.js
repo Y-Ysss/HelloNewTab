@@ -2,6 +2,7 @@
 var joinBkmrk = "";
 var joinResult = "";
 var indexBkmrk = 0;
+var bkmrkNum = 0;
 chrome.bookmarks.getTree(function(itemTree) {
     itemTree.forEach(function(items) {
         if ("children" in items) {
@@ -27,14 +28,16 @@ function BookmarkNode(bookmark) {
             });
             if (joinBkmrk != "") {
                 if (bookmark.title.slice(0, 1) == "'") {
-                    $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '</ul></div>');
+                    $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
                 } else {
-                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '</ul></div>');
+                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
                 }
                 joinBkmrk = "";
+                bkmrkNum = 0;
             }
         }
     } else {
+        bkmrkNum++;
         var title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
         joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' + bookmark.url + '">' + title + '</a></li>';
     }
@@ -63,6 +66,7 @@ function searchView(inputWord) {
 
             $('#searchResult').empty();
             chrome.bookmarks.search($('#search').val(), function(results) {
+                console.log(results);
                 results.forEach(function(searchItem) {
                     searchNode(searchItem);
                 });
@@ -75,7 +79,7 @@ function searchView(inputWord) {
 }
 // ============================
 function searchNode(node) {
-    var nodeId
+
     if (node.children) {
         node.children.forEach(function(child) {
             searchNode(child);
