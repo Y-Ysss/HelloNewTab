@@ -11,7 +11,7 @@ chrome.bookmarks.getTree(function(itemTree) {
             });
         }
     });
-    
+
     $('#bodyMain').masonry({
         itemSelector: '.cntntModule',
         percentPosition: true
@@ -92,7 +92,7 @@ function searchNode(node) {
 }
 
 // =================================================================================
-function rippleEffect(){
+function rippleEffect() {
     var ripple, ripples, RippleEffect, loc, cover, coversize, style, x, y, i, num;
 
     //クラス名rippleの要素を取得
@@ -126,7 +126,7 @@ function rippleEffect(){
     }
 }
 // =================================================================================
-function hideSearchResult(){
+function hideSearchResult() {
     $('#search').val("");
     $('#searchReset').css('color', '#678');
     $('#searchResult').css('top', '0px');
@@ -137,26 +137,24 @@ function hideSearchResult(){
 // =================================================================================
 
 $(function() {
-    $('#searchReset').click(function() {
-        hideSearchResult();
-    });
 
     $(document).keydown(function(event) {
-        if($('#search').val() == ''){
+        if ($('#search').val() == '') {
             $('#search').focus();
         }
     });
     $('#search').keyup(searchView(this)); //call function searchView()
 
-    $(document).on('click touchend',function(event) {
-        if($('#search').val() != ''){
+    $(document).click(function(event) {
+        if ($('#search').val() != '') {
             $('#search').focus();
         }
-        // if (!$(event.target).closest('#searchResult').length && !$(event.target).closest('#searchGroup').length) {
-        //     $('#searchResult').css('top', '0px');
-        //     $('#searchResult').css('height', '0px');
-        // }
     });
+
+    $('#searchReset').click(function() {
+        hideSearchResult();
+    });
+
     $('#sysMenu').click(function() {
         if ($('#systemLinkArea').css("top") == "-5px") {
             $('#systemLinkArea').css('top', '50px');
@@ -172,7 +170,16 @@ $(function() {
         chrome.tabs.create({ url: $(this).attr('href') });
     });
 
-
+    $('#tggl1').click(function() {
+        $(this).toggleClass('form_tggl_on');
+        if ($(this).hasClass('form_tggl_on')) {
+            // $('.hideModule').css('display', 'inline-block');
+            $('.hideModule').css('opacity', '1');
+        } else {
+            // $('.hideModule').css('display', 'none');
+            $('.hideModule').css('opacity', '0');
+        }
+    });
     // $('body').chromeContext({
     //     items: [{
     //         title: 'Menu_01',
@@ -196,18 +203,6 @@ $(function() {
     //         }
     //     }]
     // });
-    $('#tggl1').click(function() {
-        $(this).toggleClass('form_tggl_on');
-        if ($(this).hasClass('form_tggl_on')) {
-            // $('.hideModule').css('display', 'inline-block');
-            $('.hideModule').css('opacity', '1');
-        } else {
-            // $('.hideModule').css('display', 'none');
-            $('.hideModule').css('opacity', '0');
-        }
-
-    });
-
 
 });
 // =================================================================================
@@ -215,4 +210,3 @@ $(function() {
 
 
 // =================================================================================
-
