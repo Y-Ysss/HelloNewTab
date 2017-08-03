@@ -13,10 +13,6 @@ Open New Tab in Google Chrome (or Chromium based Browser). Now you will see a "H
 ###
 If first letter of folder name is " ' "(single quotation mark), hide this folder in "Hello New Tab" page. When click the button in the upper right, display this hidden folder.
 
-
-### Bug
-If you resize the browser window, folders position are misaligned.
-
 ## Install
 1. Open Google Chrome (or Chromium based Browser), type “chrome://extensions” in the address bar and press the “Enter” key.
 Enable developer mode extensions.
@@ -43,8 +39,6 @@ Google Chrome(またはChromiumベースブラウザ)で新しいタブを開く
 ###
 フォルダー名の先頭を「'」（半角のシングルクォーテーション）にすることでフォルダーを非表示にできます。右上のボタンをクリックすることで非表示のフォルダーを表示することができます。
 
-### バグ
-ブラウザのウィンドウをリサイズするとフォルダーの位置がずれることがあります。
 
 ## インストール
 1. Google Chrome（またはChromiumベースブラウザ）を起動し、アドレスバーに“chrome://extensions” と入力しエンターキーを押す。
