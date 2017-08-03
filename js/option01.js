@@ -1,6 +1,8 @@
 $(function() {
-	$('#bodyMain').freetile({
-        selector: '.cardArea',
-        animate: true
+
+    $('#bodyMain').masonry({
+        itemSelector: '.cardArea',
+        percentPosition: true
+        fitWidth: true
     });
 })
