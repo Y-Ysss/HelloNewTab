@@ -357,12 +357,12 @@ ul {
   overflow: hidden;
 }
 
-.ripple .rp-effect {/*エフェクト*/
+.ripple .rp-effect {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.35;/*波紋の濃さ*/
+  opacity: 0.35;
   transform: scale(0);
-  background: #37819e;/*波紋色*/
+  background: #37819e;
   animation: ripple 1s;
   pointer-events: none; 
 }
