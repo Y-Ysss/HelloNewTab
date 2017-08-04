@@ -46,15 +46,14 @@ function BookmarkNode(bookmark) {
 function searchView(inputWord) {
     var type_old = type_new = $(inputWord).find('#search').val();
     return function() {
+        var sR = $('#searchResult');
         type_new = $(inputWord).find('#search').val();
         if (type_new == "") {
             $('#searchReset').css('color', '#678');
-            $('#searchResult').css('top', '0px');
-            $('#searchResult').css('height', '0px');
+            sR.css('top', '0px').css('height', '0px');
         } else {
             $('#searchReset').css('color', '#fff');
-            $('#searchResult').css('top', '50px');
-            $('#searchResult').css('height', '400px');
+            sR.css('top', '50px').css('height', '400px');
             $('#systemLinkArea').css('top', '-5px');
             $('#sysMenu').removeClass('sysMenuView');
         }
@@ -62,15 +61,14 @@ function searchView(inputWord) {
             type_old = type_new;
             isChange = true;
 
-            $('#searchResult').empty();
+            sR.empty();
             chrome.bookmarks.search($('#search').val(), function(results) {
-                console.log(results);
                 results.forEach(function(searchItem) {
                     searchNode(searchItem);
                 });
-                $('#searchResult').append(joinResult);
+                sR.append(joinResult);
                 joinResult = "";
-                $('#searchResult').append('<span>Search Result : ' + $('#searchResult a').length + '</span>');
+                sR.append('<span>Search Result : ' + $('#searchResult a').length + '</span>');
             });
         }
     }
@@ -128,8 +126,7 @@ function rippleEffect() {
 function hideSearchResult() {
     $('#search').val("");
     $('#searchReset').css('color', '#678');
-    $('#searchResult').css('top', '0px');
-    $('#searchResult').css('height', '0px');
+    $('#searchResult').css('top', '0px').css('height', '0px');
 
 }
 // =================================================================================
@@ -154,12 +151,13 @@ $(function() {
     });
 
     $('#sysMenu').click(function() {
-        if ($('#systemLinkArea').css("top") == "-5px") {
-            $('#systemLinkArea').css('top', '50px');
+        var sLA = $('#systemLinkArea');
+        if (sLA.css("top") == "-5px") {
+            sLA.css('top', '50px');
             $('#sysMenu').addClass('sysMenuView');
             hideSearchResult();
         } else {
-            $('#systemLinkArea').css('top', '-5px');
+            sLA.css('top', '-5px');
             $('#sysMenu').removeClass('sysMenuView');
         }
     });
