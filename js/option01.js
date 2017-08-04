@@ -15,4 +15,12 @@ $(function() {
             $('#gitInfo').append(str);
         });
     });
+
+    $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(commitsList) {
+        console.log(commitsList[0].sha);
+        var lastCmmtManifest = 'https://raw.githubusercontent.com/Yoseatlly/HelloNewTab/' + commitsList[0].sha + '/manifest.json';
+        $.getJSON(lastCmmtManifest).then(function(manifest){
+            console.log(manifest.version);
+        });
+    });
 });
