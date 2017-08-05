@@ -9,11 +9,11 @@ body {
 	transition: 1s;
 }
 a {
-	color: #000;
+	color: #003D60;
     text-decoration: none;
 }
 a:hover{
-    color: #226cbb;
+    color: #008BCC;
 }
 
 #bodyMain {
