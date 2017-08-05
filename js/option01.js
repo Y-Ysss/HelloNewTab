@@ -35,8 +35,7 @@ $(function() {
     func(1, 0);
     func(2, 0);
     func(3, 0);
-    func(4, 0);
-    func(5, 1);
+    func(4, 1);
     $msnry.masonry('layout');
 
     // $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(commitsList) {
