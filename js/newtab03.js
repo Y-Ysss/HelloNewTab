@@ -29,7 +29,7 @@ function BookmarkNode(bookmark) {
                 if (bookmark.title.slice(0, 1) == "'") {
                     $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
                 } else {
-                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
+                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
                 }
                 joinBkmrk = "";
                 bkmrkNum = 0;

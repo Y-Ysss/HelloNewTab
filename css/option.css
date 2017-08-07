@@ -11,10 +11,17 @@ body {
 a {
 	color: #003D60;
     text-decoration: none;
+    transition: 0.5s;
 }
 a:hover{
-    color: #008BCC;
+    color: #00A7F4;
 }
+::selection {
+  background-color: #678;
+  color: #fff;
+}
+
+/*=================================================================================*/
 
 #bodyMain {
 	padding-top: 30px;
