@@ -27,9 +27,13 @@ function BookmarkNode(bookmark) {
             });
             if (joinBkmrk !== "") {
                 if (bookmark.title.slice(0, 1) === "'") {
-                    $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
+                    $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' 
+                        + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' 
+                        + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
                 } else {
-                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
+                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' 
+                        + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' 
+                        + joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
                 }
                 joinBkmrk = "";
                 bkmrkNum = 0;
@@ -38,7 +42,8 @@ function BookmarkNode(bookmark) {
     } else {
         bkmrkNum++;
         let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
-        joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' + bookmark.url + '">' + title + '</a></li>';
+        joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' 
+        + bookmark.url + '">' + title + '</a></li>';
     }
 }
 // =================================================================================
