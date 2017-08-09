@@ -19,7 +19,7 @@ $(function() {
     });
 
     $.getJSON('manifest.json').then(function(manifest) {
-        var str = '<div class="card_cntnt"><h4>Installed Version</h4>' + manifest.version + '</div>';
+        var str = '<div class="card_cntnt"><h4>Installed Release Version</h4>' + manifest.version + '</div>';
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/releases/latest').then(function(data) {
             if (manifest.version != data.name) {
                 str += '<h2>#Latest Release</h2><div class="card_cntnt"><h4>Version</h4>' + data.name + '</div><div class="card_cntnt"><h4>What\'s New</h4>' + data.body + '</div><div class="card_cntnt"><h4>URL</h4><a href="' + data.html_url + '">' + data.html_url + '</a></div>';
