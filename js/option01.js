@@ -1,3 +1,14 @@
+// setData( [object] );
+function setData(data) {
+    chrome.storage.local.set(data, function() {});
+}
+// getData( [string, array of string, object] , [function] );
+function getData(data, func){
+    chrome.storage.local.get(data, function(value) {
+        func(value[data]);    
+    });
+}
+
 // closure test
 function addContent() {
     let str = '';
@@ -14,6 +25,12 @@ function addContent() {
 }
 
 $(function() {
+    $('#btnMode').click(function() {
+        // setData({'sample':123}); 
+        // getData('sample', console.log); //console.log()を実行
+
+    });
+
     let $msnry = $('#bodyMain').masonry({
         itemSelector: '.cardArea',
         percentPosition: true,
@@ -41,6 +58,7 @@ $(function() {
     func(3, 0);
     func(4, 1);
     $msnry.masonry('layout');
+    // console.log(getData('sample'));
 
     // $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(commitsList) {
     // var lastCmmtManifest = 'https://raw.githubusercontent.com/Yoseatlly/HelloNewTab/' + commitsList[0].sha + '/manifest.json';
@@ -48,4 +66,5 @@ $(function() {
     //     console.log(manifest.version);
     // });
     // });
+
 });
