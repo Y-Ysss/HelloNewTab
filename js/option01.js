@@ -1,6 +1,6 @@
 // closure #test
 function addContent() {
-    var str = '';
+    let str = '';
     return function(num, run) {
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(json) {
             // console.log(json[num].commit.message + ',' + json[num].commit.author.date);
@@ -12,14 +12,14 @@ function addContent() {
 }
 
 $(function() {
-    var $msnry = $('#bodyMain').masonry({
+    let $msnry = $('#bodyMain').masonry({
         itemSelector: '.cardArea',
         percentPosition: true,
         fitWidth: true
     });
 
     $.getJSON('manifest.json').then(function(manifest) {
-        var str = '<div class="card_cntnt"><h4>Installed Release Version</h4>' + manifest.version + '</div>';
+        let str = '<div class="card_cntnt"><h4>Installed Release Version</h4>' + manifest.version + '</div>';
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/releases/latest').then(function(data) {
             if (manifest.version != data.name) {
                 str += '<h2>#Latest Release</h2><div class="card_cntnt"><h4>Version</h4>' + data.name + '</div><div class="card_cntnt"><h4>What\'s New</h4>' + data.body + '</div><div class="card_cntnt"><h4>URL</h4><a href="' + data.html_url + '">' + data.html_url + '</a></div>';
@@ -30,7 +30,7 @@ $(function() {
         });
     });
 
-    var func = addContent();
+    let func = addContent();
     func(0, 0);
     func(1, 0);
     func(2, 0);

@@ -1,7 +1,7 @@
-var joinBkmrk = "";
-var joinResult = "";
-var indexBkmrk = 0;
-var bkmrkNum = 0;
+let joinBkmrk = "";
+let joinResult = "";
+let indexBkmrk = 0;
+let bkmrkNum = 0;
 chrome.bookmarks.getTree(function(itemTree) {
     itemTree.forEach(function(items) {
         if ("children" in items) {
@@ -25,8 +25,8 @@ function BookmarkNode(bookmark) {
             bookmark.children.forEach(function(subBookmark) {
                 BookmarkNode(subBookmark);
             });
-            if (joinBkmrk != "") {
-                if (bookmark.title.slice(0, 1) == "'") {
+            if (joinBkmrk !== "") {
+                if (bookmark.title.slice(0, 1) === "'") {
                     $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
                 } else {
                     $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
@@ -37,18 +37,18 @@ function BookmarkNode(bookmark) {
         }
     } else {
         bkmrkNum++;
-        var title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
+        let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
         joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' + bookmark.url + '">' + title + '</a></li>';
     }
 }
 // =================================================================================
 // =================================================================================
 function searchView(inputWord) {
-    var type_old = type_new = $(inputWord).find('#search').val();
+    let type_old = type_new = $(inputWord).find('#search').val();
     return function() {
-        var sR = $('#searchResult');
+        let sR = $('#searchResult');
         type_new = $(inputWord).find('#search').val();
-        if (type_new == "") {
+        if (type_new === "") {
             $('#searchReset').css('color', '#678');
             sR.css('top', '0px').css('height', '0px');
         } else {
@@ -57,7 +57,7 @@ function searchView(inputWord) {
             $('#systemLinkArea').css('top', '-5px');
             $('#sysMenu').removeClass('sysMenuView');
         }
-        if (type_old != type_new) {
+        if (type_old !== type_new) {
             type_old = type_new;
             isChange = true;
 
@@ -82,7 +82,7 @@ function searchNode(node) {
         });
     }
     if (node.url) {
-        var title = node.title == "" ? node.url : node.title;
+        const title = node.title == "" ? node.url : node.title;
         joinResult += '<a href="' + node.url + '"><img class="favicon" src="chrome://favicon/' + node.url + '">' + title + '</a>';
     }
 }
@@ -90,7 +90,7 @@ function searchNode(node) {
 // =================================================================================
 // =================================================================================
 function rippleEffect() {
-    var ripple, ripples, RippleEffect, loc, cover, coversize, style, x, y, i, num;
+    let ripple, ripples, RippleEffect, loc, cover, coversize, style, x, y, i, num;
 
     ripples = document.querySelectorAll('.ripple');
     //位置を取得
@@ -110,7 +110,7 @@ function rippleEffect() {
 
         //4s delete span
         setTimeout(function() {
-            var list = document.getElementsByClassName("rp-effect");
+            let list = document.getElementsByClassName("rp-effect");
             for (var i = list.length - 1; i >= 0; i--) { //latest delete
                 list[i].parentNode.removeChild(list[i]);
             }
@@ -134,14 +134,20 @@ function hideSearchResult() {
 
 $(function() {
     $(document).keydown(function(event) {
-        if ($('#search').val() == '') {
-            $('#search').focus();
+        if (event.altKey) {
+            if (event.keyCode === 66 && $('#search').val() === '') {
+                $('#search').focus();
+            }
+        }
+        if (event.keyCode === 27 && $('#search').focus()) {
+            $('#search').blur();
+                hideSearchResult();
         }
     });
     $('#search').keyup(searchView(this)); //call function searchView()
 
     $(document).click(function(event) {
-        if ($('#search').val() != '') {
+        if ($('#search').val() !== '') {
             $('#search').focus();
         }
     });
@@ -151,8 +157,8 @@ $(function() {
     });
 
     $('#sysMenu').click(function() {
-        var sLA = $('#systemLinkArea');
-        if (sLA.css("top") == "-5px") {
+        let sLA = $('#systemLinkArea');
+        if (sLA.css("top") === "-5px") {
             sLA.css('top', '50px');
             $('#sysMenu').addClass('sysMenuView');
             hideSearchResult();
@@ -169,10 +175,8 @@ $(function() {
     $('#tggl1').click(function() {
         $(this).toggleClass('form_tggl_on');
         if ($(this).hasClass('form_tggl_on')) {
-            // $('.hideModule').css('display', 'inline-block');
             $('.hideModule').css('opacity', '1');
         } else {
-            // $('.hideModule').css('display', 'none');
             $('.hideModule').css('opacity', '0');
         }
     });
