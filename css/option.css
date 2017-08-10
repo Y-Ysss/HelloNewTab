@@ -1,19 +1,19 @@
 html {
-    font-size: 50%;
     font-family: Meiryo;
+    font-size: 50%;
 }
 
 body {
     font-size: 1.8rem;
     background-color: #f7f7f7;
-    letter-spacing: 1px;
     transition: 1s;
+    letter-spacing: 1px;
 }
 
 a {
     color: #144565;
-    text-decoration: none;
     transition: 0.5s;
+    text-decoration: none;
 }
 
 a:after {
@@ -25,60 +25,96 @@ a:hover {
 }
 
 ::selection {
-    background-color: #678;
     color: #fff;
+    background-color: #678;
 }
-
 
 /*=================================================================================*/
 
+.button {
+    color: #FFF;
+    background-color: #115273;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35);
+    margin: 0 5px 0 5px;
+    padding: 4px 16px;
+    display: inline-block;
+    cursor: pointer;
+    transition: .3s ease-out;
+    vertical-align: middle;
+    /*font-size: 1em;*/
+    letter-spacing: 0.05em;
+}
+
+.button:hover {
+    background-color: #1379AD;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+/*=================================================================================*/
+
+
+/*ToggleButton*/
+
+.toggle {
+    width: 40px;
+    height: 20px;
+    background-color: #cccccc;
+    border-radius: 30px;
+    display: inline-block;
+    /*border:1px solid #dddddd;*/
+    transition: .4s;
+    vertical-align: middle;
+    margin: 0 5px 0 5px;
+}
+
+.toggle:after {
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    content: "";
+    transition: .3s;
+}
+
+.toggle_on {
+    background-color: #19A0D2;
+    /*border:1px solid #ffffff;*/
+}
+
+.toggle_on:after {
+    left: 22px;
+}
+/*=================================================================================*/
+
 #bodyMain {
-    padding: 30px 0 30px 0;
     margin: 0 auto;
+    padding: 30px 0 30px 0;
 }
 
 .cardArea {
-    height: auto;
     width: 44%;
+    height: auto;
     color: #345;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    padding: 1%;
     margin: 10px 1.7% 10px 1.7%;
+    padding: 1%;
     float: left;
     word-wrap: break-word;
 }
 
 .card_cntnt {
+    position: relative;
     margin: 16px;
     padding: 5px;
     /*border-bottom: 1px solid #bdbdbd;*/
     display: block;
-    position: relative;
 }
-
-
-/*=================================================================================*/
-
-.button {
-    display: inline-block;
-    background-color: #1379AD;
-    color: #FFF;
-    /*font-size: 1em;*/
-    letter-spacing: 0.05em;
-    padding: 0.3em 1.2em;
-    border-radius: 3px;
-    cursor: pointer;
-    vertical-align: middle;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-    transition: .3s ease-out;
-
-}
-
-.button:hover {
-    background-color: #2096C5;
-}
-
 
 /*=================================================================================*/
 
@@ -108,15 +144,14 @@ a:hover {
 .ripple {
     position: relative;
     overflow: hidden;
-
 }
 
 .ripple .rp-effect {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.35;
-    transform: scale(0);
     background: #fff;
+    opacity: 0.5;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
     animation: ripple 1s;
     pointer-events: none;
 }

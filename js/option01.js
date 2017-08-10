@@ -1,12 +1,28 @@
-// setData( [object] );
+// chrome.storage.onChanged.addListener(function(changes, namespace) {
+//     if (namespace === "local") {
+//         console.log(changes);
+//     }
+// });
+
+//call > setData( [object] );
 function setData(data) {
-    chrome.storage.local.set(data, function() {});
-}
-// getData( [string, array of string, object] , [function] );
-function getData(data, func){
-    chrome.storage.local.get(data, function(value) {
-        func(value[data]);    
+    chrome.storage.local.set(data, function() {
+        // getData(Object.keys(data), console.log);
     });
+}
+// call > getData( [string, array of string, object] , [function] );
+function getData(data, func) {
+    chrome.storage.local.get(data, function(value) {
+        func(value);
+    });
+}
+
+// set value .toggle
+function setValueTggl(data) {
+    const key = Object.keys(data)[0]
+    if (data[key] === 1) {
+        $('#' + key).addClass('toggle_on');
+    }
 }
 
 // closure test
@@ -15,9 +31,9 @@ function addContent() {
     return function(num, run) {
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(json) {
             // console.log(json[num].commit.message + ',' + json[num].commit.author.date);
-            str += '<div class="card_cntnt"><h4>' + json[num].commit.message + '</h4>Date : ' 
-            + (json[num].commit.author.date).replace('T', '<br>Time : ').slice(0, -1) 
-            + ' (UTC)<br><a href="' + json[num].html_url + '"></a></div>';
+            str += '<div class="card_cntnt"><h4>' + json[num].commit.message + '</h4>Date : ' +
+                (json[num].commit.author.date).replace('T', '<br>Time : ').slice(0, -1) +
+                ' (UTC)<br><a href="' + json[num].html_url + '"></a></div>';
             if (run)
                 $('#gitCommitsInfo').append(str);
         });
@@ -25,14 +41,6 @@ function addContent() {
 }
 
 $(function() {
-    rippleEffect();
-
-    
-    $('#btnMode').click(function() {
-        // setData({'sample':123}); 
-        // getData('sample', console.log); //console.log()を実行
-
-    });
 
     let $msnry = $('#bodyMain').masonry({
         itemSelector: '.cardArea',
@@ -43,10 +51,10 @@ $(function() {
     $.getJSON('manifest.json').then(function(manifest) {
         let str = '<div class="card_cntnt"><h4>Installed Release Version</h4>' + manifest.version + '</div>';
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/releases/latest').then(function(data) {
-            if (manifest.version != data.name) {
-                str += '<h2>#Latest Release</h2><div class="card_cntnt"><h4>Version</h4>' 
-                + data.name + '</div><div class="card_cntnt"><h4>What\'s New</h4>' 
-                + data.body + '</div><div class="card_cntnt"><h4>URL</h4><a href="' + data.html_url + '"></a></div>';
+            if (manifest.version !== data.name) {
+                str += '<h2>#Latest Release</h2><div class="card_cntnt"><h4>Version</h4>' +
+                    data.name + '</div><div class="card_cntnt"><h4>What\'s New</h4>' +
+                    data.body + '</div><div class="card_cntnt"><h4>URL</h4><a href="' + data.html_url + '"></a></div>';
                 str = str.replace(/\r?\n/g, '<br>');
             }
             $('#ExtensionInfo').append(str);
@@ -69,7 +77,33 @@ $(function() {
     //     console.log(manifest.version);
     // });
     // });
+    $(".toggle").each(function() {
+        getData($(this).attr('id'), setValueTggl);
+    });
 
+    $('.button').click(function() {
+        // console.log(id);
+        setData({ 'sample': 123 });
+        //getData('sample', console.log); //console.log()を実行
+    });
+
+    // getData()
+
+    $('.toggle').click(function() {
+        const id = $(this)[0].id
+        $(this).toggleClass('toggle_on');
+        if ($(this).hasClass('toggle_on')) {
+            setData({
+                [id]: 1
+            });
+        } else {
+            setData({
+                [id]: -1
+            });
+        }
+    });
+
+    rippleEffect();
 });
 
 // =================================================================================
