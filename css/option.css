@@ -29,13 +29,18 @@ a:hover {
     background-color: #678;
 }
 
+hr{
+    border-color: #9ab;
+    margin: 32px 0 32px 0;
+}
+
 /*=================================================================================*/
 
 .button {
     color: #FFF;
     background-color: #115273;
     border-radius: 3px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.35);
     margin: 0 5px 0 5px;
     padding: 4px 16px;
     display: inline-block;
@@ -48,7 +53,7 @@ a:hover {
 
 .button:hover {
     background-color: #1379AD;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
 /*=================================================================================*/
 
@@ -57,37 +62,51 @@ a:hover {
 
 .toggle {
     width: 40px;
-    height: 20px;
+    /*iOS Style*/
+    /*height: 20px;*/
+    height: 12px;
     background-color: #cccccc;
     border-radius: 30px;
+    margin: 0 5px 0 5px;
     display: inline-block;
     /*border:1px solid #dddddd;*/
     transition: .4s;
     vertical-align: middle;
-    margin: 0 5px 0 5px;
 }
 
 .toggle:after {
-    top: 2px;
+    /*iOS Style*/
+/*    top: 2px;
     left: 2px;
     width: 16px;
-    height: 16px;
-    background-color: #ffffff;
+    height: 16px;*/
+    top: -3px;
+    left: 0px;
+    width: 18px;
+    height: 18px;
+    background-color: #ECEFF1;
     border-radius: 50%;
     position: relative;
     z-index: 1;
     display: inline-block;
     content: "";
     transition: .3s;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.toggle:hover:after {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+
 }
 
 .toggle_on {
-    background-color: #19A0D2;
+    background-color: #BBDEFB;
     /*border:1px solid #ffffff;*/
 }
 
 .toggle_on:after {
     left: 22px;
+    background-color: #42A5F5;
 }
 /*=================================================================================*/
 

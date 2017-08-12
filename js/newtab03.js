@@ -134,10 +134,18 @@ function hideSearchResult() {
     $('#searchResult').css('top', '0px').css('height', '0px');
 
 }
+function getData(data, func) {
+    chrome.storage.local.get(data, function(value) {
+        console.log(value);
+        func(value);
+    });
+}
 // =================================================================================
 // =================================================================================
 
 $(function() {
+    getData('tgglIcon', function(e){if(e.tgglIcon===1){$('.favicon').css('border-radius', '0%');}else{$('.favicon').css('border-radius', '50%');}});
+    
     $(document).keydown(function(event) {
         if (event.altKey) {
             if (event.keyCode === 66 && $('#search').val() === '') {

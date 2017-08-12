@@ -106,7 +106,8 @@ ul {
     left: 40px;
     width: 400px;
     height: 0px;
-    background-color: rgba(240, 240, 240, 0.98);
+    background-color: #fff;
+    opacity: 0.98;
     /*padding: 15px;*/
     position: fixed;
     z-index: 25;
@@ -119,16 +120,23 @@ ul {
 
 
 #searchResult a {
-    height: 28px;
-    width: 100%;
-    margin: 8px;
-    padding: 5px z-index: 1;
+    /*height: 28px;*/
+    width: 368px;
+    /*margin: 8px;*/
+    padding: 7px 8px 7px 8px;
+    z-index: 1;
     /*color: #345;*/
     display: block;
+    -webkit-transition: 0.25s ease-out all;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
 }
 
 #searchResult a:hover {
-    margin-left: 2px;
+    padding-left: 12px;
+    background: #f5f5f5;
 }
 
 
@@ -256,7 +264,7 @@ ul {
     width: 16px;
     padding: 0px 4px 0px 4px;
     position: relative;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
 }
 
 .hideModule {
@@ -270,42 +278,51 @@ ul {
 
 /*ToggleButton*/
 
+
+
 .form_tggl {
-    height: 20px;
     width: 40px;
+    height: 12px;
     background-color: #cccccc;
     border-radius: 30px;
-    /*border:1px solid #dddddd;*/
+    margin: 0 5px 0 5px;
     position: absolute;
-    transition: .4s;
     display: inline-block;
-    margin: 15px;
+    /*border:1px solid #dddddd;*/
+    transition: .4s;
+    margin: 20px;
+    vertical-align: middle;
 }
 
 .form_tggl:after {
-    top: 2px;
-    left: 2px;
-    height: 16px;
-    width: 16px;
-    background-color: #ffffff;
-    content: "";
+    top: -3px;
+    left: 0px;
+    width: 18px;
+    height: 18px;
+    background-color: #ECEFF1;
     border-radius: 50%;
-    z-index: 1;
-    display: block;
     position: relative;
+    z-index: 1;
+    display: inline-block;
+    content: "";
     transition: .3s;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.form_tggl:hover:after {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+
 }
 
 .form_tggl_on {
-    background-color: #19A0D2;
+    background-color: #BBDEFB;
     /*border:1px solid #ffffff;*/
 }
 
 .form_tggl_on:after {
     left: 22px;
+    background-color: #42A5F5;
 }
-
-
 
 /*=================================================================================*/
 
