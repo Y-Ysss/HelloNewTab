@@ -41,7 +41,7 @@ hr{
     background-color: #115273;
     border-radius: 3px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.35);
-    margin: 0 5px 0 5px;
+    margin: 15px 5px 15px 5px;
     padding: 4px 16px;
     display: inline-block;
     cursor: pointer;
@@ -54,6 +54,28 @@ hr{
 .button:hover {
     background-color: #1379AD;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+/*=================================================================================*/
+
+input {
+    width: 150px;
+    color: #456;
+    border: none;
+    border-bottom: 2px solid #678;
+    outline: none;
+    margin: 5px;
+    padding: 5px;
+    overflow: hidden;
+    -webkit-transition: 0.5s ease all;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+input:focus{
+    width: 200px;
+}
+::-webkit-input-placeholder {
+    color: #abc;
 }
 /*=================================================================================*/
 
@@ -86,17 +108,16 @@ hr{
     height: 18px;
     background-color: #ECEFF1;
     border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
     position: relative;
     z-index: 1;
     display: inline-block;
     content: "";
     transition: .3s;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
 }
 
 .toggle:hover:after {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-
 }
 
 .toggle_on {
@@ -146,13 +167,13 @@ hr{
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(199, 202, 204, .7);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    background: rgb(209, 212, 214);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: rgba(199, 202, 204, .7);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    background: rgb(199, 202, 204);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
 }
 
 

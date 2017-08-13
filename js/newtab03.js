@@ -116,7 +116,7 @@ function rippleEffect() {
         //4s delete span
         setTimeout(function() {
             let list = document.getElementsByClassName("rp-effect");
-            for (var i = list.length - 1; i >= 0; i--) { //latest delete
+            for (let i = list.length - 1; i >= 0; i--) { //latest delete
                 list[i].parentNode.removeChild(list[i]);
             }
         }, 4000)
@@ -144,8 +144,8 @@ function getData(data, func) {
 // =================================================================================
 
 $(function() {
-    getData('tgglIcon', function(e){if(e.tgglIcon===1){$('.favicon').css('border-radius', '0%');}else{$('.favicon').css('border-radius', '50%');}});
-    
+    getData('tgglIcon', function(data){if(data.tgglIcon===1){$('.favicon').css('border-radius', '0%');}else{$('.favicon').css('border-radius', '50%');}});
+
     $(document).keydown(function(event) {
         if (event.altKey) {
             if (event.keyCode === 66 && $('#search').val() === '') {
@@ -188,9 +188,9 @@ $(function() {
     $('#tggl1').click(function() {
         $(this).toggleClass('form_tggl_on');
         if ($(this).hasClass('form_tggl_on')) {
-            $('.hideModule').css('opacity', '1');
+            $('.hideModule').css('visibility', 'visible').css('opacity', '1');
         } else {
-            $('.hideModule').css('opacity', '0');
+            $('.hideModule').css('visibility', 'hidden').css('opacity', '0');
         }
     });
     // $('body').chromeContext({

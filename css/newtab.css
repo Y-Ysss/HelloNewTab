@@ -1,8 +1,8 @@
 /*Elements*/
 
 html {
-    font-size: 50%;
     font-family: Meiryo;
+    font-size: 50%;
     /*transition: 1.2s;*/
 }
 
@@ -13,15 +13,15 @@ body {
 }
 
 a {
-    text-decoration: none;
-    display: block;
     color: #345;
+    display: block;
+    text-decoration: none;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 
@@ -35,10 +35,10 @@ ul {
     width: 100%;
     height: 50px;
     background-color: #678;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     /*padding: 5px 5px 5px 15px;*/
     position: fixed;
     z-index: 50;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 #searchGroup {
@@ -50,13 +50,13 @@ ul {
 #search {
     width: 300px;
     font-size: 2rem;
-    padding: 18px 8px 0px 8px;
-    display: block;
-    border: none;
     color: #678;
     background-color: #678;
+    border: none;
     /*border-bottom: 1px solid #fff;*/
     outline: none;
+    padding: 18px 8px 0px 8px;
+    display: block;
 }
 
 #search:focus {
@@ -64,14 +64,14 @@ ul {
 }
 
 #SearchLabel {
-    color: #ddd;
+    top: 15px;
+    left: 5px;
     font-size: 2.2rem;
     font-weight: normal;
+    color: #ddd;
     position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 15px;
     -webkit-transition: 0.5s ease all;
+    pointer-events: none;
 }
 
 #search:focus~#SearchLabel {
@@ -80,11 +80,11 @@ ul {
 }
 
 .bar {
-    position: relative;
-    display: block;
     width: 150px;
-    margin: 2px;
     border-bottom: 1px solid #fff;
+    position: relative;
+    margin: 2px;
+    display: block;
     -webkit-transition: 0.5s ease all;
 }
 
@@ -108,35 +108,35 @@ ul {
     height: 0px;
     background-color: #fff;
     opacity: 0.98;
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.4);
     /*padding: 15px;*/
     position: fixed;
     z-index: 25;
     overflow-x: hidden;
     overflow-y: auto;
-    white-space: nowrap;
-    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.4);
     -webkit-transition: 0.8s ease all;
+    white-space: nowrap;
 }
 
 
 #searchResult a {
     /*height: 28px;*/
     width: 368px;
+    z-index: 1;
     /*margin: 8px;*/
     padding: 7px 8px 7px 8px;
-    z-index: 1;
     /*color: #345;*/
     display: block;
-    -webkit-transition: 0.25s ease-out all;
     overflow: hidden;
+    -webkit-transition: 0.25s ease-out all;
+    vertical-align: middle;
     white-space: nowrap;
     text-overflow: ellipsis;
-    vertical-align: middle;
 }
 
 #searchResult a:hover {
-    padding-left: 12px;
     background: #f5f5f5;
+    padding-left: 12px;
 }
 
 
@@ -148,13 +148,13 @@ ul {
     height: 40px;
     background-color: #eee;
     opacity: 0.95;
-    position: fixed;
-    vertical-align: middle;
-    z-index: 45;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-    white-space: nowrap;
-    -webkit-transition: 0.4s;
     border-radius: 3px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    z-index: 45;
+    -webkit-transition: 0.4s;
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
 #systemLinkArea ul {
@@ -170,8 +170,8 @@ ul {
 
 #systemLinkArea a {
     height: 100%;
-    padding: 0 15px 0 5px;
     font-size: 2rem;
+    padding: 0 15px 0 5px;
     /*color: #345;*/
     display: block;
 }
@@ -181,12 +181,12 @@ ul {
 }
 .faviconBig {
     top: 6px;
-    height: 18px;
     width: 18px;
+    height: 18px;
+    opacity: 0.7;
+    position: relative;
     /*padding: 0px 4px 0px 4px;*/
     margin: 4px;
-    position: relative;
-    opacity: 0.7;
 }
 
 
@@ -205,22 +205,22 @@ ul {
     /*width: 150px;*/
     width: 160px;
     border: 1px solid #ccc;
-    margin: 15px;
+    border-radius: 3px;
     box-shadow: 1px 2px 6px rgba(90, 90, 90, 0.4);
-    float: left;
+    margin: 15px;
     display: inline-block;
+    float: left;
     overflow: hidden;
     white-space: nowrap;
-    border-radius: 3px;
 }
 
 .cntntHead {
     height: 20px;
+    font-size: 1.9rem;
     /*width: 100%;*/
     background-color: #f5f5f5;
-    padding: 6px;
-    font-size: 1.9rem;
     border-bottom: 2px solid #678;
+    padding: 6px;
 }
 
 .cntntModule ul {
@@ -229,8 +229,8 @@ ul {
 
 .cntntModule ul li {
     width: 160px;
-    display: block;
     position: relative;
+    display: block;
     /*border-bottom:solid 1px #eee;*/
 }
 
@@ -242,33 +242,33 @@ ul {
 }
 .cntntModule ul li a {
     height: 100%;
+    padding: 7px 8px 7px 8px;
     /*padding: 0 15px 0 5px;*/
     display: block;
-    padding: 7px 8px 7px 8px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-
 }
 .bkmrkNum {
     height: 14px;
-    color: #999;
     font-size: 1.4rem;
+    color: #999;
     padding: 4px 8px 4px 8px;
     display: block;
 }
 
 .favicon {
     top: 2px;
-    height: 16px;
     width: 16px;
-    padding: 0px 4px 0px 4px;
+    height: 16px;
     position: relative;
+    padding: 0px 4px 0px 4px;
     /*border-radius: 50%;*/
 }
 
 .hideModule {
     opacity: 0;
+    visibility: hidden;
     -webkit-transition: 0.3s ease all;
 }
 
@@ -285,12 +285,12 @@ ul {
     height: 12px;
     background-color: #cccccc;
     border-radius: 30px;
-    margin: 0 5px 0 5px;
     position: absolute;
+    margin: 0 5px 0 5px;
+    margin: 20px;
     display: inline-block;
     /*border:1px solid #dddddd;*/
     transition: .4s;
-    margin: 20px;
     vertical-align: middle;
 }
 
@@ -301,17 +301,16 @@ ul {
     height: 18px;
     background-color: #ECEFF1;
     border-radius: 50%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
     position: relative;
     z-index: 1;
     display: inline-block;
     content: "";
     transition: .3s;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
 }
 
 .form_tggl:hover:after {
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-
 }
 
 .form_tggl_on {
@@ -335,13 +334,13 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(199, 202, 204, .7);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    background: rgb(209, 212, 214);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    background: rgba(199, 202, 204, .7);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+    background: rgb(199, 202, 204);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
 }
 
 
@@ -365,8 +364,8 @@ ul {
 /*==========================================================================*/
 
 .menuBtn {
-    height: 50px;
     width: 50px;
+    height: 50px;
     /*background: #fff;*/
     position: absolute;
 }
@@ -376,11 +375,11 @@ ul {
 .menuBtn span:after {
     width: 30px;
     height: 3px;
-    border-radius: 1px;
     background-color: #f3f3f3;
-    content: '';
-    display: block;
+    border-radius: 1px;
     position: absolute;
+    display: block;
+    content: '';
     transition: all .4s;
 }
 
@@ -419,11 +418,11 @@ ul {
 }
 
 .ripple .rp-effect {
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.35;
-    transform: scale(0);
     background: #37819e;
+    opacity: 0.35;
+    border-radius: 50%;
+    position: absolute;
+    transform: scale(0);
     animation: ripple 1s;
     pointer-events: none;
 }
