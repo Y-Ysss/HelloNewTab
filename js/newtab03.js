@@ -1,5 +1,4 @@
 let joinBkmrk = "";
-let joinResult = "";
 let indexBkmrk = 0;
 let bkmrkNum = 0;
 chrome.bookmarks.getTree(function(itemTree) {
@@ -48,11 +47,11 @@ function BookmarkNode(bookmark) {
 }
 // =================================================================================
 // =================================================================================
-function searchView(inputWord) {
-    let type_old = type_new = $(inputWord).find('#search').val();
+function searchView() {
+    let type_old = type_new = $('#search').val();
     return function() {
         let sR = $('#searchResult');
-        type_new = $(inputWord).find('#search').val();
+        type_new = $('#search').val();
         if (type_new === "") {
             $('#searchReset').css('color', '#678');
             sR.css('top', '0px').css('height', '0px');
@@ -64,16 +63,19 @@ function searchView(inputWord) {
         }
         if (type_old !== type_new) {
             type_old = type_new;
-            isChange = true;
 
             sR.empty();
+            let joinResult = "";
             chrome.bookmarks.search($('#search').val(), function(results) {
-                results.forEach(function(searchItem) {
-                    searchNode(searchItem);
-                });
+                for(let i = 0, len = results.length; i < len; i++ ){
+                    joinResult += searchNode(results[i]);
+                }
+                // results.forEach(function(searchItem) {
+                //     joinResult += searchNode(searchItem);
+                // });
                 sR.append(joinResult);
                 joinResult = "";
-                sR.append('<span>Search Result : ' + $('#searchResult a').length + '</span>');
+                sR.append('<div style="margin:5px">Search Result : ' + $('#searchResult a').length + '</div>');
             });
         }
     }
@@ -82,13 +84,17 @@ function searchView(inputWord) {
 function searchNode(node) {
 
     if (node.children) {
-        node.children.forEach(function(child) {
-            searchNode(child);
-        });
+        // node.children.forEach(function(child) {
+        //     searchNode(child);
+        // });
+        for(let i = 0, len = node.children.length; i < len; i++){
+            searchNode(node.children[i]);
+        }
     }
     if (node.url) {
         const title = node.title == "" ? node.url : node.title;
-        joinResult += '<a href="' + node.url + '"><img class="favicon" src="chrome://favicon/' + node.url + '">' + title + '</a>';
+        // joinResult += '<a href="' + node.url + '"><img class="favicon" src="chrome://favicon/' + node.url + '">' + title + '</a>';
+        return '<a href="' + node.url + '"><img class="favicon" src="chrome://favicon/' + node.url + '">' + title + '</a>';
     }
 }
 
@@ -157,7 +163,7 @@ $(function() {
                 hideSearchResult();
         }
     });
-    $('#search').keyup(searchView(this)); //call function searchView()
+    $('#search').keyup(searchView()); //call function searchView()
 
     $(document).click(function(event) {
         if ($('#search').val() !== '') {

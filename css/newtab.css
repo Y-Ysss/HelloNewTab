@@ -262,7 +262,7 @@ ul {
     width: 16px;
     height: 16px;
     position: relative;
-    padding: 0px 4px 0px 4px;
+    margin: 0px 4px 0px 4px;
     /*border-radius: 50%;*/
 }
 
