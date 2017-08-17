@@ -1,9 +1,3 @@
-// chrome.storage.onChanged.addListener(function(changes, namespace) {
-//     if (namespace === "local") {
-//         console.log(changes);
-//     }
-// });
-
 //call > setData( [object] );
 function setData(data) {
     chrome.storage.local.set(data, function() {
@@ -19,23 +13,31 @@ function getData(data, func) {
 
 // set value .toggle
 function setValueTggl(data) {
-    const key = Object.keys(data)[0]
+    const key = Object.keys(data)[0];
     if (data[key] === 1) {
         $('#' + key).addClass('toggle_on');
     }
 }
 
+// set value input
+function setValueInput(data) {
+    const key = Object.keys(data)[0];
+    $('#' + key).val(data[key]);
+}
+
 // closure test
 function addContent() {
     let str = '';
-    return function(num, run) {
-        $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(json) {
-            // console.log(json[num].commit.message + ',' + json[num].commit.author.date);
+    let num = 0;
+    return function(run) {
+        // 改善必要箇所 --> sha 取得・適用
+        $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits?per_page=100&sha=c2a24a50ad0852f6e7cc61cfc66cf69fa6a70cc4').then(function(json) {
             str += '<div class="card_cntnt"><h4>' + json[num].commit.message + '</h4>Date : ' +
                 (json[num].commit.author.date).replace('T', '<br>Time : ').slice(0, -1) +
                 ' (UTC)<br><a href="' + json[num].html_url + '"></a></div>';
             if (run)
                 $('#gitCommitsInfo').append(str);
+            num++;
         });
     }
 }
@@ -63,43 +65,40 @@ $(function() {
     });
 
     let func = addContent();
-    func(0, 0);
-    func(1, 0);
-    func(2, 0);
-    func(3, 0);
-    func(4, 1);
-    $msnry.masonry('layout');
-    // console.log(getData('sample'));
+    for (let i = 0; i < 7; i++) {
+        func(0);
+    }
+    func(1);
 
-    // $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(commitsList) {
-    // var lastCmmtManifest = 'https://raw.githubusercontent.com/Yoseatlly/HelloNewTab/' + commitsList[0].sha + '/manifest.json';
-    // $.getJSON(lastCmmtManifest).then(function(manifest) {
-    //     console.log(manifest.version);
-    // });
-    // });
+    $msnry.masonry('layout');
+
     $(".toggle").each(function() {
         getData($(this).attr('id'), setValueTggl);
     });
-
-    $('.button').click(function() {
-        // console.log(id);
-        setData({ 'sample': 123 });
-        //getData('sample', console.log); //console.log()を実行
+    $("input").each(function() {
+        getData($(this).attr('id'), setValueInput);
+    });
+    $("input").blur(function() {
+        setData({[$(this)[0].id]: $(this)[0].value});
     });
 
-    // getData()
+    $('.button').click(function() {
+        if ($(this).attr("id") === 'Button1') {
+            console.log('Click Button1');
+            for (let i = 0; i < 7; i++) {
+                func(0);
+            }
+            func(1);
+        }
+    });
 
     $('.toggle').click(function() {
-        const id = $(this)[0].id
+        const id = $(this)[0].id;
         $(this).toggleClass('toggle_on');
         if ($(this).hasClass('toggle_on')) {
-            setData({
-                [id]: 1
-            });
+            setData({[id]: 1});
         } else {
-            setData({
-                [id]: -1
-            });
+            setData({[id]: -1});
         }
     });
 

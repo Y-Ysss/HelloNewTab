@@ -26,13 +26,13 @@ function BookmarkNode(bookmark) {
             });
             if (joinBkmrk !== "") {
                 if (bookmark.title.slice(0, 1) === "'") {
-                    $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' 
-                        + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' 
-                        + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
+                    $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' +
+                        bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' +
+                        joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
                 } else {
-                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' 
-                        + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' 
-                        + joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
+                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' +
+                        bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' +
+                        joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
                 }
                 joinBkmrk = "";
                 bkmrkNum = 0;
@@ -41,8 +41,8 @@ function BookmarkNode(bookmark) {
     } else {
         bkmrkNum++;
         let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
-        joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' 
-        + bookmark.url + '">' + title + '</a></li>';
+        joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' +
+            bookmark.url + '">' + title + '</a></li>';
     }
 }
 // =================================================================================
@@ -67,12 +67,9 @@ function searchView() {
             sR.empty();
             let joinResult = "";
             chrome.bookmarks.search($('#search').val(), function(results) {
-                for(let i = 0, len = results.length; i < len; i++ ){
+                for (let i = 0, len = results.length; i < len; i++) {
                     joinResult += searchNode(results[i]);
                 }
-                // results.forEach(function(searchItem) {
-                //     joinResult += searchNode(searchItem);
-                // });
                 sR.append(joinResult);
                 joinResult = "";
                 sR.append('<div style="margin:5px">Search Result : ' + $('#searchResult a').length + '</div>');
@@ -84,16 +81,13 @@ function searchView() {
 function searchNode(node) {
 
     if (node.children) {
-        // node.children.forEach(function(child) {
-        //     searchNode(child);
-        // });
-        for(let i = 0, len = node.children.length; i < len; i++){
+
+        for (let i = 0, len = node.children.length; i < len; i++) {
             searchNode(node.children[i]);
         }
     }
     if (node.url) {
         const title = node.title == "" ? node.url : node.title;
-        // joinResult += '<a href="' + node.url + '"><img class="favicon" src="chrome://favicon/' + node.url + '">' + title + '</a>';
         return '<a href="' + node.url + '"><img class="favicon" src="chrome://favicon/' + node.url + '">' + title + '</a>';
     }
 }
@@ -140,17 +134,35 @@ function hideSearchResult() {
     $('#searchResult').css('top', '0px').css('height', '0px');
 
 }
+
 function getData(data, func) {
     chrome.storage.local.get(data, function(value) {
-        console.log(value);
         func(value);
     });
 }
 // =================================================================================
+
+function funcTgglIcon(data) {
+    if (data.tgglIcon === 1) {
+        $('.favicon').css('border-radius', '0%');
+    } else {
+        $('.favicon').css('border-radius', '50%');
+    }
+}
+
+// function funcTxtScale(data) {
+//     const sc = data.txtScale;
+//     if (!isNaN(sc)) {
+//         $('html').css('zoom', sc + '%');
+//         $('#bodyMain').masonry({ itemSelector: '.cntntModule', percentPosition: true });
+//     }
+// }
+
 // =================================================================================
 
 $(function() {
-    getData('tgglIcon', function(data){if(data.tgglIcon===1){$('.favicon').css('border-radius', '0%');}else{$('.favicon').css('border-radius', '50%');}});
+    getData('tgglIcon', funcTgglIcon);
+    // getData('txtScale', funcTxtScale);
 
     $(document).keydown(function(event) {
         if (event.altKey) {
@@ -160,9 +172,10 @@ $(function() {
         }
         if (event.keyCode === 27 && $('#search').focus()) {
             $('#search').blur();
-                hideSearchResult();
+            hideSearchResult();
         }
     });
+    
     $('#search').keyup(searchView()); //call function searchView()
 
     $(document).click(function(event) {
@@ -199,28 +212,4 @@ $(function() {
             $('.hideModule').css('visibility', 'hidden').css('opacity', '0');
         }
     });
-    // $('body').chromeContext({
-    //     items: [{
-    //         title: 'Menu_01',
-    //         onclick: function() {
-
-    //         }
-    //     }, {
-    //         title: 'Menu_02',
-    //         onclick: function() {
-
-    //         }
-    //     }, { separator: true }, {
-    //         title: 'Menu_03',
-    //         onclick: function() {
-
-    //         }
-    //     }, {
-    //         title: 'Menu_04',
-    //         onclick: function() {
-
-    //         }
-    //     }]
-    // });
-
 });
