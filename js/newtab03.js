@@ -46,7 +46,6 @@ function BookmarkNode(bookmark) {
     }
 }
 // =================================================================================
-// =================================================================================
 function searchView() {
     let type_old = type_new = $('#search').val();
     return function() {
@@ -93,7 +92,6 @@ function searchNode(node) {
 }
 
 // =================================================================================
-// =================================================================================
 function rippleEffect() {
     let ripple, ripples, RippleEffect, loc, cover, coversize, style, x, y, i, num;
 
@@ -127,7 +125,6 @@ function rippleEffect() {
     }
 }
 // =================================================================================
-// =================================================================================
 function hideSearchResult() {
     $('#search').val("");
     $('#searchReset').css('color', '#678');
@@ -140,7 +137,7 @@ function getData(data, func) {
         func(value);
     });
 }
-// =================================================================================
+// ============================
 
 function funcTgglIcon(data) {
     if (data.tgglIcon === 1) {
@@ -149,20 +146,25 @@ function funcTgglIcon(data) {
         $('.favicon').css('border-radius', '50%');
     }
 }
-
-// function funcTxtScale(data) {
-//     const sc = data.txtScale;
-//     if (!isNaN(sc)) {
-//         $('html').css('zoom', sc + '%');
-//         $('#bodyMain').masonry({ itemSelector: '.cntntModule', percentPosition: true });
-//     }
-// }
+function funcTgglOpenTab(data) {
+    if (data.tgglOpenTab === 1) {
+        $('head').append('<base target="_blank">');
+    }
+}
+function funcTxtScale(data) {
+    const scale = data.txtScale;
+    if (!isNaN(scale) && scale!=='') {
+        $('html').css('zoom', scale + '%');
+        $('#bodyMain').masonry({ itemSelector: '.cntntModule', percentPosition: true });
+    }
+}
 
 // =================================================================================
 
 $(function() {
     getData('tgglIcon', funcTgglIcon);
-    // getData('txtScale', funcTxtScale);
+    getData('tgglOpenTab', funcTgglOpenTab);
+    getData('txtScale', funcTxtScale);
 
     $(document).keydown(function(event) {
         if (event.altKey) {

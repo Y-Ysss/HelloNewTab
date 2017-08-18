@@ -1,3 +1,4 @@
+/*Elements*/
 html {
     font-family: Meiryo;
     font-size: 50%;
@@ -11,7 +12,7 @@ body {
 }
 
 a {
-    color: #144565;
+    color: #3478a4;
     transition: 0.5s;
     text-decoration: none;
 }
@@ -24,17 +25,61 @@ a:hover {
     color: #00A7F4;
 }
 
-hr{
+hr {
     border-color: #9ab;
     margin: 32px 0 32px 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    margin: 10px 0 10px 0;
+}
+
+li:before {
+    content: '- ';
+}
+
+input {
+    width: 150px;
+    color: #456;
+    border: none;
+    border-bottom: 2px solid #9ab;
+    outline: none;
+    /*margin: 15px 5px 15px 5px;*/
+    padding: 5px;
+    overflow: hidden;
+    -webkit-transition: 0.6s ease all;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+input:focus {
+    width: 200px;
+    border-bottom: 2px solid #678;
+}
+
+::-webkit-input-placeholder {
+    color: #9ab;
+    -webkit-transition: 0.6s ease all;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: #cde;
 }
 
 ::selection {
     color: #345;
     background-color: #bcd;
 }
-/*=================================================================================*/
 
+/*=================================================================================*/
+/*Button*/
 .button {
     color: #FFF;
     background-color: #115273;
@@ -54,35 +99,6 @@ hr{
     background-color: #1379AD;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
-/*=================================================================================*/
-
-input {
-    width: 150px;
-    color: #456;
-    border: none;
-    border-bottom: 2px solid #789;
-    outline: none;
-    margin: 15px 5px 15px 5px;
-    padding: 5px;
-    overflow: hidden;
-    -webkit-transition: 0.6s ease all;
-    vertical-align: middle;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
-input:focus{
-    width: 200px;
-    border-bottom: 2px solid #678;
-}
-::-webkit-input-placeholder {
-    color: #9ab;
-    -webkit-transition: 0.6s ease all;
-}
-input:focus::-webkit-input-placeholder{
-    color: #cde;
-}
-/*=================================================================================*/
-
 
 /*ToggleButton*/
 
@@ -102,7 +118,7 @@ input:focus::-webkit-input-placeholder{
 
 .toggle:after {
     /*iOS Style*/
-/*    top: 2px;
+    /*    top: 2px;
     left: 2px;
     width: 16px;
     height: 16px;*/
@@ -133,6 +149,8 @@ input:focus::-webkit-input-placeholder{
     left: 22px;
     background-color: #42A5F5;
 }
+
+
 /*=================================================================================*/
 
 #bodyMain {
@@ -141,6 +159,7 @@ input:focus::-webkit-input-placeholder{
 }
 
 .cardArea {
+    line-height: 2.8rem;
     width: 44%;
     height: auto;
     color: #345;
@@ -159,32 +178,8 @@ input:focus::-webkit-input-placeholder{
     /*border-bottom: 1px solid #bdbdbd;*/
     display: block;
 }
-
 /*=================================================================================*/
-
-
-/*Scrollbar*/
-
-::-webkit-scrollbar {
-    width: auto;
-    height: auto;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgb(209, 212, 214);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
-}
-
-::-webkit-scrollbar-thumb:active {
-    background: rgb(199, 202, 204);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
-}
-
-
-
-/*=================================================================================*/
-
-
+/*Ripple Effect*/
 .ripple {
     position: relative;
     overflow: hidden;
@@ -205,4 +200,22 @@ input:focus::-webkit-input-placeholder{
         opacity: 0;
         transform: scale(2.0);
     }
+}
+
+/*=================================================================================*/
+/*Scrollbar*/
+
+::-webkit-scrollbar {
+    width: auto;
+    height: auto;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(209, 212, 214);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(199, 202, 204);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
 }
