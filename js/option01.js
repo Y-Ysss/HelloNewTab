@@ -34,7 +34,7 @@ function addContent() {
         // 改善必要箇所 --> sha 取得・適用
         // $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits?per_page=100&sha=c2a24a50ad0852f6e7cc61cfc66cf69fa6a70cc4').then(function(json) {
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(json) {
-            str += '<div class="card_cntnt"><h4>' + json[num].commit.message + '</h4>Date : ' +
+            str += '<div class="cardContents"><h4>' + json[num].commit.message + '</h4>Date : ' +
                 (json[num].commit.author.date).replace('T', '<br>Time : ').slice(0, -1) +
                 ' (UTC)<br><a href="' + json[num].html_url + '"></a></div>';
             if (run)
@@ -53,12 +53,12 @@ $(function() {
     });
 
     $.getJSON('manifest.json').then(function(manifest) {
-        let str = '<div class="card_cntnt"><h4>Installed Release Version</h4>' + manifest.version + '</div>';
+        let str = '<div class="cardContents"><h4>Installed Release Version</h4>' + manifest.version + '</div>';
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/releases/latest').then(function(data) {
             if (manifest.version !== data.name) {
-                str += '<h2>#Latest Release</h2><div class="card_cntnt"><h4>Version</h4>' +
-                    data.name + '</div><div class="card_cntnt"><h4>What\'s New</h4>' +
-                    data.body + '</div><div class="card_cntnt"><h4>URL</h4><a href="' + data.html_url + '"></a></div>';
+                str += '<h2>#Latest Release</h2><div class="cardContents"><h4>Version</h4>' +
+                    data.name + '</div><div class="cardContents"><h4>What\'s New</h4>' +
+                    data.body + '</div><div class="cardContents"><h4>URL</h4><a href="' + data.html_url + '"></a></div>';
                 str = str.replace(/\r?\n/g, '<br>');
             }
             $('#ExtensionInfo').append(str);
@@ -85,12 +85,13 @@ $(function() {
     });
 
     $('.button').click(function() {
-        if ($(this).attr("id") === 'Button1') {
-            console.log('Click Button1');
-            for (let i = 0; i < 7; i++) {
-                func(0);
-            }
-            func(1);
+        if ($(this).attr("id") === 'btnTest1') {
+            chrome.storage.local.get(null, function(items) {
+                let allKeys = Object.keys(items);
+                allKeys.forEach(function(key){
+                    console.log(key +' : ' + items[key]);
+                })
+            });
         }
     });
 
@@ -106,37 +107,3 @@ $(function() {
 
     rippleEffect();
 });
-
-// =================================================================================
-function rippleEffect() {
-    let ripple, ripples, RippleEffect, loc, cover, coversize, style, x, y, i, num;
-
-    ripples = document.querySelectorAll('.ripple');
-    //位置を取得
-    RippleEffect = function(e) {
-        ripple = this; //get item
-        cover = document.createElement('span'); //create span
-        coversize = ripple.offsetWidth; //get width
-        loc = ripple.getBoundingClientRect(); //get absolute position
-        x = e.pageX - loc.left - window.pageXOffset - (coversize / 2);
-        y = e.pageY - loc.top - window.pageYOffset - (coversize / 2);
-        pos = 'top:' + y + 'px; left:' + x + 'px; height:' + coversize + 'px; width:' + coversize + 'px;';
-
-        //Append span
-        ripple.appendChild(cover);
-        cover.setAttribute('style', pos);
-        cover.setAttribute('class', 'rp-effect'); //add class
-
-        //4s delete span
-        setTimeout(function() {
-            let list = document.getElementsByClassName("rp-effect");
-            for (var i = list.length - 1; i >= 0; i--) { //latest delete
-                list[i].parentNode.removeChild(list[i]);
-            }
-        }, 4000)
-    };
-    for (i = 0, num = ripples.length; i < num; i++) {
-        ripple = ripples[i];
-        ripple.addEventListener('mousedown', RippleEffect);
-    }
-}

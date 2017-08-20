@@ -1,4 +1,5 @@
 /*Elements*/
+
 html {
     font-family: Meiryo;
     font-size: 50%;
@@ -9,6 +10,7 @@ body {
     background-color: #f7f7f7;
     transition: 1s;
     letter-spacing: 1px;
+    counter-reset: num;
 }
 
 a {
@@ -30,20 +32,27 @@ hr {
     margin: 32px 0 32px 0;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+table {
+    border-collapse: collapse;
+    width: 60%;
+    border:solid 1px #789;
 }
 
-li {
-    margin: 10px 0 10px 0;
+th {
+    background-color: #bcd;
+    text-align: left;
+    padding: 4px;
 }
-
-li:before {
-    content: '- ';
+td{
+    padding: 3px;
 }
-
+tr:nth-child(odd){
+    background-color: #F6F8Fa;
+}
+td:first-child:before{
+    counter-increment:num;
+    content: counter(num);
+}
 input {
     width: 150px;
     color: #456;
@@ -51,6 +60,7 @@ input {
     border-bottom: 2px solid #9ab;
     outline: none;
     /*margin: 15px 5px 15px 5px;*/
+    margin-right: 60px;
     padding: 5px;
     overflow: hidden;
     -webkit-transition: 0.6s ease all;
@@ -61,6 +71,7 @@ input {
 
 input:focus {
     width: 200px;
+    margin-right: 10px;
     border-bottom: 2px solid #678;
 }
 
@@ -70,20 +81,20 @@ input:focus {
 }
 
 input:focus::-webkit-input-placeholder {
-    color: #c4d9e8;
+    color: #cde;
 }
 
 ::selection {
     color: #345;
     background-color: #bcd;
 }
-
 /*=================================================================================*/
 /*Button*/
+
 .button {
     color: #FFF;
-    background-color: #7190ad;
     /*background-color: #115273;*/
+    background-color: #7190ad;
     border-radius: 3px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.35);
     margin: 15px 5px 15px 5px;
@@ -100,7 +111,6 @@ input:focus::-webkit-input-placeholder {
     background-color: #3276A3;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
 }
-
 .button:active{
     background-color: #7190ad;
     box-shadow: 0 0 0px rgba(0, 0, 0, 0.35);
@@ -148,26 +158,25 @@ input:focus::-webkit-input-placeholder {
     left: 22px;
     background-color: #42A5F5;
 }
-
-
 /*=================================================================================*/
 
-#bodyMain {
-    margin: 0 auto;
-    padding: 30px 0 30px 0;
-}
-
 .cardArea {
-    line-height: 3rem;
-    width: 44%;
+    line-height: 2.8rem;
+    width: 92%;
     height: auto;
     color: #345;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    margin: 10px 1.7% 10px 1.7%;
+    margin: 0 auto;
+    margin-bottom: 30px;
     padding: 1%;
-    float: left;
     word-wrap: break-word;
+}
+
+#bodyMain {
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 0 30px 0;
 }
 
 .cardContents {
@@ -177,8 +186,12 @@ input:focus::-webkit-input-placeholder {
     /*border-bottom: 1px solid #bdbdbd;*/
     display: block;
 }
+
 /*=================================================================================*/
+
+
 /*Ripple Effect*/
+
 .ripple {
     position: relative;
     overflow: hidden;
@@ -200,8 +213,8 @@ input:focus::-webkit-input-placeholder {
         transform: scale(2.0);
     }
 }
-
 /*=================================================================================*/
+
 /*Scrollbar*/
 
 ::-webkit-scrollbar {

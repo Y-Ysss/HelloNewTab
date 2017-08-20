@@ -9,6 +9,7 @@
     <script type="text/javascript" src="js/lib/jquery.js"></script>
     <!-- <script type="text/javascript" src="js/lib/jquery.funcResizeBox.js"></script> -->
     <script type="text/javascript" src="js/lib/masonry.min.js"></script>
+    <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
     <script type="text/javascript" src="js/option01.js"></script>
 </head>
 
@@ -18,49 +19,41 @@
     <div id="bodyMain">
         <div class="cardArea">
             <h2>#Option</h2>
-            <div class="card_cntnt">
-                <h4>Icon</h4> Square : <div id="tgglIcon" class="toggle"></div>
+            <div class="cardContents">
+                <h4>Favicon</h4> Square : <div id="tgglIcon" class="toggle"></div>
             </div>
-            <div class="card_cntnt">
+            <div class="cardContents">
                 <h4>Link</h4> Open in new tab : <div id="tgglOpenTab" class="toggle"></div>
             </div>
-            <div class="card_cntnt">
-                <h4>Page</h4> Page scale : <input id="txtScale" type="text" placeholder="Number">%
+            <div class="cardContents">
+                <h4>Page</h4> Page scale (%) : <input id="txtScale" type="text" placeholder="Number (Default : 100)">
+            </div>
+            <div class="cardContents">
+                <hr noshade>
+                Debug Page : <a href="storageData.html"></a>
             </div>
         </div>
-<!--         <div class="cardArea">
-            <h2>#Test</h2>
-            <div class="card_cntnt">
-                <h4>Sub</h4> ToggleButton :
-                <div id="tgglTest1" class="toggle"></div>
-                <div id="tgglTest2" class="toggle"></div>
-                <hr noshade> Button :
-                <div id="btnTest1" class="button ripple">Button1</div>
-                <div id="btnTest2" class="button ripple">Button2</div>
-                <br> Text Field :
-                <input id="txtTest1" type="text" placeholder="Text Field">
-            </div>
-        </div> -->
         <div class="cardArea">
             <h2>#How To Use</h2>
-            <div class="card_cntnt">
+            <div class="cardContents">
                 <h4>System Link</h4> ヘッダー内の三本線をクリックすると、システムページリンクが表示される。
             </div>
-            <div class="card_cntnt">
+            <div class="cardContents">
                 <h4>Search Bookmarks</h4> ヘッダー内の [Search] をクリックすると、ブックマークを検索できる。また、AltキーとBで検索欄にフォーカス。Escキーでフォーカス解除。
             </div>
-            <div class="card_cntnt">
+            <div class="cardContents">
                 <h4>Hide BookmarkFolder</h4> ブックマークフォルダーの名前の最初の文字をクォーテーション(')にすると、デフォルトではリストを非表示にできる。ヘッダー内のトグルボタンをクリックすると、非表示にしたリストを表示できる。
             </div>
         </div>
         <div class="cardArea">
             <h2>#About</h2>
-            <div class="card_cntnt">
+            <div class="cardContents">
                 <h4>Made by</h4>
-                Yos;<br>
-                GitHub : <a href="https://github.com/Yoseatlly"></a>
+                Name : Yos;<br>
+                GitHub : <a href="https://github.com/Yoseatlly"></a><br>
+                自分用に作成。勉強。夏休みの時間つぶし。
             </div>
-            <div class="card_cntnt">
+            <div class="cardContents">
                 <h4>Used Javascript Library</h4>
                 <ul>
                 <li>jQuery [ <a href="https://jquery.com/"></a> ]<br></li>
