@@ -26,8 +26,13 @@ a:hover {
 }
 
 hr {
-    border-color: #abc;
-    margin: 32px 0 32px 0;
+    border-color: #E2E2E2;
+}
+.cardContents > hr {
+    margin: 32px -2.3% 32px -2.3%;
+}
+.cardArea > hr{
+    margin: 32px -2.6% 32px -2.6%;
 }
 
 ul {
@@ -51,6 +56,7 @@ input {
     border-bottom: 2px solid #9ab;
     outline: none;
     /*margin: 15px 5px 15px 5px;*/
+    margin-right: 60px;
     padding: 5px;
     overflow: hidden;
     -webkit-transition: 0.6s ease all;
@@ -62,6 +68,7 @@ input {
 input:focus {
     width: 200px;
     border-bottom: 2px solid #678;
+    margin-right: 10px;
 }
 
 ::-webkit-input-placeholder {
@@ -158,11 +165,12 @@ input:focus::-webkit-input-placeholder {
 }
 
 .cardArea {
-    line-height: 3rem;
     width: 44%;
     height: auto;
+    line-height: 3rem;
     color: #345;
     background-color: #ffffff;
+    border-radius: 3px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     margin: 10px 1.7% 10px 1.7%;
     padding: 1%;

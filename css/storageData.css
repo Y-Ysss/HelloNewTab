@@ -8,9 +8,9 @@ html {
 body {
     font-size: 1.8rem;
     background-color: #f7f7f7;
+    counter-reset: num;
     transition: 1s;
     letter-spacing: 1px;
-    counter-reset: num;
 }
 
 a {
@@ -28,32 +28,37 @@ a:hover {
 }
 
 hr {
-    border-color: #abc;
-    margin: 32px 0 32px 0;
+    border-color: #E2E2E2;
+}
+.cardArea > hr{
+    margin: 32px -1.2% 32px -1.2%;
+}
+.cardContents > hr {
+    margin: 32px -2.6% 32px -2.6%;
 }
 
 table {
-    border-collapse: collapse;
     width: 60%;
     border:solid 1px #789;
+    border-collapse: collapse;
 }
 
 th {
     background-color: #bcd;
-    text-align: left;
     padding: 4px;
-}
-td{
-    padding: 3px;
+    text-align: left;
 }
 tr:nth-child(odd){
     background-color: #F6F8Fa;
 }
-td:first-child:before{
-    counter-increment:num;
-    content: counter(num);
+td{
+    padding: 3px;
 }
-input {
+td:first-child:after{
+    content: counter(num);
+    counter-increment:num;
+}
+input[type=text] {
     width: 150px;
     color: #456;
     border: none;
@@ -69,10 +74,10 @@ input {
     text-overflow: ellipsis;
 }
 
-input:focus {
+input[type=text]:focus {
     width: 200px;
-    margin-right: 10px;
     border-bottom: 2px solid #678;
+    margin-right: 10px;
 }
 
 ::-webkit-input-placeholder {
@@ -160,23 +165,24 @@ input:focus::-webkit-input-placeholder {
 }
 /*=================================================================================*/
 
+#bodyMain {
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 0 30px 0;
+}
+
 .cardArea {
-    line-height: 2.8rem;
     width: 92%;
     height: auto;
+    line-height: 2.8rem;
     color: #345;
     background-color: #ffffff;
+    border-radius: 3px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     margin: 0 auto;
     margin-bottom: 30px;
     padding: 1%;
     word-wrap: break-word;
-}
-
-#bodyMain {
-    width: 100%;
-    margin: 0 auto;
-    padding: 30px 0 30px 0;
 }
 
 .cardContents {

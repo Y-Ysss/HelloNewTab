@@ -83,5 +83,7 @@ $(function() {
         }
     });
 
+// $("#textEditor").append(data.replace(/;(?!\*\/)|\*\/|\{|\}/g, '$&<br>'));
+
     rippleEffect();
 });
