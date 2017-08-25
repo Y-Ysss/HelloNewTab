@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Hello New Tab",
-    "version": "3.0.8",
+    "version": "3.1.2",
     "description": "Startpage giving instant access to bookmarks.",
     "permissions": [
         "bookmarks",
