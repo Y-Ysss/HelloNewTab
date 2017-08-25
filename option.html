@@ -9,7 +9,8 @@
     <script type="text/javascript" src="js/lib/jquery.js"></script>
     <!-- <script type="text/javascript" src="js/lib/jquery.funcResizeBox.js"></script> -->
     <script type="text/javascript" src="js/lib/masonry.min.js"></script>
-    <script type="text/javascript" src="js/option01.js"></script>
+    <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
+    <script type="text/javascript" src="js/option.js"></script>
 </head>
 
 <body class="body">
@@ -17,26 +18,47 @@
     </div>
     <div id="bodyMain">
         <div class="cardArea">
+            <h2>#Option</h2>
+            <div class="cardContents">
+                <h4>Favicon</h4> Square : <div id="tgglIcon" class="toggle"></div>
+            </div>
+            <div class="cardContents">
+                <h4>Link</h4> Open in new tab : <div id="tgglOpenTab" class="toggle"></div>
+            </div>
+            <div class="cardContents">
+                <h4>Page</h4> Page scale (%) : <input id="txtScale" type="text" placeholder="Number (Default : 100)">
+            </div><hr noshade Size="1">
+            <div class="cardContents">
+                Debug Page : <a href="storageData.html"></a>
+            </div>
+        </div>
+        <div class="cardArea">
             <h2>#How To Use</h2>
-            <div class="card_cntnt">
+            <div class="cardContents">
                 <h4>System Link</h4> ヘッダー内の三本線をクリックすると、システムページリンクが表示される。
             </div>
-            <div class="card_cntnt">
-                <h4>Search Bookmarks</h4> ヘッダー内の [Search] をクリックすると、ブックマークを検索できる。また、AltキーとBで検索欄にフォーカスする。Escキーでフォーカス解除。
+            <div class="cardContents">
+                <h4>Search Bookmarks</h4> ヘッダー内の [Search] をクリックすると、ブックマークを検索できる。また、AltキーとBで検索欄にフォーカス。Escキーでフォーカス解除。
             </div>
-            <div class="card_cntnt">
+            <div class="cardContents">
                 <h4>Hide BookmarkFolder</h4> ブックマークフォルダーの名前の最初の文字をクォーテーション(')にすると、デフォルトではリストを非表示にできる。ヘッダー内のトグルボタンをクリックすると、非表示にしたリストを表示できる。
             </div>
         </div>
         <div class="cardArea">
             <h2>#About</h2>
-            <div class="card_cntnt">
-                <h4>Made by</h4> Yos;
+            <div class="cardContents">
+                <h4>Made by</h4>
+                Name : Yos;<br>
+                GitHub : <a href="https://github.com/Yoseatlly"></a><br>
+                自分用に作成。勉強。夏休みの時間つぶし。
             </div>
-            <div class="card_cntnt">
+            <div class="cardContents">
                 <h4>Used Javascript Library</h4>
-                 jQuery [ <a href="https://jquery.com/"></a> ]<br>
-                 desandro/masonry [ <a href="https://github.com/desandro/masonry"></a> ]<br>
+                <ul>
+                <li>jQuery [ <a href="https://jquery.com/"></a> ]<br></li>
+                <li>masonry (GitHub : desandro) [ <a href="https://github.com/desandro/masonry"></a> ]<br></li>
+                <li>Ripple Effect (Qiita : nekoneko-wanwan) [ <a href="http://qiita.com/nekoneko-wanwan/items/c9f26ce049bd422e555c"></a> ]</li>
+                </ul>
             </div>
         </div>
         <div id="ExtensionInfo" class="cardArea">
