@@ -47,58 +47,19 @@ function BookmarkNode(bookmark) {
 }
 // =================================================================================
 function searchView() {
-    let type_old = type_new = $('#search').val();
-    return function() {
-        let sR = $('#searchResult');
-        type_new = $('#search').val();
-        if (type_new === "") {
-            $('#searchReset').css('color', '#678');
-            sR.css('top', '0px').css('height', '0px');
-        } else {
-            $('#searchReset').css('color', '#fff');
-            sR.css('top', '50px').css('height', '400px');
-            $('#systemLinkArea').css('top', '-5px');
-            $('#sysMenu').removeClass('sysMenuView');
-        }
-        if (type_old !== type_new) {
-            type_old = type_new;
-
-            sR.empty();
-            let joinResult = "";
-            chrome.bookmarks.search($('#search').val(), function(results) {
-                // for (let i = 0, len = results.length; i < len; i++) {
-                //     joinResult += searchNode(results[i]);
-                // }
-                results.forEach(function(searchItem) {
-                    joinResult += searchNode(searchItem);
-                });
-                sR.append(joinResult);
-                joinResult = "";
-                sR.append('<div style="margin:5px">Search Result : ' + $('#searchResult a').length + '</div>');
-            });
-        }
-    }
-}
-// ============================
-function searchNode(node) {
-
-    if (node.children) {
-
-        // for (let i = 0, len = node.children.length; i < len; i++) {
-        //     searchNode(node.children[i]);
-        // }
-        node.children.forEach(function(child) {
-            searchNode(child);
+    chrome.bookmarks.search($('#search').val(), function(results) {
+        let joinResult = "";
+        results.forEach(function(item) {
+            if (item.url) {
+                const title = item.title == "" ? item.url : item.title;
+                joinResult += '<a href="' + item.url + '"><img class="favicon" src="chrome://favicon/' + item.url + '">' + title + '</a>';
+            }
         });
-    }
-    if (node.url) {
-        const title = node.title == "" ? node.url : node.title;
-        return '<a href="' + node.url + '"><img class="favicon" src="chrome://favicon/' + node.url + '">' + title + '</a>';
-    }
+        $('#searchResult').append(joinResult + '<div style="margin:5px">Search Result : ' + results.length + '</div>');
+    });
 }
 
 // =================================================================================
-
 // =================================================================================
 function hideSearchResult() {
     $('#search').val("");
@@ -121,14 +82,16 @@ function funcTgglIcon(data) {
         $('.favicon').css('border-radius', '50%');
     }
 }
+
 function funcTgglOpenTab(data) {
     if (data.tgglOpenTab === 1) {
         $('head').append('<base target="_blank">');
     }
 }
+
 function funcTxtScale(data) {
     const scale = data.txtScale;
-    if (!isNaN(scale) && scale!=='') {
+    if (!isNaN(scale) && scale !== '') {
         $('html').css('zoom', scale + '%');
         $('#bodyMain').masonry({ itemSelector: '.cntntModule', percentPosition: true });
     }
@@ -152,14 +115,30 @@ $(function() {
             hideSearchResult();
         }
     });
-    
-    $('#search').keyup(searchView()); //call function searchView()
+
+    // $('#search').keyup(searchView()); //call function searchView()
+    $('#search').keyup(function() {
+        searchView();
+        let sR = $('#searchResult');
+        if ($('#search').val() === "") {
+            $('#searchReset').css('color', '#678');
+            sR.css('top', '0px').css('height', '0px');
+        } else {
+            $('#searchReset').css('color', '#fff');
+            sR.css('top', '50px').css('height', '400px');
+            $('#systemLinkArea').css('top', '-5px');
+            $('#sysMenu').removeClass('sysMenuView');
+        }
+        sR.empty();
+    });
 
     $(document).click(function(event) {
         if ($('#search').val() !== '') {
             $('#search').focus();
         }
     });
+
+
 
     $('#searchReset').click(function() {
         hideSearchResult();
