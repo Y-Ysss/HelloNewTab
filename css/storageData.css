@@ -106,7 +106,7 @@ input:focus::-webkit-input-placeholder {
     padding: 4px 16px;
     display: inline-block;
     cursor: pointer;
-    transition: .3s ease-out;
+    transition: .3s ease;
     vertical-align: middle;
     /*font-size: 1em;*/
     letter-spacing: 0.05em;
@@ -118,7 +118,7 @@ input:focus::-webkit-input-placeholder {
 }
 .button:active{
     background-color: #7190ad;
-    box-shadow: 0 0 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 /*ToggleButton*/
@@ -130,10 +130,10 @@ input:focus::-webkit-input-placeholder {
     border-radius: 30px;
     margin: 0 5px 0 5px;
     display: inline-block;
+    cursor: pointer;
     /*border:1px solid #dddddd;*/
     transition: .4s;
     vertical-align: middle;
-    cursor: pointer;
 }
 
 .toggle:after {

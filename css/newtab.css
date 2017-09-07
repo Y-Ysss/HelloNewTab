@@ -109,6 +109,7 @@ ul {
     height: 0px;
     background-color: #fff;
     opacity: 0.98;
+    border-radius: 2px;
     box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.4);
     /*padding: 15px;*/
     position: fixed;
@@ -147,10 +148,10 @@ ul {
     top: -5px;
     left: 0px;
     height: 40px;
-    background-color: #eee;
-    opacity: 0.95;
-    border-radius: 3px;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    /*opacity: 0.95;*/
+    border-radius: 2px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     position: fixed;
     z-index: 45;
     -webkit-transition: 0.4s;
@@ -177,7 +178,7 @@ ul {
     display: block;
 }
 #systemLinkArea a:hover{   
-    background-color: #ccc;
+    background-color: #e6e7e8;
     -webkit-transition: 0.25s ease-out all;
 }
 .faviconBig {
@@ -203,7 +204,7 @@ ul {
     /*width: 150px;*/
     width: 160px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 2px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     margin: 15px;
     display: inline-block;
@@ -282,10 +283,10 @@ ul {
     margin: 0 5px 0 5px;
     margin: 20px;
     display: inline-block;
+    cursor: pointer;
     /*border:1px solid #dddddd;*/
     transition: .4s;
     vertical-align: middle;
-    cursor: pointer;
 }
 
 .form_tggl:after {
