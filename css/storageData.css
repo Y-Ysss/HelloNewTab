@@ -133,6 +133,7 @@ input:focus::-webkit-input-placeholder {
     /*border:1px solid #dddddd;*/
     transition: .4s;
     vertical-align: middle;
+    cursor: pointer;
 }
 
 .toggle:after {
