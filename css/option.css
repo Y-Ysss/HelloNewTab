@@ -29,10 +29,12 @@ hr {
     border-color: #E2E2E2;
 }
 .cardContents > hr {
-    margin: 32px -2.3% 32px -2.3%;
+    /*margin: 32px -2.3% 32px -2.3%;*/
+    margin: 32px 0 32px 0;
 }
 .cardArea > hr{
-    margin: 32px -2.6% 32px -2.6%;
+    /*margin: 32px -2.6% 32px -2.6%;*/
+    margin: 32px 0 32px 0;
 }
 
 ul {

@@ -31,10 +31,12 @@ hr {
     border-color: #E2E2E2;
 }
 .cardArea > hr{
-    margin: 32px -1.2% 32px -1.2%;
+    /*margin: 32px -1.2% 32px -1.2%;*/
+    margin: 32px 0 32px 0;
 }
 .cardContents > hr {
-    margin: 32px -2.6% 32px -2.6%;
+    /*margin: 32px -2.6% 32px -2.6%;*/
+    margin: 32px 0 32px 0;
 }
 
 table {
