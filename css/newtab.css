@@ -96,12 +96,17 @@ ul {
 #searchReset {
     top: 15px;
     right: 20px;
-    color: #678;
     position: absolute;
-    cursor: pointer;
     /*display: none;*/
 }
-
+.searchResetHidden {
+    color: #678;
+    cursor: text;
+}
+.searchResetView {
+    color: #fff;
+    cursor: pointer;
+}
 #searchResult {
     top: 0px;
     left: 40px;
@@ -116,7 +121,7 @@ ul {
     z-index: 25;
     overflow-x: hidden;
     overflow-y: auto;
-    -webkit-transition: 0.8s ease all;
+    -webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;
     white-space: nowrap;
 }
 
@@ -154,7 +159,7 @@ ul {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
     position: fixed;
     z-index: 45;
-    -webkit-transition: 0.4s;
+    -webkit-transition: 0.4s cubic-bezier(0.7, 0.15, 0, 1.24) all;
     vertical-align: middle;
     white-space: nowrap;
 }
