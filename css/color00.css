@@ -1,0 +1,138 @@
+a {
+    color: #345;
+}
+
+
+::selection {
+    color: #345;
+    background-color: #bcd;
+}
+
+/*=================================================================================*/
+/*HeaderArea*/
+
+#bodyHead {
+    background-color: #678;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+#search {
+    color: #678;
+    background-color: #678;
+}
+
+#search:focus {
+    color: #fff;
+}
+
+#SearchLabel {
+    color: #ddd;
+}
+
+
+.bar {
+    border-bottom: 1px solid #fff;
+}
+
+.searchResetHidden {
+    color: #678;
+}
+.searchResetView {
+    color: #fff;
+}
+#searchResult {
+    background-color: #fff;
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+#searchResult a:hover {
+    background: #f5f5f5;
+}
+
+
+/*=================================================================================*/
+
+#systemLinkArea {
+    background-color: #fff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+#systemLinkArea a:hover{   
+    background-color: #e6e7e8;
+}
+
+
+.cntntModule {
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.cntntHead {
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #678;
+}
+
+
+
+.cntntModule ul li:hover {
+    background: #f5f5f5;
+}
+
+.bkmrkNum {
+    color: #999;
+}
+
+/*=================================================================================*/
+/*ToggleButton*/
+
+.form_tggl {
+    background-color: #cccccc;
+}
+
+.form_tggl:after {
+    background-color: #ECEFF1;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+}
+
+.form_tggl:hover:after {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
+.form_tggl_on {
+    background-color: #BBDEFB;
+}
+
+.form_tggl_on:after {
+    background-color: #42A5F5;
+}
+
+/*=================================================================================*/
+/*Scrollbar*/
+
+
+::-webkit-scrollbar-thumb {
+    background: rgb(209, 212, 214);
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(199, 202, 204);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+}
+
+/*==========================================================================*/
+
+
+.menuBtn span,
+.menuBtn span:before,
+.menuBtn span:after {
+    background-color: #f3f3f3;
+}
+
+
+.ripple .rp-effect {
+    background: #37819e;
+}

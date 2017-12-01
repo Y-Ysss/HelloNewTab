@@ -128,22 +128,7 @@ $(function() {
             hideSearchResult();
         }
     });
-    // $('#search').formMonitoring(function(){
-    //     console.log('input');
-    //     searchView();
-    //     let sR = $('#searchResult');
-    //     if ($('#search').val() === "") {
-    //         $('#searchReset').css('color', '#678');
-    //         sR.css('top', '0px').css('height', '0px');
-    //     } else {
-    //         $('#searchReset').css('color', '#fff');
-    //         sR.css('top', '50px').css('height', '400px');
-    //         $('#systemLinkArea').css('top', '-5px');
-    //         $('#sysMenu').removeClass('sysMenuView');
-    //     }
-    //     sR.empty();
-    // });
-    // $('#search').keyup(searchView()); //call function searchView()
+
     let timeout_id = null;
     $('#search').keyup(function() {
         if (timeout_id) {

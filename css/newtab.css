@@ -2,12 +2,12 @@
 
 html {
     font-family: Meiryo;
-    font-size: 50%;
+    font-size: 62.5%;
     /*transition: 1.2s;*/
 }
 
 body {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     /*font-size: 1.6rem;*/
     margin: 0;
 }
@@ -34,40 +34,42 @@ ul {
 
 #bodyHead {
     width: 100%;
-    height: 50px;
+    height: 5.0rem;
     background-color: #678;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-    /*padding: 5px 5px 5px 15px;*/
+    box-shadow: 0 0.3rem 1.0rem rgba(0, 0, 0, 0.3);
+    /*padding: 0.5rem 0.5rem 0.5rem 1.5rem;*/
     position: fixed;
     z-index: 50;
 }
 
 #searchGroup {
-    /*height: 40px;*/
-    left: 50px;
+    /*height: 4.0rem;*/
+    left: 5.0rem;
     position: absolute;
 }
 
 #search {
-    width: 300px;
+    width: 30.0rem;
     font-size: 2rem;
     color: #678;
     background-color: #678;
     border: none;
-    /*border-bottom: 1px solid #fff;*/
+    /*border-bottom: 0.1rem solid #fff;*/
     outline: none;
-    padding: 18px 8px 0px 8px;
+    padding: 1.8rem 0.8rem 0.0rem 0.8rem;
     display: block;
+    cursor: pointer;
 }
 
 #search:focus {
     color: #fff;
+    cursor: text;
 }
 
 #SearchLabel {
-    top: 15px;
-    left: 5px;
-    font-size: 2.2rem;
+    top: 1.5rem;
+    left: 0.5rem;
+    font-size: 1.8rem;
     font-weight: normal;
     color: #ddd;
     position: absolute;
@@ -76,26 +78,26 @@ ul {
 }
 
 #search:focus~#SearchLabel {
-    top: 0px;
-    font-size: 1.6rem;
+    top: 0.0rem;
+    font-size: 1.3rem;
 }
 
 .bar {
-    width: 150px;
-    border-bottom: 1px solid #fff;
+    width: 15.0rem;
+    border-bottom: 0.1rem solid #fff;
     position: relative;
-    margin: 2px;
+    margin: 0.2rem;
     display: block;
     -webkit-transition: 0.5s ease all;
 }
 
 #search:focus~.bar {
-    width: 300px;
+    width: 30.0rem;
 }
 
 #searchReset {
-    top: 15px;
-    right: 20px;
+    top: 1.5rem;
+    right: 2.0rem;
     position: absolute;
     /*display: none;*/
 }
@@ -108,15 +110,15 @@ ul {
     cursor: pointer;
 }
 #searchResult {
-    top: 0px;
-    left: 40px;
-    width: 400px;
-    height: 0px;
+    top: 0.0rem;
+    left: 4.0rem;
+    width: 40.0rem;
+    height: 0.0rem;
     background-color: #fff;
     opacity: 0.98;
-    border-radius: 2px;
-    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.4);
-    /*padding: 15px;*/
+    border-radius: 0.2rem;
+    box-shadow: 0.1rem 0.3rem 1.0rem rgba(0, 0, 0, 0.4);
+    /*padding: 1.5rem;*/
     position: fixed;
     z-index: 25;
     overflow-x: hidden;
@@ -127,11 +129,11 @@ ul {
 
 
 #searchResult a {
-    /*height: 28px;*/
-    width: 368px;
+    /*height: 2.8rem;*/
+    width: 36.8rem;
     z-index: 1;
-    /*margin: 8px;*/
-    padding: 7px 8px 7px 8px;
+    /*margin: 0.8rem;*/
+    padding: 0.7rem 0.8rem 0.7rem 0.8rem;
     /*color: #345;*/
     display: block;
     overflow: hidden;
@@ -143,20 +145,20 @@ ul {
 
 #searchResult a:hover {
     background: #f5f5f5;
-    padding-left: 12px;
+    padding-left: 1.2rem;
 }
 
 
 /*=================================================================================*/
 
 #systemLinkArea {
-    top: -5px;
-    left: 0px;
-    height: 40px;
+    top: -0.5rem;
+    left: 0.0rem;
+    height: 4.0rem;
     background-color: #fff;
     /*opacity: 0.95;*/
-    border-radius: 2px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 0.2rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(0, 0, 0, 0.3);
     position: fixed;
     z-index: 45;
     -webkit-transition: 0.4s cubic-bezier(0.7, 0.15, 0, 1.24) all;
@@ -177,8 +179,8 @@ ul {
 
 #systemLinkArea a {
     height: 100%;
-    font-size: 2rem;
-    padding: 0 15px 0 5px;
+    font-size: 1.6rem;
+    padding: 0 1.5rem 0 0.5rem;
     /*color: #345;*/
     display: block;
 }
@@ -187,31 +189,29 @@ ul {
     -webkit-transition: 0.25s ease-out all;
 }
 .faviconBig {
-    top: 6px;
-    width: 18px;
-    height: 18px;
+    top: 0.6rem;
+    width: 1.8rem;
+    height: 1.8rem;
     opacity: 0.7;
     position: relative;
-    /*padding: 0px 4px 0px 4px;*/
-    margin: 4px;
+    /*padding: 0.0rem 0.4rem 0.0rem 0.4rem;*/
+    margin: 0.4rem;
 }
 
 /*=================================================================================*/
 /*MainArea*/
 
 #bodyMain {
-    top: 50px;
-    /*width: 100%;*/
-    padding-top: 10px;
+    top: 5.0rem;
+    padding: 1.0rem;
 }
 
 .cntntModule {
-    /*width: 150px;*/
-    width: 160px;
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    margin: 15px;
+    width: 16.0rem;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    margin: 1.5rem;
     display: inline-block;
     float: left;
     overflow: hidden;
@@ -219,12 +219,13 @@ ul {
 }
 
 .cntntHead {
-    height: 20px;
-    font-size: 1.9rem;
+    height: 2.0rem;
+    font-size: 1.6rem;
     /*width: 100%;*/
     background-color: #f5f5f5;
-    border-bottom: 2px solid #678;
-    padding: 6px;
+    border-bottom: 0.2rem solid #678;
+    padding: 0.6rem;
+    cursor: default;
 }
 
 .cntntModule ul {
@@ -232,41 +233,41 @@ ul {
 }
 
 .cntntModule ul li {
-    width: 160px;
+    width: 16.0rem;
     position: relative;
     display: block;
-    /*border-bottom:solid 1px #eee;*/
+    /*border-bottom:solid 0.1rem #eee;*/
 }
 
 .cntntModule ul li:hover {
-    width: 166px;
+    width: 16.6rem;
     background: #f5f5f5;
-    margin-left: -6px;
+    margin-left: -0.6rem;
     -webkit-transition: 0.25s ease-out all;
 }
 .cntntModule ul li a {
     height: 100%;
-    padding: 7px 8px 7px 8px;
-    /*padding: 0 15px 0 5px;*/
+    padding: 0.7rem 0.8rem 0.7rem 0.8rem;
+    /*padding: 0 1.5rem 0 0.5rem;*/
     display: block;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 .bkmrkNum {
-    height: 14px;
-    font-size: 1.4rem;
+    /*height: 1.4rem;*/
+    font-size: 1.2rem;
     color: #999;
-    padding: 4px 8px 4px 8px;
+    padding: 0.4rem 0.8rem 0.4rem 0.8rem;
     display: block;
 }
 
 .favicon {
-    top: 2px;
-    width: 16px;
-    height: 16px;
+    top: 0.2rem;
+    width: 1.6rem;
+    height: 1.6rem;
     position: relative;
-    margin: 0px 4px 0px 4px;
+    margin: 0.0rem 0.4rem 0.0rem 0.4rem;
     /*border-radius: 50%;*/
 }
 
@@ -280,28 +281,28 @@ ul {
 /*ToggleButton*/
 
 .form_tggl {
-    width: 40px;
-    height: 12px;
+    width: 4.0rem;
+    height: 1.2rem;
     background-color: #cccccc;
-    border-radius: 30px;
+    border-radius: 3.0rem;
     position: absolute;
-    margin: 0 5px 0 5px;
-    margin: 20px;
+    margin: 0 0.5rem 0 0.5rem;
+    margin: 2.0rem;
     display: inline-block;
     cursor: pointer;
-    /*border:1px solid #dddddd;*/
+    /*border:0.1rem solid #dddddd;*/
     transition: .4s;
     vertical-align: middle;
 }
 
 .form_tggl:after {
-    top: -3px;
-    left: 0px;
-    width: 18px;
-    height: 18px;
+    top: -0.3rem;
+    left: 0.0rem;
+    width: 1.8rem;
+    height: 1.8rem;
     background-color: #ECEFF1;
     border-radius: 50%;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.35);
     position: relative;
     z-index: 1;
     display: inline-block;
@@ -310,16 +311,16 @@ ul {
 }
 
 .form_tggl:hover:after {
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
 }
 
 .form_tggl_on {
     background-color: #BBDEFB;
-    /*border:1px solid #ffffff;*/
+    /*border:0.1rem solid #ffffff;*/
 }
 
 .form_tggl_on:after {
-    left: 22px;
+    left: 2.2rem;
     background-color: #42A5F5;
 }
 
@@ -333,30 +334,31 @@ ul {
 
 ::-webkit-scrollbar-thumb {
     background: rgb(209, 212, 214);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);
 }
 
 ::-webkit-scrollbar-thumb:active {
     background: rgb(199, 202, 204);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.65);
 }
 
 /*==========================================================================*/
 
 .menuBtn {
-    width: 50px;
-    height: 50px;
+    width: 5.0rem;
+    height: 5.0rem;
     /*background: #fff;*/
     position: absolute;
+    cursor: pointer;
 }
 
 .menuBtn span,
 .menuBtn span:before,
 .menuBtn span:after {
-    width: 30px;
-    height: 3px;
+    width: 3.0rem;
+    height: 0.3rem;
     background-color: #f3f3f3;
-    border-radius: 1px;
+    border-radius: 0.1rem;
     position: absolute;
     display: block;
     content: '';
@@ -364,16 +366,16 @@ ul {
 }
 
 .menuBtn span {
-    top: 20px;
-    margin: 5px 10px 0 10px;
+    top: 2.0rem;
+    margin: 0.5rem 1.0rem 0 1.0rem;
 }
 
 .menuBtn span:before {
-    top: -8px;
+    top: -0.8rem;
 }
 
 .menuBtn span:after {
-    top: 8px;
+    top: 0.8rem;
 }
 
 .sysMenuView span {
@@ -381,11 +383,11 @@ ul {
 }
 
 .sysMenuView span:before {
-    -webkit-transform: translate3d(9px, 5px, 0) rotate(35deg) scaleX(0.4);
+    -webkit-transform: translate3d(0.9rem, 0.5rem, 0) rotate(35deg) scaleX(0.4);
 }
 
 .sysMenuView span:after {
-    -webkit-transform: translate3d(9px, -5px, 0) rotate(-35deg) scaleX(0.4);
+    -webkit-transform: translate3d(0.9rem, -0.5rem, 0) rotate(-35deg) scaleX(0.4);
 }
 
 /*================================================================================*/

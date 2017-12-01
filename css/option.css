@@ -1,14 +1,14 @@
 /*Elements*/
 html {
     font-family: Meiryo;
-    font-size: 50%;
+    font-size: 62.5%;
 }
 
 body {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     background-color: #f7f7f7;
     transition: 1s;
-    letter-spacing: 1px;
+    /*letter-spacing: 0.1rem;*/
 }
 
 a {
@@ -29,12 +29,12 @@ hr {
     border-color: #E2E2E2;
 }
 .cardContents > hr {
-    /*margin: 32px -2.3% 32px -2.3%;*/
-    margin: 32px 0 32px 0;
+    /*margin: 3.2rem -2.3% 3.2rem -2.3%;*/
+    margin: 3.2rem 0 3.2rem 0;
 }
 .cardArea > hr{
-    /*margin: 32px -2.6% 32px -2.6%;*/
-    margin: 32px 0 32px 0;
+    /*margin: 3.2rem -2.6% 3.2rem -2.6%;*/
+    margin: 3.2rem 0 3.2rem 0;
 }
 
 ul {
@@ -44,7 +44,7 @@ ul {
 }
 
 li {
-    margin: 10px 0 10px 0;
+    margin: 1.0rem 0 1.0rem 0;
 }
 
 li:before {
@@ -52,14 +52,14 @@ li:before {
 }
 
 input {
-    width: 150px;
+    width: 15.0rem;
     color: #456;
     border: none;
-    border-bottom: 2px solid #9ab;
+    border-bottom: 0.2rem solid #9ab;
     outline: none;
-    /*margin: 15px 5px 15px 5px;*/
-    margin-right: 60px;
-    padding: 5px;
+    /*margin: 1.5rem 0.5rem 1.5rem 0.5rem;*/
+    margin-right: 6.0rem;
+    padding: 0.5rem;
     overflow: hidden;
     -webkit-transition: 0.6s ease all;
     vertical-align: middle;
@@ -68,9 +68,9 @@ input {
 }
 
 input:focus {
-    width: 200px;
-    border-bottom: 2px solid #678;
-    margin-right: 10px;
+    width: 20.0rem;
+    border-bottom: 0.2rem solid #678;
+    margin-right: 1.0rem;
 }
 
 ::-webkit-input-placeholder {
@@ -93,10 +93,10 @@ input:focus::-webkit-input-placeholder {
     color: #FFF;
     background-color: #7190ad;
     /*background-color: #115273;*/
-    border-radius: 3px;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.35);
-    margin: 15px 5px 15px 5px;
-    padding: 4px 16px;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.35);
+    margin: 1.5rem 0.5rem 1.5rem 0.5rem;
+    padding: 0.4rem 1.6rem;
     display: inline-block;
     cursor: pointer;
     transition: .3s ease-out;
@@ -107,37 +107,37 @@ input:focus::-webkit-input-placeholder {
 
 .button:hover {
     background-color: #3276A3;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
 }
 
 .button:active{
     background-color: #7190ad;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.5);
 }
 
 /*ToggleButton*/
 
 .toggle {
-    width: 40px;
-    height: 12px;
+    width: 4.0rem;
+    height: 1.2rem;
     background-color: #cccccc;
-    border-radius: 30px;
-    margin: 0 5px 0 5px;
+    border-radius: 3.0rem;
+    margin: 0 0.5rem 0 0.5rem;
     display: inline-block;
     cursor: pointer;
-    /*border:1px solid #dddddd;*/
+    /*border:0.1rem solid #dddddd;*/
     transition: .4s;
     vertical-align: middle;
 }
 
 .toggle:after {
-    top: -3px;
-    left: 0px;
-    width: 18px;
-    height: 18px;
+    top: -0.45rem;
+    left: 0.0rem;
+    width: 1.8rem;
+    height: 1.8rem;
     background-color: #ECEFF1;
     border-radius: 50%;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.35);
     position: relative;
     z-index: 1;
     display: inline-block;
@@ -146,16 +146,16 @@ input:focus::-webkit-input-placeholder {
 }
 
 .toggle:hover:after {
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
 }
 
 .toggle_on {
     background-color: #BBDEFB;
-    /*border:1px solid #ffffff;*/
+    /*border:0.1rem solid #ffffff;*/
 }
 
 .toggle_on:after {
-    left: 22px;
+    left: 2.2rem;
     background-color: #42A5F5;
 }
 
@@ -164,7 +164,7 @@ input:focus::-webkit-input-placeholder {
 
 #bodyMain {
     margin: 0 auto;
-    padding: 30px 0 30px 0;
+    padding: 3.0rem 0 3.0rem 0;
 }
 
 .cardArea {
@@ -173,9 +173,9 @@ input:focus::-webkit-input-placeholder {
     line-height: 3rem;
     color: #345;
     background-color: #ffffff;
-    border-radius: 3px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    margin: 10px 1.7% 10px 1.7%;
+    border-radius: 0.3rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    margin: 1.0rem 1.7% 1.0rem 1.7%;
     padding: 1%;
     float: left;
     word-wrap: break-word;
@@ -183,9 +183,9 @@ input:focus::-webkit-input-placeholder {
 
 .cardContents {
     position: relative;
-    margin: 16px;
-    padding: 5px;
-    /*border-bottom: 1px solid #bdbdbd;*/
+    margin: 1.6rem;
+    padding: 0.5rem;
+    /*border-bottom: 0.1rem solid #bdbdbd;*/
     display: block;
 }
 /*=================================================================================*/
@@ -222,10 +222,10 @@ input:focus::-webkit-input-placeholder {
 
 ::-webkit-scrollbar-thumb {
     background: rgb(209, 212, 214);
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);
 }
 
 ::-webkit-scrollbar-thumb:active {
     background: rgb(199, 202, 204);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.65);
 }
