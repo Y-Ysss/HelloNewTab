@@ -7,9 +7,16 @@
         "bookmarks",
         "tabs",
         "storage",
-        "chrome://favicon/",
-        "notifications"
+        "chrome://favicon/"
     ],
+    "background": {
+        "scripts": [
+            "js/lib/jquery.js",
+            "js/getTree.js",
+            "js/background.js"
+        ],
+        "persistent": false
+    },
     "icons": {
         "16": "img/icon_016.png",
         "48": "img/icon_048.png",

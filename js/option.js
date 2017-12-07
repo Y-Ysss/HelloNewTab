@@ -1,15 +1,22 @@
-//call > setData( [object] );
+//call >> setData( [set item data ... object] );
 function setData(data) {
     chrome.storage.local.set(data, function() {
         // getData(Object.keys(data), console.log);
     });
 }
-// call > getData( [string, array of string, object] , [function] );
+// call >> getData( [get item name ... string, array of string, object] , [action ... function] );
 function getData(data, func) {
     chrome.storage.local.get(data, function(value) {
         func(value);
     });
 }
+// call >> sendData( [sending data ... string, number, etc] , [action ... function] );
+function sendData(message, func) {
+    chrome.runtime.sendMessage(message,function(response){
+        func === undefined ? console.log('response : ' + response) : func(response);
+    });
+}
+
 // ============================
 
 // set value .toggle
@@ -45,6 +52,7 @@ function addContent() {
 }
 // =================================================================================
 $(function() {
+    sendData('aaaa');
 
     let $msnry = $('#bodyMain').masonry({
         itemSelector: '.cardArea',

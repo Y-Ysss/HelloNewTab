@@ -1,50 +1,51 @@
-let joinBkmrk = "";
-let indexBkmrk = 0;
-let bkmrkNum = 0;
-chrome.bookmarks.getTree(function(itemTree) {
-    itemTree.forEach(function(items) {
-        if ("children" in items) {
-            items.children.forEach(function(bookmark) {
-                BookmarkNode(bookmark);
-            });
-        }
-    });
-
-    $('#bodyMain').masonry({
-        itemSelector: '.cntntModule',
-        percentPosition: true
-    });
-    rippleEffect();
-});
-// ============================
-function BookmarkNode(bookmark) {
-    if ("children" in bookmark) {
-        if (bookmark.children.length > 0) {
-            indexBkmrk++;
-            bookmark.children.forEach(function(subBookmark) {
-                BookmarkNode(subBookmark);
-            });
-            if (joinBkmrk !== "") {
-                if (bookmark.title.slice(0, 1) === "'") {
-                    $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' +
-                        bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' +
-                        joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
-                } else {
-                    $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' +
-                        bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' +
-                        joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
-                }
-                joinBkmrk = "";
-                bkmrkNum = 0;
-            }
-        }
-    } else {
-        bkmrkNum++;
-        let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
-        joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' +
-            bookmark.url + '">' + title + '</a></li>';
-    }
-}
+// let joinBkmrk = "";
+// let indexBkmrk = 0;
+// let bkmrkNum = 0;
+// let appendData = "";
+// chrome.bookmarks.getTree(function(itemTree) {
+//     itemTree.forEach(function(items) {
+//         if ("children" in items) {
+//             items.children.forEach(function(bookmark) {
+//                 BookmarkNode(bookmark);
+//             });
+//         }
+//     });
+//     // console.log('a' + appendData);
+//     $('#bodyMain').append(appendData);
+//     $('#bodyMain').masonry({
+//         itemSelector: '.cntntModule',
+//         percentPosition: true
+//     });
+//     rippleEffect();
+// });
+// // ============================
+// function BookmarkNode(bookmark) {
+//     if ("children" in bookmark) {
+//         if (bookmark.children.length > 0) {
+//             indexBkmrk++;
+//             bookmark.children.forEach(function(subBookmark) {
+//                 BookmarkNode(subBookmark);
+//             });
+//             if (joinBkmrk !== "") {
+//                 if (bookmark.title.slice(0, 1) === "'") {
+//                     appendData += ('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
+//                     // $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
+//                 } else {
+//                     appendData += ('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
+//                     // $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
+//                 }
+//                 joinBkmrk = "";
+//                 bkmrkNum = 0;
+                
+//             }
+//         }
+//     } else {
+//         bkmrkNum++;
+//         let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
+//         joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' +
+//             bookmark.url + '">' + title + '</a></li>';
+//     }
+// }
 // =================================================================================
 function searchView() {
     let key = $('#search').val();
@@ -81,6 +82,7 @@ function hideSearchResult() {
     $('#searchResult').css('top', '0px').css('height', '0px');
 }
 
+// call >> getData( [get item name ... string, array of string, object] , [action ... function] );
 function getData(data, func) {
     chrome.storage.local.get(data, function(value) {
         func(value);
@@ -110,13 +112,25 @@ function funcTxtScale(data) {
     }
 }
 
+let addContents = function(data) {
+    console.log('+' + data.contentsData);
+    $('#bodyMain').append(data.contentsData);
+    $('#bodyMain').masonry({
+        // columnWidth: 100,
+        itemSelector: '.cntntModule',
+        percentPosition: true,
+        transitionDuration: '0.5s'
+    });
+    // rippleEffect();
+}
+
 // =================================================================================
 
 $(function() {
     getData('tgglIcon', funcTgglIcon);
     getData('tgglOpenTab', funcTgglOpenTab);
     getData('txtScale', funcTxtScale);
-
+    getData('contentsData', addContents);
     $(document).keydown(function(event) {
         if (event.altKey) {
             if (event.keyCode === 66 && $('#search').val() === '') {
