@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Option_Page</title>
-    <base target="_blank">
+    <!-- <base target="_blank"> -->
     <link href="css/option.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/lib/jquery.js"></script>
     <!-- <script type="text/javascript" src="js/lib/jquery.funcResizeBox.js"></script> -->
@@ -14,9 +14,16 @@
 </head>
 
 <body class="body">
-    <div id="bodyHead">
+    <div id="leftMenu">
+        <div>Option_Page</div>
+        <a href="#option" class="ripple">Option</a>
+        <a href="#howtouse" class="ripple">How To Use</a>
+        <a href="#about" class="ripple">About</a>
+        <a href="#exinfo" class="ripple">Extension Info</a>
+        <a href="#githubcmmt" class="ripple">GitHub Commits</a>
     </div>
     <div id="bodyMain">
+        <a name="option">　</a>
         <div class="cardArea">
             <h2>#Option</h2>
             <div class="cardContents">
@@ -32,6 +39,7 @@
                 Debug Page : <a href="storageData.html"></a>
             </div>
         </div>
+        <a name="howtouse">　</a>
         <div class="cardArea">
             <h2>#How To Use</h2>
             <div class="cardContents">
@@ -44,6 +52,7 @@
                 <h4>Hide BookmarkFolder</h4> ブックマークフォルダーの名前の最初の文字をクォーテーション(')にすると、デフォルトではリストを非表示にできる。ヘッダー内のトグルボタンをクリックすると、非表示にしたリストを表示できる。
             </div>
         </div>
+        <a name="about">　</a>
         <div class="cardArea">
             <h2>#About</h2>
             <div class="cardContents">
@@ -61,9 +70,11 @@
                 </ul>
             </div>
         </div>
+        <a name="exinfo">　</a>
         <div id="ExtensionInfo" class="cardArea">
             <h2>#Extension Info</h2>
         </div>
+        <a name="githubcmmt">　</a>
         <div id="gitCommitsInfo" class="cardArea">
             <h2>#Recently GitHub Commits</h2>
         </div>

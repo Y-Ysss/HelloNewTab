@@ -1,53 +1,4 @@
-// let joinBkmrk = "";
-// let indexBkmrk = 0;
-// let bkmrkNum = 0;
-// let appendData = "";
-// chrome.bookmarks.getTree(function(itemTree) {
-//     itemTree.forEach(function(items) {
-//         if ("children" in items) {
-//             items.children.forEach(function(bookmark) {
-//                 BookmarkNode(bookmark);
-//             });
-//         }
-//     });
-//     // console.log('a' + appendData);
-//     $('#bodyMain').append(appendData);
-//     $('#bodyMain').masonry({
-//         itemSelector: '.cntntModule',
-//         percentPosition: true
-//     });
-//     rippleEffect();
-// });
-// // ============================
-// function BookmarkNode(bookmark) {
-//     if ("children" in bookmark) {
-//         if (bookmark.children.length > 0) {
-//             indexBkmrk++;
-//             bookmark.children.forEach(function(subBookmark) {
-//                 BookmarkNode(subBookmark);
-//             });
-//             if (joinBkmrk !== "") {
-//                 if (bookmark.title.slice(0, 1) === "'") {
-//                     appendData += ('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
-//                     // $('#bodyMain').append('<div class="cntntModule hideModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<li class="bkmrkNum">' + bkmrkNum + ' bookmarks</li></ul></div>');
-//                 } else {
-//                     appendData += ('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
-//                     // $('#bodyMain').append('<div class="cntntModule"><div class="cntntHead ripple">' + bookmark.title + '</div><ul id="cntntId_' + indexBkmrk + '">' + joinBkmrk + '<span class="bkmrkNum">' + bkmrkNum + ' bookmarks</span></ul></div>');
-//                 }
-//                 joinBkmrk = "";
-//                 bkmrkNum = 0;
-                
-//             }
-//         }
-//     } else {
-//         bkmrkNum++;
-//         let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
-//         joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' +
-//             bookmark.url + '">' + title + '</a></li>';
-//     }
-// }
-// =================================================================================
-function searchView() {
+let searchView = function() {
     let key = $('#search').val();
     chrome.bookmarks.search(key, function(results) {
         let joinResult = "";
@@ -76,35 +27,38 @@ function searchView() {
 
 // =================================================================================
 // =================================================================================
-function hideSearchResult() {
+let hideSearchResult = function() {
     $('#search').val("");
     $('#searchReset').removeClass('searchResetView');
     $('#searchResult').css('top', '0px').css('height', '0px');
 }
 
 // call >> getData( [get item name ... string, array of string, object] , [action ... function] );
-function getData(data, func) {
+let getData = function(data, func) {
     chrome.storage.local.get(data, function(value) {
         func(value);
     });
 }
 // ============================
 
-function funcTgglIcon(data) {
+let funcTgglIcon = function(data) {
+    // $('.favicon').css('border-radius', 25 - 25 * data.tgglIcon + '%');
     if (data.tgglIcon === 1) {
         $('.favicon').css('border-radius', '0%');
+        console.log(0);
     } else {
         $('.favicon').css('border-radius', '50%');
+        console.log(50);
     }
 }
 
-function funcTgglOpenTab(data) {
+let funcTgglOpenTab = function(data) {
     if (data.tgglOpenTab === 1) {
         $('head').append('<base target="_blank">');
     }
 }
 
-function funcTxtScale(data) {
+let funcTxtScale = function(data) {
     const scale = data.txtScale;
     if (!isNaN(scale) && scale !== '') {
         $('html').css('zoom', scale + '%');
@@ -127,10 +81,10 @@ let addContents = function(data) {
 // =================================================================================
 
 $(function() {
+    getData('contentsData', addContents);
     getData('tgglIcon', funcTgglIcon);
     getData('tgglOpenTab', funcTgglOpenTab);
     getData('txtScale', funcTxtScale);
-    getData('contentsData', addContents);
     $(document).keydown(function(event) {
         if (event.altKey) {
             if (event.keyCode === 66 && $('#search').val() === '') {

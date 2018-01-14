@@ -53,13 +53,6 @@ function addContent() {
 // =================================================================================
 $(function() {
     sendData('aaaa');
-
-    let $msnry = $('#bodyMain').masonry({
-        itemSelector: '.cardArea',
-        percentPosition: true,
-        fitWidth: true
-    });
-
     $.getJSON('manifest.json').then(function(manifest) {
         let str = '<div class="cardContents"><h4>Installed Release Version</h4>' + manifest.version + '</div>';
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/releases/latest').then(function(data) {
@@ -70,7 +63,6 @@ $(function() {
                 str = str.replace(/\r?\n/g, '<br>');
             }
             $('#ExtensionInfo').append(str);
-            $msnry.masonry('layout');
         });
     });
 
@@ -79,8 +71,6 @@ $(function() {
         func(0);
     }
     func(1);
-
-    $msnry.masonry('layout');
 
     $(".toggle").each(function() {
         getData($(this).attr('id'), setValueTggl);
@@ -102,6 +92,8 @@ $(function() {
             });
         }
     });
+
+
 
     $('.toggle').click(function() {
         const id = $(this)[0].id;

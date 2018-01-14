@@ -8,22 +8,11 @@ body {
     font-size: 1.5rem;
     background-color: #f7f7f7;
     transition: 1s;
+    margin: 0;
     /*letter-spacing: 0.1rem;*/
 }
 
-a {
-    color: #3478a4;
-    transition: 0.5s;
-    text-decoration: none;
-}
 
-a:after {
-    content: attr(href);
-}
-
-a:hover {
-    color: #00A7F4;
-}
 
 hr {
     border-color: #E2E2E2;
@@ -65,12 +54,14 @@ input {
     vertical-align: middle;
     white-space: nowrap;
     text-overflow: ellipsis;
+    cursor: pointer;
 }
 
 input:focus {
     width: 20.0rem;
     border-bottom: 0.2rem solid #678;
     margin-right: 1.0rem;
+    cursor: text;
 }
 
 ::-webkit-input-placeholder {
@@ -131,7 +122,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 .toggle:after {
-    top: -0.45rem;
+    top: -0.55rem;
     left: 0.0rem;
     width: 1.8rem;
     height: 1.8rem;
@@ -146,7 +137,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 .toggle:hover:after {
-    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.45);
 }
 
 .toggle_on {
@@ -162,23 +153,62 @@ input:focus::-webkit-input-placeholder {
 
 /*=================================================================================*/
 
-#bodyMain {
-    margin: 0 auto;
-    padding: 3.0rem 0 3.0rem 0;
+#leftMenu {
+    width: 19rem;
+    height: 100%;
+    background-color: #fff;
+    border-right: 0.1rem solid #ccc;
+    position: fixed;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    cursor: default;
+}
+#leftMenu > div {
+    padding: 1.0rem 0.8rem 1.0rem 0.8rem;
+    border-bottom: 0.1rem solid #ccc;
+}
+#leftMenu a {
+    color: #345;
+    padding: 1.6rem;
+    display: block;
+    transition: 0.3s all;
+    text-decoration: none;
 }
 
+#leftMenu a:hover {
+    background-color: #ebedee;
+}
+#bodyMain {
+    margin: 0 0 0 19rem;
+    padding: 0 0 2.0rem 0;
+}
+#bodyMain > a {
+    opacity: 0;
+}
 .cardArea {
-    width: 44%;
+    /*width: 46rem;*/
     height: auto;
     line-height: 3rem;
     color: #345;
     background-color: #ffffff;
     border-radius: 0.3rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-    margin: 1.0rem 1.7% 1.0rem 1.7%;
-    padding: 1%;
-    float: left;
+    margin: 1.0rem 4.7rem 1.0rem 4.7rem;
+    padding: 1rem;
+    /*float: left;*/
     word-wrap: break-word;
+}
+.cardArea a {
+    color: #3478a4;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.cardArea a:after {
+    content: attr(href);
+}
+
+.cardArea a:hover {
+    color: #00A7F4;
 }
 
 .cardContents {
@@ -189,15 +219,16 @@ input:focus::-webkit-input-placeholder {
     display: block;
 }
 /*=================================================================================*/
-/*Ripple Effect*/
+/*Ripple */
+
 .ripple {
     position: relative;
     overflow: hidden;
 }
 
 .ripple .rp-effect {
-    background: #fff;
-    opacity: 0.5;
+    background: #37819e;
+    opacity: 0.35;
     border-radius: 50%;
     position: absolute;
     transform: scale(0);
@@ -211,7 +242,6 @@ input:focus::-webkit-input-placeholder {
         transform: scale(2.0);
     }
 }
-
 /*=================================================================================*/
 /*Scrollbar*/
 
@@ -224,7 +254,6 @@ input:focus::-webkit-input-placeholder {
     background: rgb(209, 212, 214);
     box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);
 }
-
 ::-webkit-scrollbar-thumb:active {
     background: rgb(199, 202, 204);
     box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.65);

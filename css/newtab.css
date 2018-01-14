@@ -268,7 +268,7 @@ ul {
     height: 1.6rem;
     position: relative;
     margin: 0.0rem 0.4rem 0.0rem 0.4rem;
-    /*border-radius: 50%;*/
+    /*border-radius: 0%;*/
 }
 
 .hideModule {
