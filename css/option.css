@@ -121,10 +121,11 @@ input:focus::-webkit-input-placeholder {
     transition: .4s;
     vertical-align: middle;
     float: right;
+    line-height: 1rem;
 }
 
 .toggle:after {
-    top: -0.55rem;
+    top: -0.3rem;
     left: 0.0rem;
     width: 1.8rem;
     height: 1.8rem;
@@ -185,28 +186,43 @@ input:focus::-webkit-input-placeholder {
 #bodyMain {
     margin: 0 0 0 19rem;
     padding: 0.0rem 0 2.0rem 0;
-    display:flex;
+
+
+    /*----- flex -----*/
+    /*display:flex;
     flex-wrap:wrap;
     flex-direction: row;
-    justify-content: space-between;align-content: stretch;
+    justify-content: space-between;*/
+    /*----- flex -----*/
 }
 #bodyMain > a {
     width: 0;
     opacity: 0;
 }
 .cardArea {
-    width: calc((100% - 19rem) / 2 - 1rem);
     /*height: 100%;*/
-    line-height: 3rem;
+    line-height: 3.2rem;
     color: #345;
     background-color: #ffffff;
     border-radius: 0.3rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-    margin: 2.0rem 4.0rem 1.0rem 4.0rem;
+    margin: 0.0rem 5% 1.0rem 5%;
     padding: 1rem;
-    /*float: left;*/
+    overflow: hidden;
     word-wrap: break-word;
 }
+/*----- flex -----*/
+/*.cardArea:nth-of-type(1),
+.cardArea:nth-of-type(2)
+{
+    width: calc((100% - 19rem) / 2 - 0.5rem);
+}
+.cardArea:nth-of-type(3),
+.cardArea:nth-of-type(4),
+.cardArea:nth-of-type(5){
+    width: 100%;
+}*/
+/*----- flex -----*/
 .cardArea a {
     color: #3478a4;
     transition: 0.5s;
@@ -227,6 +243,9 @@ input:focus::-webkit-input-placeholder {
     padding: 0.5rem;
     /*border-bottom: 0.1rem solid #bdbdbd;*/
     display: block;
+}
+.cardContents > span {
+    color: #5c6169;
 }
 /*=================================================================================*/
 /*Ripple */

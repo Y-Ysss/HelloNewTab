@@ -41,9 +41,9 @@ function addContent() {
         // 改善必要箇所 --> sha 取得・適用
         // $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits?per_page=100&sha=c2a24a50ad0852f6e7cc61cfc66cf69fa6a70cc4').then(function(json) {
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(json) {
-            str += '<div class="cardContents"><h4>' + json[num].commit.message + '</h4>Date : ' +
-                (json[num].commit.author.date).replace('T', '<br>Time : ').slice(0, -1) +
-                ' (UTC)<br><a href="' + json[num].html_url + '"></a></div>';
+            str += '<div class="cardContents"><b>' + json[num].commit.message + '</b><br><span>' +
+                (json[num].commit.author.date).replace('T', ', ').slice(0, -1) +
+                ' (UTC)</span><br><a href="' + json[num].html_url + '"></a></div>';
             if (run)
                 $('#gitCommitsInfo').append(str);
             num++;
@@ -52,14 +52,14 @@ function addContent() {
 }
 // =================================================================================
 $(function() {
-    sendData('aaaa');
+    // sendData('aaaa');
     $.getJSON('manifest.json').then(function(manifest) {
-        let str = '<div class="cardContents"><h4>Installed Release Version</h4>' + manifest.version + '</div>';
+        let str = '<div class="cardContents"><b>Installed Version</b><br>' + manifest.version + '</div>';
         $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/releases/latest').then(function(data) {
             if (manifest.version !== data.name) {
-                str += '<h2>#Latest Release</h2><div class="cardContents"><h4>Version</h4>' +
-                    data.name + '</div><div class="cardContents"><h4>What\'s New</h4>' +
-                    data.body + '</div><div class="cardContents"><h4>URL</h4><a href="' + data.html_url + '"></a></div>';
+                str += '<h2>#Latest Release</h2><div class="cardContents"><b>Version</b><br>' +
+                    data.name + '</div><div class="cardContents"><b>What\'s New</b><br>' +
+                    data.body + '</div><div class="cardContents"><b>URL</b><br><a href="' + data.html_url + '"></a></div>';
                 str = str.replace(/\r?\n/g, '<br>');
             }
             $('#ExtensionInfo').append(str);

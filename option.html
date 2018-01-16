@@ -4,11 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>Option_Page</title>
-    <!-- <base target="_blank"> -->
+    <base target="_blank">
     <link href="css/option.css" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="js/lib/jquery.js"></script>
     <!-- <script type="text/javascript" src="js/lib/jquery.funcResizeBox.js"></script> -->
-    <script type="text/javascript" src="js/lib/masonry.min.js"></script>
+    <!-- <script type="text/javascript" src="js/lib/masonry.min.js"></script> -->
     <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
     <script type="text/javascript" src="js/option.js"></script>
 </head>
@@ -16,58 +16,58 @@
 <body class="body">
     <div id="leftMenu">
         <div>HelloNewTab_Option</div>
-        <a href="#option" class="ripple">Option</a>
-        <a href="#howtouse" class="ripple">How To Use</a>
-        <a href="#about" class="ripple">About</a>
-        <a href="#exinfo" class="ripple">Extension Info</a>
-        <a href="#githubcmmt" class="ripple">GitHub Commits</a>
+        <a href="#option" class="ripple" target="_self">Option</a>
+        <a href="#howtouse" class="ripple" target="_self">How To Use</a>
+        <a href="#about" class="ripple" target="_self">About</a>
+        <a href="#exinfo" class="ripple" target="_self">Extension Info</a>
+        <a href="#githubcmmt" class="ripple" target="_self">GitHub Commits</a>
     </div>
     <div id="bodyMain">
         <a name="option">　</a>
         <div class="cardArea">
             <h2>#Option</h2>
             <div class="cardContents">
-                <h4>Favicon</h4>
-                Default : <div id="tgglIcon" class="toggle"></div><hr noshade Size="1">
+                <b>Favicon</b><br>
+                <span>デフォルトのファビコンを使用する</span><div id="tgglIcon" class="toggle"></div><hr noshade Size="1">
             <!-- </div>
             <div class="cardContents"> -->
-                <h4>Link</h4>
-                Open in new tab : <div id="tgglOpenTab" class="toggle"></div><hr noshade Size="1">
+                <b>Open in new tab</b><br>
+                <span>ブックマークを新しいタブで開く</span><div id="tgglOpenTab" class="toggle"></div><hr noshade Size="1">
             <!-- </div>
             <div class="cardContents"> -->
-                <h4>Page</h4>
-                Page scale (%) : <input id="txtScale" type="text" placeholder="Number (Default : 100)"><hr noshade Size="1">
+                <b>Page</b><br>
+                <span>Page scale (%)</span><input id="txtScale" type="text" placeholder="Number (Default : 100)"><hr noshade Size="1">
             </div>
             <div class="cardContents">
-                <h4>Debug</h4>
-                Chrome Storage Page : <a href="storageData.html"></a>
+                <b>Debug</b><br>
+                <span>Chrome Storage Page : </span><a href="storageData.html"></a>
             </div>
         </div>
         <a name="howtouse">　</a>
         <div class="cardArea">
             <h2>#How To Use</h2>
             <div class="cardContents">
-                <h4>System Link</h4> ヘッダー内の三本線をクリックすると、システムページリンクが表示される。
+                <b>System Link</b><br> ヘッダー内の三本線をクリックすると、システムページリンクが表示される。
             </div>
             <div class="cardContents">
-                <h4>Search Bookmarks</h4> ヘッダー内の [Search] をクリックすると、ブックマークを検索できる。また、AltキーとBで検索欄にフォーカス。Escキーでフォーカス解除。
+                <b>Search Bookmarks</b><br> ヘッダー内の [Search] をクリックすると、ブックマークを検索できる。また、AltキーとBで検索欄にフォーカス。Escキーでフォーカス解除。
             </div>
             <div class="cardContents">
-                <h4>Hide BookmarkFolder</h4> ブックマークフォルダーの名前の最初の文字をクォーテーション(')にすると、デフォルトではリストを非表示にできる。ヘッダー内のトグルボタンをクリックすると、非表示にしたリストを表示できる。
+                <b>Hide BookmarkFolder</b><br> ブックマークフォルダーの名前の最初の文字をクォーテーション(')にすると、デフォルトではリストを非表示にできる。ヘッダー内のトグルボタンをクリックすると、非表示にしたリストを表示できる。
             </div>
         </div>
         <a name="about">　</a>
         <div class="cardArea">
             <h2>#About</h2>
             <div class="cardContents">
-                <h4>Made by</h4>
+                <b>Made by</b><br>
                 Name : Yos;<br>
                 GitHub : <a href="https://github.com/Yoseatlly"></a><br>
                 自分用に作成。勉強。2017年の夏の時間つぶし。
                 暇になったら、アップデートする。
             </div>
             <div class="cardContents">
-                <h4>Used Javascript Library</h4>
+                <b>Javascript Libraries</b><br>
                 <ul>
                 <li>jQuery [ <a href="https://jquery.com/"></a> ]<br></li>
                 <li>masonry (GitHub : desandro) [ <a href="https://github.com/desandro/masonry"></a> ]<br></li>
@@ -77,7 +77,7 @@
         </div>
         <a name="exinfo">　</a>
         <div id="ExtensionInfo" class="cardArea">
-            <h2>#Extension Info</h2>
+            <h2>#Installed Extension Info</h2>
         </div>
         <a name="githubcmmt">　</a>
         <div id="gitCommitsInfo" class="cardArea">
