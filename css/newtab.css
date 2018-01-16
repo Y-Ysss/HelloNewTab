@@ -167,13 +167,13 @@ ul {
     /*transition: 0.2s;*/
     -webkit-transition: 0.3s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
 }
-#systemLinkArea:hover {
+/*#systemLinkArea:hover {
     width: 17rem;
 }
 #systemLinkArea:hover  #moreMenu {
     border-bottom: 0.1rem solid #678;
     background-color: #f7f7f7;
-}
+}*/
 #moreMenu {
     height: 2.2rem;
     color: #345;
@@ -184,7 +184,7 @@ ul {
     vertical-align: middle;
     white-space: nowrap;
     border-bottom: 0.1rem solid #fff;
-    transition: 0.4s
+    transition: 0.5s
 }
 
 #moreMenu:hover {
@@ -210,7 +210,7 @@ ul {
     height: 2rem;
     width: 2rem;
     padding: 0 1rem 0 0;
-    opacity: 0.75;
+    opacity: 0.7;
     vertical-align: middle;
 }
 /*
@@ -265,6 +265,7 @@ ul {
     /*top: 5.0rem;*/
     padding: 2.4rem;
     margin: 0 0 0 4rem;
+    font-size: 1.4rem;
 }
 
 .cntntModule {
@@ -282,10 +283,10 @@ ul {
 
 .cntntHead {
     height: 2.0rem;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     /*width: 100%;*/
     /*background-color: #fbfbfb;*/
-    border-bottom: 0.1rem solid #678;
+    border-bottom: 0.1rem solid #abc;
     padding: 0.6rem;
     cursor: default;
 }

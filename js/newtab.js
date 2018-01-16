@@ -112,6 +112,10 @@ $(function() {
         if ($('#search').val() !== '') {
             $('#search').focus();
         }
+        if(!$(event.target).closest('#moreMenu').length) {
+            $('#systemLinkArea').css('width', '4rem');
+            $('#moreMenu').attr('view', '0');
+        }
     });
 
     $('#searchReset').click(function() {
@@ -130,7 +134,18 @@ $(function() {
     //     }
     // });
 
-    $('.systemLink').click(function() {
+    $('#moreMenu').click(function() {
+        viewMode = $(this).attr('view');
+        if(viewMode === '0') {
+            $('#systemLinkArea').css('width', '17rem');
+            $('#moreMenu').attr('view', '1');
+        } else {
+            $('#systemLinkArea').css('width', '4rem');
+            $('#moreMenu').attr('view', '0');
+        }
+    });
+
+    $('.createTabLink').click(function() {
         chrome.tabs.create({ url: $(this).attr('href') });
     });
 
