@@ -118,17 +118,17 @@ $(function() {
         hideSearchResult();
     });
 
-    $('#sysMenu').click(function() {
-        let sLA = $('#systemLinkArea');
-        if (sLA.css("top") === "-5px") {
-            sLA.css('top', '50px');
-            $('#sysMenu').addClass('sysMenuView');
-            hideSearchResult();
-        } else {
-            sLA.css('top', '-5px');
-            $('#sysMenu').removeClass('sysMenuView');
-        }
-    });
+    // $('#sysMenu').click(function() {
+    //     let sLA = $('#systemLinkArea');
+    //     if (sLA.css("top") === "-5px") {
+    //         sLA.css('top', '50px');
+    //         $('#sysMenu').addClass('sysMenuView');
+    //         hideSearchResult();
+    //     } else {
+    //         sLA.css('top', '-5px');
+    //         $('#sysMenu').removeClass('sysMenuView');
+    //     }
+    // });
 
     $('.systemLink').click(function() {
         chrome.tabs.create({ url: $(this).attr('href') });
