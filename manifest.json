@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Hello New Tab",
-    "version": "4.0.5",
+    "version": "4.1.0",
     "description": "Startpage giving instant access to bookmarks.",
     "permissions": [
         "bookmarks",
@@ -9,6 +9,7 @@
         "storage",
         "chrome://favicon/"
     ],
+    "incognito":"split",
     "background": {
         "scripts": [
             "js/lib/jquery.js",

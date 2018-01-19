@@ -7,7 +7,7 @@ html {
 
 body {
     font-size: 1.5rem;
-    /*background-color: #f7f7f7;*/
+    background-color: #f7f7f7;
     margin: 0;
 }
 
@@ -24,8 +24,8 @@ ul {
 }
 
 ::selection {
-    /*color: #345;*/
-    /*background-color: #bcd;*/
+    color: #345;
+    background-color: #bcd;
 }
 
 
@@ -37,8 +37,8 @@ ul {
 #bodyHead {
     width: 100%;
     height: 5.0rem;
-    /*background-color: #678;*/
-    /*box-shadow: 0 0.3rem 1.0rem rgba(0, 0, 0, 0.3);*/
+    background-color: #678;
+    box-shadow: 0 0.3rem 1.0rem rgba(0, 0, 0, 0.3);
     position: fixed;
     z-index: 50;
     display: none;
@@ -51,8 +51,8 @@ ul {
     left: 4rem;
     width: 0rem;
     height: 100%;
-    /*background-color: #fafafa;*/
-    /*box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);*/
+    background-color: #fafafa;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
     position: absolute;
     z-index: 14;
     overflow: hidden;
@@ -63,7 +63,7 @@ ul {
     height: 2.2rem;
     font-size: 1.7rem;
     font-weight: bold;
-    /*color: #678;*/
+    color: #678;
     padding: 1rem;
     overflow: hidden;
     transition: 0.3s all;
@@ -75,7 +75,7 @@ ul {
     width: 100%;
     height: 4.2rem;
     font-size: 2rem;
-    /*background-color: #ebedee;*/
+    background-color: #ebedee;
     border: none;
     outline: none;
     box-sizing: border-box;
@@ -85,20 +85,20 @@ ul {
 }
 
 #search:focus {
-    /*color: #456;*/
+    color: #456;
     cursor: text;
 }
 
 #search::-webkit-input-placeholder {
     font-size: 1.5rem;
     font-weight: normal;
-    /*color: #abc;*/
+    color: #abc;
 }
 
 #searchReset {
     top: 5.2rem;
     right: 2.0rem;
-    /*color: #345;*/
+    color: #345;
     position: absolute;
 }
 
@@ -134,12 +134,12 @@ ul {
 }
 
 #searchResult a:hover {
-    /*background: #f5f5f5;*/
+    background: #ebedee;
     padding-left: 1.2rem;
 }
 
 #resultNum {
-    /*color: #345;*/
+    color: #345;
     margin: 1rem 0.5rem 1rem 1.2rem;
 }
 
@@ -149,9 +149,9 @@ ul {
 #systemLinkArea {
     width: 4rem;
     height: 100%;
-    /*background-color: #fff;*/
+    background-color: #fff;
     border-right: 0.1rem solid #ccc;
-    /*box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);*/
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
     position: fixed;
     z-index: 15;
     overflow: hidden;
@@ -165,7 +165,7 @@ ul {
 
 .menuItems {
     height: 2.2rem;
-    /*color: #345;*/
+    color: #345;
     padding: 1rem;
     overflow: hidden;
     transition: 0.3s all;
@@ -175,12 +175,12 @@ ul {
 }
 
 .menuItems:hover {
-    /*background-color: #ebedee;*/
+    background-color: #ebedee;
 }
 
 .systemLink {
     height: 2.2rem;
-    /*color: #345;*/
+    color: #345;
     padding: 1rem;
     display: block;
     overflow: hidden;
@@ -191,7 +191,7 @@ ul {
 }
 
 .systemLink:hover {
-    /*background-color: #ebedee;*/
+    background-color: #ebedee;
 }
 
 .faviconBig {
@@ -216,10 +216,10 @@ ul {
 
 .cntntModule {
     width: 16.0rem;
-    /*background-color: #fff;*/
+    background-color: #fff;
     border: 0.1rem solid #ccc;
     border-radius: 0.2rem;
-    /*box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);*/
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
     min-width: 14.5rem;
     margin: 1.5rem;
     float: left;
@@ -231,7 +231,7 @@ ul {
 .cntntHead {
     height: 2.0rem;
     font-size: 1.5rem;
-    /*color: #345;*/
+    color: #345;
     border-bottom: 0.1rem solid #abc;
     padding: 0.6rem;
     cursor: default;
@@ -249,7 +249,7 @@ ul {
 
 .cntntModule ul li:hover {
     width: 16.6rem;
-    /*background: #f5f5f5;*/
+    background: #f5f5f5;
     margin-left: -0.6rem;
     -webkit-transition: 0.25s ease-out all;
 }
@@ -265,7 +265,7 @@ ul {
 
 .bkmrkNum {
     font-size: 1.2rem;
-    /*color: #999;*/
+    color: #999;
     padding: 0.4rem 0.8rem 0.4rem 0.8rem;
     display: block;
 }
@@ -292,7 +292,7 @@ ul {
 .form_tggl {
     width: 4.0rem;
     height: 1.2rem;
-    /*background-color: #cccccc;*/
+    background-color: #cccccc;
     border-radius: 3.0rem;
     position: absolute;
     margin: 0 0.5rem 0 0.5rem;
@@ -308,9 +308,9 @@ ul {
     left: 0.0rem;
     width: 1.8rem;
     height: 1.8rem;
-    /*background-color: #ECEFF1;*/
+    background-color: #ECEFF1;
     border-radius: 50%;
-    /*box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.35);*/
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.35);
     position: relative;
     z-index: 1;
     display: inline-block;
@@ -319,16 +319,16 @@ ul {
 }
 
 .form_tggl:hover:after {
-    /*box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);*/
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
 }
 
 .form_tggl_on {
-    /*background-color: #BBDEFB;*/
+    background-color: #BBDEFB;
 }
 
 .form_tggl_on:after {
     left: 2.2rem;
-    /*background-color: #42A5F5;*/
+    background-color: #42A5F5;
 }
 
 
@@ -343,19 +343,21 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb {
-    /*background: rgb(209, 212, 214);*/
-    /*box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);*/
+    background: rgb(209, 212, 214);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    /*background: rgb(199, 202, 204);*/
-    /*box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.65);*/
+    background: rgb(199, 202, 204);
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.65);
 }
 
 
 /*==========================================================================*/
 
-
+.bg-searchMenu {
+	background-color: #ebedee;
+}
 
 /*================================================================================*/
 
@@ -365,7 +367,7 @@ ul {
 }
 
 .ripple .rp-effect {
-    /*background: #37819e;*/
+    background: #37819e;
     opacity: 0.35;
     border-radius: 50%;
     position: absolute;

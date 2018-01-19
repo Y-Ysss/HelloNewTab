@@ -8,19 +8,18 @@ let searchView = function() {
                 joinResult += '<a href="' + item.url + '"><img class="favicon" src="chrome://favicon/' + item.url + '">' + title + '</a>';
             }
         });
-        $('#searchResult').append(joinResult + '<div style="margin:5px">Search Result : ' + results.length + '</div>');
-    console.log('OK : ' + results.length);
+        $('#searchResult').append(joinResult + '<div id="resultNum">Search Result : ' + results.length + '</div>');
+    // console.log('OK : ' + results.length);
     });
     
     let sR = $('#searchResult');
     if (key !== "") {
         $('#searchReset').addClass('searchResetView');
-        sR.css('top', '50px').css('height', '400px');
-        $('#systemLinkArea').css('top', '-5px');
-        $('#sysMenu').removeClass('sysMenuView');
+        // sR.css('top', '50px').css('height', '100%');
+        // $('#sysMenu').removeClass('sysMenuView');
     } else {
         $('#searchReset').removeClass('searchResetView');
-        sR.css('top', '0px').css('height', '0px').css('cursor','text');
+        // sR.css('top', '0px').css('height', '0px').css('cursor','text');
     }
     sR.empty();
 }
@@ -30,7 +29,8 @@ let searchView = function() {
 let hideSearchResult = function() {
     $('#search').val("");
     $('#searchReset').removeClass('searchResetView');
-    $('#searchResult').css('top', '0px').css('height', '0px');
+    $('#searchResult').empty();
+    // $('#searchResult').css('top', '0px').css('height', '0px');
 }
 
 // call >> getData( [get item name ... string, array of string, object] , [action ... function] );
@@ -45,10 +45,10 @@ let funcTgglIcon = function(data) {
     // $('.favicon').css('border-radius', 25 - 25 * data.tgglIcon + '%');
     if (data.tgglIcon === 1) {
         $('.favicon').css('border-radius', '0%');
-        console.log(0);
+        // console.log(0);
     } else {
         $('.favicon').css('border-radius', '50%');
-        console.log(50);
+        // console.log(50);
     }
 }
 
@@ -67,31 +67,50 @@ let funcTxtScale = function(data) {
 }
 
 let addContents = function(data) {
-    console.log('+' + data.contentsData);
+    // console.log('+' + data.contentsData);
     $('#bodyMain').append(data.contentsData);
     $('#bodyMain').masonry({
         // columnWidth: 100,
         itemSelector: '.cntntModule',
         percentPosition: true,
+        // gutter:15,
         transitionDuration: '0.5s'
+        // ,fitWidth: true
     });
-    // rippleEffect();
+    rippleEffect();
+}
+
+let ld;
+
+let funcSetCSS = function(data) {
+    // if(data.theme !== undefined) {
+    tm = data.theme === undefined ? 'tmLight' : data.theme;
+    $('head').append('<link rel="stylesheet" type="text/css" href="css/theme/' + tm + '.css">');
+    // }
 }
 
 // =================================================================================
 
 $(function() {
+    getData('theme', funcSetCSS);
     getData('contentsData', addContents);
     getData('tgglIcon', funcTgglIcon);
     getData('tgglOpenTab', funcTgglOpenTab);
     getData('txtScale', funcTxtScale);
+    deSVG('.faviconBig', true);
     $(document).keydown(function(event) {
-        if (event.altKey) {
+        if (event.altKey) { // [ Alt + B ]
             if (event.keyCode === 66 && $('#search').val() === '') {
+                $('#searchGroup').css('width', '30rem');
+                $('#searchMenu').addClass('bg-searchMenu');//.css('background-color', '#ebedee');
+                $('#searchMenu').attr('view', '1');
                 $('#search').focus();
             }
         }
-        if (event.keyCode === 27 && $('#search').focus()) {
+        if (event.keyCode === 27 && $('#search').focus()) { // [ Esc ]
+            $('#searchGroup').css('width', '0rem');
+            $('#searchMenu').removeClass('bg-searchMenu');//.css('background-color', '');
+            $('#searchMenu').attr('view', '0');
             $('#search').blur();
             hideSearchResult();
         }
@@ -112,7 +131,7 @@ $(function() {
         if ($('#search').val() !== '') {
             $('#search').focus();
         }
-        if(!$(event.target).closest('#moreMenu').length) {
+        if(!$(event.target).closest('#systemLinkArea').length || $(event.target).closest('#searchMenu').length) {
             $('#systemLinkArea').css('width', '4rem');
             $('#moreMenu').attr('view', '0');
         }
@@ -122,22 +141,10 @@ $(function() {
         hideSearchResult();
     });
 
-    // $('#sysMenu').click(function() {
-    //     let sLA = $('#systemLinkArea');
-    //     if (sLA.css("top") === "-5px") {
-    //         sLA.css('top', '50px');
-    //         $('#sysMenu').addClass('sysMenuView');
-    //         hideSearchResult();
-    //     } else {
-    //         sLA.css('top', '-5px');
-    //         $('#sysMenu').removeClass('sysMenuView');
-    //     }
-    // });
-
     $('#moreMenu').click(function() {
         viewMode = $(this).attr('view');
         if(viewMode === '0') {
-            $('#systemLinkArea').css('width', '17rem');
+            $('#systemLinkArea').css('width', '19rem');
             $('#moreMenu').attr('view', '1');
         } else {
             $('#systemLinkArea').css('width', '4rem');
@@ -145,8 +152,25 @@ $(function() {
         }
     });
 
+    $('#searchMenu').click(function() {
+        viewMode = $(this).attr('view');
+        if(viewMode === '0') {
+            $('#searchGroup').css('width', '30rem');
+            $('#searchMenu').addClass('bg-searchMenu');//.css('background-color', '#ebedee');
+            $('#searchMenu').attr('view', '1');
+            $('#search').focus();
+        } else {
+            hideSearchResult();
+            $('#searchGroup').css('width', '0rem');
+            $('#searchMenu').removeClass('bg-searchMenu');//.css('background-color', '');
+            $('#searchMenu').attr('view', '0');
+        }
+    });
+
     $('.createTabLink').click(function() {
         chrome.tabs.create({ url: $(this).attr('href') });
+        $('#systemLinkArea').css('width', '4rem');
+        $('#moreMenu').attr('view', '0');
     });
 
     $('#tggl1').click(function() {

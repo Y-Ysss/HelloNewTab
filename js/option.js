@@ -33,6 +33,10 @@ function setValueInput(data) {
     $('#' + key).val(data[key]);
 }
 
+function setValueRadio(data) {
+    const key = Object.keys(data)[0];
+    $('input[name="' + key + '"]').val([data[key]]);
+}
 // closure test
 function addContent() {
     let str = '';
@@ -75,13 +79,18 @@ $(function() {
     $(".toggle").each(function() {
         getData($(this).attr('id'), setValueTggl);
     });
-    $("input").each(function() {
+    $('input[type="text"]').each(function() {
         getData($(this).attr('id'), setValueInput);
     });
-    $("input").blur(function() {
+    $('input[type="radio"]').each(function() {
+        getData($(this).attr('name'), setValueRadio);
+    });
+    $('input[type="text"]').blur(function() {
         setData({[$(this)[0].id]: $(this)[0].value});
     });
-
+    $('input[type="radio"]').click(function() {
+        setData({[$(this)[0].name]: $(this).val()});
+    });
     $('.button').click(function() {
         if ($(this).attr("id") === 'btnTest1') {
             chrome.storage.local.get(null, function(items) {
@@ -92,8 +101,6 @@ $(function() {
             });
         }
     });
-
-
 
     $('.toggle').click(function() {
         const id = $(this)[0].id;

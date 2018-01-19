@@ -1,0 +1,123 @@
+body {
+    background-color: #232E34;
+}
+
+a {
+    color: #ccc;
+}
+
+::selection {
+    color: #fff;
+    background-color: #abc;
+}
+
+/*=================================================================================*/
+
+#searchGroup {
+    background-color: #162228;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+#searchHeader {
+    color: #678;
+}
+#search {
+    background-color: #263238;
+}
+
+#search:focus {
+    color: #789;
+}
+#search::-webkit-input-placeholder {
+    color: #89a;
+}
+#searchReset {
+    color: #ccc;
+}
+#resultNum {
+    color: #789;
+}
+#searchResult a:hover {
+    background: #263238;
+}
+
+#systemLinkArea {
+    background-color: #171E22;
+    border-right: 0.1rem solid #345;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.menuItems {
+    color: #abadae;
+}
+.menuItems:hover{
+    background-color: #263238;
+}
+.systemLink{
+    color: #abadae;
+}
+
+.systemLink:hover {
+    background-color: #263238;
+}
+.faviconBig {
+	fill:#fff;
+}
+
+.cntntModule {
+    border: 0.1rem solid #666;
+    background-color: #171E22;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.cntntHead {
+	color: #ccc;
+    border-bottom: 0.1rem solid #0C5073;
+}
+
+.cntntModule ul li:hover {
+    background: #263238;
+}
+
+.bkmrkNum {
+    color: #999;
+}
+
+.form_tggl {
+    background-color: #cccccc;
+}
+
+.form_tggl:after {
+    background-color: #ECEFF1;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.35);
+}
+
+.form_tggl:hover:after {
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
+}
+
+.form_tggl_on {
+    background-color: #BBDEFB;
+}
+
+.form_tggl_on:after {
+    background-color: #42A5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(109, 112, 114);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.9);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(99, 102, 104);
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.95);
+}
+
+.ripple .rp-effect {
+    background: #37819e;
+}
+
+
+.bg-searchMenu {
+	background-color: #263238;
+}
