@@ -32,18 +32,6 @@ ul {
 /*=================================================================================*/
 
 
-/*HeaderArea*/
-
-#bodyHead {
-    width: 100%;
-    height: 5.0rem;
-    /*background-color: #678;*/
-    /*box-shadow: 0 0.3rem 1.0rem rgba(0, 0, 0, 0.3);*/
-    position: fixed;
-    z-index: 50;
-    display: none;
-}
-
 
 /*=================================================================================*/
 
@@ -53,10 +41,10 @@ ul {
     height: 100%;
     /*background-color: #fafafa;*/
     /*box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);*/
-    position: absolute;
+    position: fixed;
     z-index: 14;
     overflow: hidden;
-    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
+    /*-webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;*/
 }
 
 #searchHeader {
@@ -117,7 +105,7 @@ ul {
     opacity: 0.98;
     overflow-x: hidden;
     overflow-y: auto;
-    -webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;
+    /*-webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;*/
     white-space: nowrap;
 }
 
@@ -127,7 +115,7 @@ ul {
     padding: 0.7rem 0.8rem 0.7rem 0.8rem;
     display: block;
     overflow: hidden;
-    -webkit-transition: 0.25s ease-out all;
+    /*-webkit-transition: 0.25s ease-out all;*/
     vertical-align: middle;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -156,7 +144,7 @@ ul {
     z-index: 15;
     overflow: hidden;
     cursor: default;
-    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
+    /*-webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;*/
 }
 
 #moreMenu {}
@@ -168,7 +156,7 @@ ul {
     /*color: #345;*/
     padding: 1rem;
     overflow: hidden;
-    transition: 0.3s all;
+    /*transition: 0.3s all;*/
     vertical-align: middle;
     white-space: nowrap;
     text-decoration: none;
@@ -184,7 +172,7 @@ ul {
     padding: 1rem;
     display: block;
     overflow: hidden;
-    transition: 0.3s all;
+    /*transition: 0.3s all;*/
     vertical-align: middle;
     white-space: nowrap;
     text-decoration: none;
@@ -210,21 +198,22 @@ ul {
 
 #bodyMain {
     font-size: 1.4rem;
-    margin: 0 0 0 4rem;
-    padding: 2.4rem;
+    margin: 0 4rem 0 4rem;
+    /*padding: 2.4rem;*/
 }
 
 .cntntModule {
-    width: 16.0rem;
+    /*width: 16.0rem;*/
     /*background-color: #fff;*/
     border: 0.1rem solid #ccc;
     border-radius: 0.2rem;
     /*box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);*/
-    min-width: 14.5rem;
-    margin: 1.5rem;
+    /*min-width: 14.5rem;*/
+    margin: 1.6rem;
+    padding: 0;
     float: left;
     overflow: hidden;
-    -webkit-transition: 0.3s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
+    /*-webkit-transition: 0.3s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;*/
     white-space: nowrap;
 }
 
@@ -242,25 +231,27 @@ ul {
 }
 
 .cntntModule ul li {
-    width: 16.0rem;
+    /*width: 16.0rem;*/
     position: relative;
     display: block;
+    cursor: pointer;
 }
 
-.cntntModule ul li:hover {
-    width: 16.6rem;
+.cntntModule ul li:hover{
+    /*width: 16.6rem;*/
     /*background: #f5f5f5;*/
     margin-left: -0.6rem;
-    -webkit-transition: 0.25s ease-out all;
+    /*-webkit-transition: 0.25s ease-out all;*/
 }
 
 .cntntModule ul li a {
-    height: 100%;
+    height: 2.0rem;
     padding: 0.7rem 0.8rem 0.7rem 0.8rem;
     display: block;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    vertical-align: middle;
 }
 
 .bkmrkNum {
@@ -299,7 +290,7 @@ ul {
     margin: 0.5rem 0.5rem 0.5rem 4.5rem;
     display: inline-block;
     cursor: pointer;
-    transition: .4s;
+    /*transition: .4s;*/
     vertical-align: middle;
 }
 
@@ -315,7 +306,7 @@ ul {
     z-index: 1;
     display: inline-block;
     content: "";
-    transition: .3s;
+    /*transition: .3s;*/
 }
 
 .form_tggl:hover:after {
@@ -343,13 +334,13 @@ ul {
 }
 
 ::-webkit-scrollbar-thumb {
-    /*background: rgb(209, 212, 214);*/
-    /*box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);*/
+    background: rgb(209, 212, 214);
+    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);
 }
 
 ::-webkit-scrollbar-thumb:active {
-    /*background: rgb(199, 202, 204);*/
-    /*box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.65);*/
+    background: rgb(199, 202, 204);
+    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.65);
 }
 
 

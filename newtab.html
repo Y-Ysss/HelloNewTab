@@ -13,7 +13,7 @@
     <script type="text/javascript" src="js/lib/masonry.min.js"></script>
     <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
     <script type="text/javascript" src="js/lib/desvg.js"></script>
-    <!-- <script type="text/javascript" src="js/lib/macy.js"></script> -->
+    <script type="text/javascript" src="js/lib/macy.js"></script>
     <!-- <script type="text/javascript" src="js/lib/jquery.form.monitoring.js"></script> -->
     <script type="text/javascript" src="js/newtab.js"></script>
 </head>
@@ -25,8 +25,8 @@
         <span id="searchReset" class="searchResetHidden">×</span>
         <div id="searchResult"></div>
     </div>
-    <div id="systemLinkArea">
-        <div id="moreMenu" class="menuItems" view="0"><img class="faviconBig" src="img/iconMenu.svg">System Pages</div>
+    <div id="systemLinkArea" view="0">
+        <div id="moreMenu" class="more menuItems"><img class="faviconBig" src="img/iconMenu.svg">System Pages</div>
         <div id="searchMenu" class="menuItems" view="0"><img class="faviconBig" src="img/iconSearch.svg">Search Bookmarks</div>
         <a class="ripple systemLink createTabLink" href="chrome://apps/"><img class="faviconBig" src="img/iconApp.svg">App</a>
         <a class="ripple systemLink createTabLink" href="chrome://bookmarks/"><img class="faviconBig" src="img/iconBookmarks.svg">Bookmark</a>
@@ -35,7 +35,7 @@
         <a class="ripple systemLink createTabLink" href="chrome://extensions/"><img class="faviconBig" src="img/iconExtensions.svg">Extension</a>
         <a class="ripple systemLink createTabLink" href="chrome://settings/"><img class="faviconBig" src="img/iconSetting.svg">Setting</a>
         <a class="ripple systemLink" href="option.html" target="_blank"><img class="faviconBig" src="img/iconOption.svg">Option</a>
-        <div class="menuItems"><img class="faviconBig" src="img/iconShow.svg">Visibility<div class="form_tggl" id="tggl1"></div></div>
+        <div id="vsbltyMenu" class="more menuItems"><img class="faviconBig" src="img/iconShow.svg">Visibility<div class="form_tggl" id="tggl1"></div></div>
     </div>
     <div id="bodyMain">
     </div>

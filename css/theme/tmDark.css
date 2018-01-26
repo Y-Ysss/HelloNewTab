@@ -16,6 +16,7 @@ a {
 #searchGroup {
     background-color: #162228;
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
 }
 #searchHeader {
     color: #678;
@@ -36,17 +37,23 @@ a {
 #resultNum {
     color: #789;
 }
+#searchResult {
+    -webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;
+}
 #searchResult a:hover {
     background: #263238;
+    -webkit-transition: 0.25s ease-out all;
 }
 
 #systemLinkArea {
     background-color: #171E22;
     border-right: 0.1rem solid #345;
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
 }
 
 .menuItems {
+    transition: 0.3s all;
     color: #abadae;
 }
 .menuItems:hover{
@@ -54,6 +61,7 @@ a {
 }
 .systemLink{
     color: #abadae;
+    transition: 0.3s all;
 }
 
 .systemLink:hover {
@@ -67,6 +75,7 @@ a {
     border: 0.1rem solid #666;
     background-color: #171E22;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.3s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
 }
 
 .cntntHead {
@@ -76,6 +85,7 @@ a {
 
 .cntntModule ul li:hover {
     background: #263238;
+    -webkit-transition: 0.25s ease-out all;
 }
 
 .bkmrkNum {
@@ -84,11 +94,13 @@ a {
 
 .form_tggl {
     background-color: #cccccc;
+    transition: .4s;
 }
 
 .form_tggl:after {
     background-color: #ECEFF1;
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.35);
+    transition: .3s;
 }
 
 .form_tggl:hover:after {
