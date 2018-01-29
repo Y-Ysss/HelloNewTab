@@ -144,6 +144,8 @@ ul {
     z-index: 15;
     overflow: hidden;
     cursor: default;
+    opacity: 0;
+    -webkit-transition: 0.5s cubic-bezier(0.49, 0.03, 0.12, 1.00) all;
     /*-webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;*/
 }
 
@@ -200,6 +202,8 @@ ul {
     font-size: 1.4rem;
     margin: 0 4rem 0 4rem;
     /*padding: 2.4rem;*/
+    opacity: 0;
+    -webkit-transition: 0.5s cubic-bezier(0.49, 0.03, 0.12, 1.00) all;
 }
 
 .cntntModule {
@@ -213,7 +217,6 @@ ul {
     padding: 0;
     float: left;
     overflow: hidden;
-    /*-webkit-transition: 0.3s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;*/
     white-space: nowrap;
 }
 

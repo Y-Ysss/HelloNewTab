@@ -9,7 +9,6 @@ let searchView = function() {
             }
         });
         $('#searchResult').append(joinResult + '<div id="resultNum">Search Result : ' + results.length + '</div>');
-        // console.log('OK : ' + results.length);
     });
 
     let sR = $('#searchResult');
@@ -90,26 +89,6 @@ $(window).resize(function() {
         });
     }, 200);
 });
-// $(window).on('load resize', function(){
-// let mw = parseInt($('#bodyMain').width() / 190);
-// console.log(mw);
-//     let macy = Macy({
-//         container: '#bodyMain',
-//         trueOrder: false,
-//         waitForImages: true,
-//         columns: mw,
-//         margin: {
-//             x: 30,
-//             y: 15,
-//           },
-//         breakAt: {
-//             1200: 5,
-//             940: 3,
-//             520: 2,
-//             400: 1
-//         }
-//     });
-// });
 
 let addContents = function(data) {
     $('#bodyMain').append(data.contentsData);

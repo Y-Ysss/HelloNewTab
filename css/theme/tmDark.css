@@ -50,6 +50,7 @@ a {
     border-right: 0.1rem solid #345;
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
     -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
+    opacity: 1;
 }
 
 .menuItems {
@@ -71,11 +72,14 @@ a {
 	fill:#fff;
 }
 
+#bodyMain {
+    opacity: 1;
+}
 .cntntModule {
     border: 0.1rem solid #666;
     background-color: #171E22;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-    -webkit-transition: 0.3s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
+    -webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
 }
 
 .cntntHead {
