@@ -1,7 +1,19 @@
 Hello New Tab
 ====
-Google Chromeの拡張機能で、ブックマークに即座にアクセスできるスタートページ。
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_001.png">
+新規タブ
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_003.png">
+
+メニュー
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_004.png">
+
+ブックマーク検索
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_007.png">
+
+ダークテーマ
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_005.png">
+
+オプションページ
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_006.png">
 
 ## 使用方法
 ###
@@ -24,7 +36,7 @@ Google Chrome(またはChromiumベースブラウザ)で新しいタブを開く
 
 
 ## 不具合
-Vivaldi ブラウザ使用時、ブックマーク検索のパフォーマンスが低下。キー入力のもたつき。自分のGoogle Chromeでは正常に動作。
+Vivaldi, Google Chrome使用時、ブックマーク検索のパフォーマンスが低下。キー入力のもたつき。自分の環境のSRWare Iron (Chromiumベースブラウザ)では正常に動作。
 
 ### 追記
 バージョン1.11以前のVivaldi ブラウザの場合 : 
@@ -39,6 +51,22 @@ Hello New Tab
 ====
 
 This is Google Chrome Extension. Startpage giving instant access to bookmarks.
+
+New tab
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_003.png">
+
+Menu
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_004.png">
+
+Search Bookmarks
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_007.png">
+
+Dark Theme
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_005.png">
+
+Options Page
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_006.png">
+
 
 ## Description
 For all those who are in search for a cool way to access your bookmarks, this sleek-looking extension is what you've been looking for.  
@@ -61,7 +89,7 @@ Enable developer mode extensions.
 7. Now drag and drop your “.crx” files on the “extensions” page to install them.
 
 ## Bug
-If you use Vivaldi browser, Performance of bookmark search decreases. Key input reaction time is long. In the case of my Google Chrome, it functions normally
+If you use Vivaldi or Google Chrome, Performance of bookmark search decreases. Key input reaction time is long. In the case of my SRWare Iron (Chromium based Browser), it functions normally
 
 ### Notes
 If you use Vivaldi browser before version 1.11 : 
