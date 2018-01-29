@@ -9,40 +9,34 @@
     <link rel="icon" type="image/png" href="img/icon_016.png" sizes="16x16">
     <link rel="icon" type="image/png" href="img/icon_032.png" sizes="32x32">
     <link rel="icon" type="image/png" href="img/icon_096.png" sizes="96x96">
-    <script type="text/javascript" src="js/lib/jquery.js"></script>
-    <script type="text/javascript" src="js/lib/masonry.min.js"></script>
-    <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
-    <!-- <script type="text/javascript" src="js/lib/jquery.form.monitoring.js"></script> -->
-    <script type="text/javascript" src="js/newtab.js"></script>
 </head>
 
 <body>
-    <div id="bodyHead">
-        <div id="sysMenu" class="menuBtn">
-            <span></span>
-        </div>
-        <div id="searchGroup" style="display: inline-block;">
-            <input id="search" type="text" required>
-            <span class="bar"></span>
-            <span id="searchReset" class="searchResetHidden">×</span>
-            <label id="SearchLabel">Search</label>
-        </div>
-        <div class="form_tggl" id="tggl1" style="right: 30px;"></div>
+    <div id="searchGroup">
+        <div id="searchHeader">Search</div>
+        <input id="search" type="text" placeholder="ブックマークの検索" required>
+        <span id="searchReset" class="searchResetHidden">×</span>
+        <div id="searchResult"></div>
     </div>
-    <div id="searchResult"></div>
-    <div id="systemLinkArea">
-        <ul>
-            <li><a class="systemLink" href="chrome://apps/"><img class="faviconBig" src="img/iconApp.png">App</a></li>
-            <li><a class="systemLink" href="chrome://bookmarks/"><img class="faviconBig" src="img/iconBookmarks.png">Bookmark</a></li>
-            <li><a class="systemLink" href="chrome://history/"><img class="faviconBig" src="img/iconHistory.png">History</a></li>
-            <li><a class="systemLink" href="chrome://downloads/"><img class="faviconBig" src="img/iconDownloads.png">Download</a></li>
-            <li><a class="systemLink" href="chrome://extensions/"><img class="faviconBig" src="img/iconExtensions.png">Extension</a></li>
-            <li><a class="systemLink" href="chrome://settings/"><img class="faviconBig" src="img/iconSetting.png">Setting</a></li>
-            <li><a href="option.html"><img class="faviconBig" src="img/icon_016.png">Option</a></li>
-        </ul>
+    <div id="systemLinkArea" view="0">
+        <div id="moreMenu" class="more menuItems"><img class="faviconBig" src="img/iconMenu.svg">System Pages</div>
+        <div id="searchMenu" class="menuItems" view="0"><img class="faviconBig" src="img/iconSearch.svg">Search Bookmarks</div>
+        <a class="ripple systemLink createTabLink" href="chrome://apps/"><img class="faviconBig" src="img/iconApp.svg">App</a>
+        <a class="ripple systemLink createTabLink" href="chrome://bookmarks/"><img class="faviconBig" src="img/iconBookmarks.svg">Bookmark</a>
+        <a class="ripple systemLink createTabLink" href="chrome://history/"><img class="faviconBig" src="img/iconHistory.svg">History</a>
+        <a class="ripple systemLink createTabLink" href="chrome://downloads/"><img class="faviconBig" src="img/iconDownloads.svg">Download</a>
+        <a class="ripple systemLink createTabLink" href="chrome://extensions/"><img class="faviconBig" src="img/iconExtensions.svg">Extension</a>
+        <a class="ripple systemLink createTabLink" href="chrome://settings/"><img class="faviconBig" src="img/iconSetting.svg">Setting</a>
+        <a class="ripple systemLink" href="option.html" target="_blank"><img class="faviconBig" src="img/iconOption.svg">Option</a>
+        <div id="vsbltyMenu" class="more menuItems"><img class="faviconBig" src="img/iconShow.svg">Visibility<div class="form_tggl" id="tggl1"></div></div>
     </div>
     <div id="bodyMain">
     </div>
+    <script type="text/javascript" src="js/lib/jquery.js"></script>
+    <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
+    <script type="text/javascript" src="js/lib/desvg.js"></script>
+    <script type="text/javascript" src="js/lib/macy.js"></script>
+    <script type="text/javascript" src="js/newtab.js"></script>
 </body>
 
 </html>

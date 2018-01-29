@@ -7,30 +7,19 @@ html {
 body {
     font-size: 1.5rem;
     background-color: #f7f7f7;
+    margin: 0;
     transition: 1s;
     /*letter-spacing: 0.1rem;*/
 }
 
-a {
-    color: #3478a4;
-    transition: 0.5s;
-    text-decoration: none;
-}
 
-a:after {
-    content: attr(href);
-}
-
-a:hover {
-    color: #00A7F4;
-}
 
 hr {
     border-color: #E2E2E2;
 }
 .cardContents > hr {
     /*margin: 3.2rem -2.3% 3.2rem -2.3%;*/
-    margin: 3.2rem 0 3.2rem 0;
+    margin: 1rem 0 1rem 0;
 }
 .cardArea > hr{
     /*margin: 3.2rem -2.6% 3.2rem -2.6%;*/
@@ -45,47 +34,144 @@ ul {
 
 li {
     margin: 1.0rem 0 1.0rem 0;
+    vertical-align: middle;
 }
 
 li:before {
     content: '- ';
 }
-
-input {
+.uln li:before {
+    content: '';
+}
+.uln span {
+    color: #999;
+}
+.icons {
+    width: 2rem;
+    height: 2rem;
+    opacity: 0.7;
+    padding: 0 1rem 0 0;
+    margin: -0.3rem 0 0 0;
+    vertical-align: middle;
+}
+input[type="text"] {
     width: 15.0rem;
     color: #456;
     border: none;
-    border-bottom: 0.2rem solid #9ab;
+    border-bottom: 0.15rem solid #9ab;
     outline: none;
     /*margin: 1.5rem 0.5rem 1.5rem 0.5rem;*/
-    margin-right: 6.0rem;
+    /*margin-right: 6.0rem;*/
     padding: 0.5rem;
+    float: right;
     overflow: hidden;
+    cursor: pointer;
     -webkit-transition: 0.6s ease all;
     vertical-align: middle;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-input:focus {
-    width: 20.0rem;
-    border-bottom: 0.2rem solid #678;
-    margin-right: 1.0rem;
+input[type="text"]:focus {
+    /*width: 20.0rem;*/
+    border-bottom: 0.15rem solid #678;
+    /*margin-right: 1.0rem;*/
+    cursor: text;
 }
 
 ::-webkit-input-placeholder {
     color: #9ab;
     -webkit-transition: 0.6s ease all;
 }
-
-input:focus::-webkit-input-placeholder {
-    color: #c4d9e8;
+input[type=radio]{
+    display: none;
+}
+input[type=radio] + label {
+    position: relative;
+    margin: 0 0 0 3rem;
+    padding-left: 2.2rem;
+}
+input[type="text"]:focus::-webkit-input-placeholder {
+    color: #ccc;
 }
 
+input[type=radio] + label::before {
+    top: 0.3rem;
+    left: 0.2rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 0.2rem solid #9E9E9E;
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    content: "";
+    transition: .2s;
+}
+input[type=radio]:checked + label:before {
+    border: 0.2rem solid #42A5F5;
+}
+input[type=radio] + label:after {
+    top: 0.7rem;
+    left: 0.6rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-color: #42A5F5;
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    display: block;
+    content: "";    transition: .175s;
+    transform: scale(0);    
+    }
+input[type=radio]:checked + label:after {
+    transform: scale(1);
+}
 ::selection {
     color: #345;
     background-color: #bcd;
 }
+/*
+.colorSample {
+    width: 15rem;
+    height: 5rem;
+    border: 0.1rem solid #3295e5;
+    border-radius: 0.2rem;
+    box-sizing: border-box;
+    margin: 1rem 0 0 1rem;
+    padding: 0.2rem;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+.colorSample div {
+    width: 4rem;
+    height: 3.2rem;
+    border-radius: 0.2rem;
+    display: inline-block;
+    margin: 0.5rem;
+    vertical-align: top;
+    text-align: center;
+}
+.colorLight {
+    background-color: #f7f7f7;
+}
+.colorLight div{
+    color: #345;
+    background-color: #fff;
+    border: 0.1rem solid #ccc;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.colorDark {
+    background-color: #232E34;
+}
+.colorDark div{
+    color: #ccc;
+    background-color: #171E22;
+    border: 0.1rem solid #666;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+}*/
 
 /*=================================================================================*/
 /*Button*/
@@ -120,10 +206,12 @@ input:focus::-webkit-input-placeholder {
 .toggle {
     width: 4.0rem;
     height: 1.2rem;
+    line-height: 1rem;
     background-color: #cccccc;
     border-radius: 3.0rem;
-    margin: 0 0.5rem 0 0.5rem;
+    margin: 1.5rem 0.5rem 0 0.5rem;
     display: inline-block;
+    float: right;
     cursor: pointer;
     /*border:0.1rem solid #dddddd;*/
     transition: .4s;
@@ -131,7 +219,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 .toggle:after {
-    top: -0.45rem;
+    top: -0.3rem;
     left: 0.0rem;
     width: 1.8rem;
     height: 1.8rem;
@@ -146,7 +234,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 .toggle:hover:after {
-    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.45);
 }
 
 .toggle_on {
@@ -162,23 +250,85 @@ input:focus::-webkit-input-placeholder {
 
 /*=================================================================================*/
 
-#bodyMain {
-    margin: 0 auto;
-    padding: 3.0rem 0 3.0rem 0;
+#leftMenu {
+    width: 19rem;
+    height: 100%;
+    background-color: #fff;
+    border-right: 0.1rem solid #ccc;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    position: fixed;
+    cursor: default;
+}
+#leftMenu > div {
+    border-bottom: 0.1rem solid #ccc;
+    padding: 1.6rem 0.8rem 1.6rem 0.8rem;
+    vertical-align: middle;
 }
 
+
+#leftMenu a {
+    color: #345;
+    padding: 1.6rem;
+    display: block;
+    transition: 0.3s all;
+    text-decoration: none;
+}
+
+#leftMenu a:hover {
+    background-color: #ebedee;
+}
+#bodyMain {
+    margin: 0 0 0 19rem;
+    padding: 0.0rem 0 2.0rem 0;
+
+
+    /*----- flex -----*/
+    /*display:flex;
+    flex-wrap:wrap;
+    flex-direction: row;
+    justify-content: space-between;*/
+    /*----- flex -----*/
+}
+#bodyMain > a {
+    width: 0;
+    opacity: 0;
+}
 .cardArea {
-    width: 44%;
-    height: auto;
-    line-height: 3rem;
+    /*height: 100%;*/
+    line-height: 3.2rem;
     color: #345;
     background-color: #ffffff;
     border-radius: 0.3rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-    margin: 1.0rem 1.7% 1.0rem 1.7%;
-    padding: 1%;
-    float: left;
+    margin: 0.0rem 5% 1.0rem 5%;
+    padding: 1rem;
+    overflow: hidden;
     word-wrap: break-word;
+}
+/*----- flex -----*/
+/*.cardArea:nth-of-type(1),
+.cardArea:nth-of-type(2)
+{
+    width: calc((100% - 19rem) / 2 - 0.5rem);
+}
+.cardArea:nth-of-type(3),
+.cardArea:nth-of-type(4),
+.cardArea:nth-of-type(5){
+    width: 100%;
+}*/
+/*----- flex -----*/
+.cardArea a {
+    color: #3478a4;
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.cardArea a:after {
+    content: attr(href);
+}
+
+.cardArea a:hover {
+    color: #00A7F4;
 }
 
 .cardContents {
@@ -188,16 +338,21 @@ input:focus::-webkit-input-placeholder {
     /*border-bottom: 0.1rem solid #bdbdbd;*/
     display: block;
 }
+.cardContents > span {
+    color: #5c6169;
+}
+
 /*=================================================================================*/
-/*Ripple Effect*/
+/*Ripple */
+
 .ripple {
     position: relative;
     overflow: hidden;
 }
 
 .ripple .rp-effect {
-    background: #fff;
-    opacity: 0.5;
+    background: #37819e;
+    opacity: 0.35;
     border-radius: 50%;
     position: absolute;
     transform: scale(0);
@@ -211,7 +366,6 @@ input:focus::-webkit-input-placeholder {
         transform: scale(2.0);
     }
 }
-
 /*=================================================================================*/
 /*Scrollbar*/
 
@@ -224,7 +378,6 @@ input:focus::-webkit-input-placeholder {
     background: rgb(209, 212, 214);
     box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.6);
 }
-
 ::-webkit-scrollbar-thumb:active {
     background: rgb(199, 202, 204);
     box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.65);

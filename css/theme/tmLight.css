@@ -1,0 +1,135 @@
+body {
+    background-color: #f7f7f7;
+}
+a {
+    color: #345;
+}
+::selection {
+    color: #345;
+    background-color: #bcd;
+}
+#bodyHead {
+    background-color: #678;
+    box-shadow: 0 0.3rem 1.0rem rgba(0, 0, 0, 0.3);
+}
+#searchGroup {
+    background-color: #fafafa;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
+    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
+}
+#searchHeader {
+    color: #678;
+}
+#search {
+    background-color: #ebedee;
+}
+#search:focus {
+    color: #456;
+}
+#search::-webkit-input-placeholder {
+    color: #abc;
+}
+#searchReset {
+    color: #345;
+}
+.searchResetHidden {
+}
+.searchResetView {
+}
+#searchResult {
+    -webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;
+}
+#searchResult a {
+    -webkit-transition: 0.25s ease-out all;
+}
+#searchResult a:hover {
+    background: #ebedee;
+}
+#resultNum {
+    color: #345;
+}
+#systemLinkArea {
+    background-color: #fff;
+    border-right: 0.1rem solid #ccc;
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
+    opacity: 1;
+}
+#moreMenu {}
+#moreMenu:hover {}
+.menuItems {
+    color: #345;
+    transition: 0.3s all;
+}
+.menuItems:hover {
+    background-color: #ebedee;
+}
+.systemLink {
+    color: #345;
+    transition: 0.3s all;
+}
+.systemLink:hover {
+    background-color: #ebedee;
+}
+.faviconBig {
+}
+#bodyMain {
+    opacity: 1;
+}
+.cntntModule {
+    background-color: #fff;
+    border: 0.1rem solid #ccc;
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    -webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
+}
+.cntntHead {
+    color: #345;
+    border-bottom: 0.1rem solid #abc;
+}
+.cntntModule ul {
+}
+.cntntModule ul li {
+}
+.cntntModule ul li:hover {
+    -webkit-transition: 0.25s ease-out all;
+    background: #f5f5f5;
+}
+.cntntModule ul li a {
+}
+.bkmrkNum {
+    color: #999;
+}
+.favicon {
+}
+.hideModule {
+}
+.form_tggl {
+    background-color: #cccccc;
+    transition: .4s;
+}
+.form_tggl:after {
+    background-color: #ECEFF1;
+    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.35);
+    transition: .3s;
+}
+.form_tggl:hover:after {
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
+}
+.form_tggl_on {
+    background-color: #BBDEFB;
+}
+.form_tggl_on:after {
+    background-color: #42A5F5;
+}
+.bg-searchMenu {
+	background-color: #ebedee;
+}
+.ripple {
+}
+.ripple .rp-effect {
+    background: #37819e;
+}
+@-webkit-keyframes ripple {
+    to {
+    }
+}
