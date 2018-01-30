@@ -129,7 +129,3 @@ a {
 .ripple .rp-effect {
     background: #37819e;
 }
-@-webkit-keyframes ripple {
-    to {
-    }
-}
