@@ -126,11 +126,11 @@ let funcSetCSS = (data) => {
 // =================================================================================
 
 $(function() {
-    getData('theme', funcSetCSS);
+    // getData('theme', funcSetCSS);
     getData('contentsData', addContents);
-    getData('tgglIcon', funcTgglIcon);
-    getData('tgglOpenTab', funcTgglOpenTab);
-    getData('txtScale', funcTxtScale);
+    // getData('tgglIcon', funcTgglIcon);
+    // getData('tgglOpenTab', funcTgglOpenTab);
+    // getData('txtScale', funcTxtScale);
     deSVG('.faviconBig', true);
     $(document).keydown(function(event) {
         if (event.altKey) { // [ Alt + B ]

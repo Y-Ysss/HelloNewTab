@@ -54,7 +54,7 @@ li:before {
     margin: -0.3rem 0 0 0;
     vertical-align: middle;
 }
-input[type="text"] {
+.textf {
     width: 15.0rem;
     color: #456;
     border: none;
@@ -72,7 +72,7 @@ input[type="text"] {
     text-overflow: ellipsis;
 }
 
-input[type="text"]:focus {
+.textf:focus {
     /*width: 20.0rem;*/
     border-bottom: 0.15rem solid #678;
     /*margin-right: 1.0rem;*/
@@ -91,7 +91,7 @@ input[type=radio] + label {
     margin: 0 0 0 3rem;
     padding-left: 2.2rem;
 }
-input[type="text"]:focus::-webkit-input-placeholder {
+.textf:focus::-webkit-input-placeholder {
     color: #ccc;
 }
 

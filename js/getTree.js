@@ -56,8 +56,8 @@ let createContents = function() {
     if(appendData !== "") {
         setData({'contentsData' : appendData});
         appendData = "";
-        console.log('created');  
+        // console.log('created');  
     } else {
-        console.log('not doing');
+        // console.log('not doing');
     }
 }

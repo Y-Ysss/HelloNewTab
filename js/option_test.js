@@ -1,4 +1,4 @@
-let aaa = new class {
+let clSetting = new class {
     constructor() {
         //Default settings
         this.settings = {
@@ -12,13 +12,17 @@ let aaa = new class {
                 "radio": {
                     "theme": "tmLight"
                 }
+
             },
             this.bookmarks = "",
             this.initData()
     }
     // save
     saveData() {
-        chrome.storage.local.set({settings: this.settings, bookmarks: this.bookmarks})
+        chrome.storage.local.set({
+            settings: this.settings,
+            bookmarks: this.bookmarks
+        })
     }
     // load
     initData() {
@@ -33,7 +37,6 @@ let aaa = new class {
         this.pageFunc()
         this.versionInfo()
         this.gitCommitsInfo()
-        rippleEffect();
     }
     // called init() 
     walkJson(data) {
@@ -59,16 +62,16 @@ let aaa = new class {
     pageFunc() {
         $('.toggle').click(function() {
             $(this).toggleClass('toggle_on');
-            aaa.settings.toggle[$(this)[0].id] *= -1;
-            aaa.saveData();
+            clSetting.settings.toggle[$(this)[0].id] *= -1;
+            clSetting.saveData();
         });
         $('.textf').blur(function() {
-            aaa.settings.text[$(this)[0].id] = $(this)[0].value;
-            aaa.saveData();
+            clSetting.settings.text[$(this)[0].id] = $(this)[0].value;
+            clSetting.saveData();
         });
         $('input[type="radio"]').click(function() {
-            aaa.settings.radio[$(this)[0].name] = $(this)[0].id;
-            aaa.saveData();
+            clSetting.settings.radio[$(this)[0].name] = $(this)[0].id;
+            clSetting.saveData();
         });
     }
 
