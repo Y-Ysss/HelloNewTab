@@ -1,4 +1,4 @@
-let searchView = function() {
+let searchView = () => {
     let key = $('#search').val();
     chrome.bookmarks.search(key, function(results) {
         let joinResult = "";
@@ -25,7 +25,7 @@ let searchView = function() {
 
 // =================================================================================
 // =================================================================================
-let hideSearchResult = function() {
+let hideSearchResult = () => {
     $('#search').val("");
     $('#searchReset').removeClass('searchResetView');
     $('#searchResult').empty();
@@ -33,31 +33,29 @@ let hideSearchResult = function() {
 }
 
 // call >> getData( [get item name ... string, array of string, object] , [action ... function] );
-let getData = function(data, func) {
+let getData = (data, func) => {
     chrome.storage.local.get(data, function(value) {
         func(value);
     });
 }
 // ============================
 
-let funcTgglIcon = function(data) {
+let funcTgglIcon = (data) => {
     // $('.favicon').css('border-radius', 25 - 25 * data.tgglIcon + '%');
     if (data.tgglIcon === 1) {
         $('.favicon').css('border-radius', '0%');
-        // console.log(0);
     } else {
         $('.favicon').css('border-radius', '50%');
-        // console.log(50);
     }
 }
 
-let funcTgglOpenTab = function(data) {
+let funcTgglOpenTab = (data) => {
     if (data.tgglOpenTab === 1) {
         $('head').append('<base target="_blank">');
     }
 }
 
-let funcTxtScale = function(data) {
+let funcTxtScale = (data) => {
     const scale = data.txtScale;
     if (!isNaN(scale) && scale !== '') {
         $('html').css('zoom', scale + '%');
@@ -90,7 +88,7 @@ $(window).resize(function() {
     }, 200);
 });
 
-let addContents = function(data) {
+let addContents = (data) => {
     $('#bodyMain').append(data.contentsData);
     // $('#bodyMain').masonry({
     //     itemSelector: '.cntntModule'
@@ -118,7 +116,7 @@ let addContents = function(data) {
 
 let ld;
 
-let funcSetCSS = function(data) {
+let funcSetCSS = (data) => {
     // if(data.theme !== undefined) {
     tm = data.theme === undefined ? 'tmLight' : data.theme;
     $('head').append('<link rel="stylesheet" type="text/css" href="css/theme/' + tm + '.css">');
