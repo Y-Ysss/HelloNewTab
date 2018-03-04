@@ -13,12 +13,11 @@ let aaa = new class {
                     "theme": "tmLight"
                 }
             },
-            this.bookmarks = "",
             this.initData()
     }
     // save
     saveData() {
-        chrome.storage.local.set({settings: this.settings, bookmarks: this.bookmarks})
+        chrome.storage.local.set({settings: this.settings})
     }
     // load
     initData() {
