@@ -1,5 +1,5 @@
 body {
-    background-color: #f7f7f7;
+    background-color: #f6f6f6;
 }
 a {
     color: #345;
@@ -50,7 +50,7 @@ a {
 }
 #systemLinkArea {
     background-color: #fff;
-    border-right: 0.1rem solid #ccc;
+    /*border-right: 0.1rem solid #ccc;*/
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
     -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
     opacity: 1;
@@ -78,7 +78,7 @@ a {
 }
 .cntntModule {
     background-color: #fff;
-    border: 0.1rem solid #ccc;
+    /*border: 0.1rem solid #ccc;*/
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
     -webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
 }

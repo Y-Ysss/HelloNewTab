@@ -32,7 +32,7 @@ let BookmarkNode = function(bookmark) {
                 joinBkmrk = "";
             }
         // }
-    } else {
+    } else if(bookmark.url !== undefined){
         let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
         joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' +
             bookmark.url + '">' + title + '</a></li>';
@@ -51,7 +51,7 @@ let createContents = function() {
     if(appendData !== "") {
         // setData({'contentsData' : appendData});
         chrome.storage.local.set({contentsData: appendData})
-
+        console.log("as")
         appendData = "";
     }
 
