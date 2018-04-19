@@ -23,6 +23,7 @@ a {
     color: #678;
 }
 #search {
+    color: #567;
     background-color: #263238;
 }
 
@@ -31,6 +32,14 @@ a {
 }
 #search::-webkit-input-placeholder {
     color: #89a;
+}
+
+#searchView {
+    color: #fff;
+    background-color: #004064;
+}
+#searchView:hover {
+    background-color: #105074;
 }
 #searchReset {
     color: #ccc;
@@ -50,15 +59,14 @@ a {
     background-color: #171E22;
     /*border-right: 0.1rem solid #345;*/
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
     opacity: 1;
 }
 
-.menuItems {
+.menu {
     transition: 0.3s all;
     color: #abadae;
 }
-.menuItems:hover{
+.menu:hover{
     background-color: #263238;
 }
 .systemLink{

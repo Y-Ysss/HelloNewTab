@@ -14,14 +14,21 @@
 <body>
     <div id="searchGroup">
         <div id="searchHeader">Search</div>
+        <span id="inputArea">
         <input id="search" type="text" placeholder="ブックマークの検索" required>
-        <span id="searchReset" class="searchResetHidden">×</span>
-        <div id="searchResult"></div>
+        <input id="searchView" class="actionItems" type="submit" value=" 〉"></input>
+        </span>
+        <span id="searchReset" class="actionItems searchResetHidden">×</span>
+            <div id="progressBar">
+                <div id="progress"></div>
+            </div>
+        <div id="searchResult">
+        </div>
     </div>
     <div id="mFilter"></div>
-    <div id="systemLinkArea" view="0">
-        <div id="moreMenu" class="ripple more menuItems"><img class="faviconBig" src="img/iconMenu.svg">System Pages</div>
-        <div id="searchMenu" class="ripple menuItems" view="0"><img class="faviconBig" src="img/iconSearch.svg">Search Bookmarks</div>
+    <div id="systemLinkArea">
+        <div id="moreMenu" class="ripple menu actionItems"><img class="faviconBig" src="img/iconMenu.svg">System Pages</div>
+        <div id="searchMenu" class="ripple menu actionItems"><img class="faviconBig" src="img/iconSearch.svg">Search Bookmarks</div>
         <a class="ripple systemLink createTabLink" href="chrome://apps/"><img class="faviconBig" src="img/iconApp.svg">App</a>
         <a class="ripple systemLink createTabLink" href="chrome://bookmarks/"><img class="faviconBig" src="img/iconBookmarks.svg">Bookmark</a>
         <a class="ripple systemLink createTabLink" href="chrome://history/"><img class="faviconBig" src="img/iconHistory.svg">History</a>
@@ -29,7 +36,9 @@
         <a class="ripple systemLink createTabLink" href="chrome://extensions/"><img class="faviconBig" src="img/iconExtensions.svg">Extension</a>
         <a class="ripple systemLink createTabLink" href="chrome://settings/"><img class="faviconBig" src="img/iconSetting.svg">Setting</a>
         <a class="ripple systemLink" href="option.html" target="_blank"><img class="faviconBig" src="img/iconOption.svg">Option</a>
-        <div id="vsbltyMenu" class="ripple more menuItems"><img class="faviconBig" src="img/iconShow.svg">Visibility<div class="form_tggl" id="tggl1"></div></div>
+        <div id="switchTheme" class="ripple menu actionItems"><img class="faviconBig" src="img/iconTheme.svg">Switch Theme</div>
+        <div id="vsbltyMenu" class="ripple menu actionItems"><img class="faviconBig" src="img/iconShow.svg">Visibility<div class="form_tggl" id="tggl1"></div></div>
+
     </div>
     <div id="bodyMain">
     </div>
@@ -38,7 +47,6 @@
     <script type="text/javascript" src="js/lib/desvg.js"></script>
     <script type="text/javascript" src="js/lib/macy.js"></script>
     <script type="text/javascript" src="js/newtab.js"></script>
-    <script type="text/javascript" src="js/newtab_.js"></script>
 </body>
 
 </html>

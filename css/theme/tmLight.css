@@ -8,10 +8,6 @@ a {
     color: #345;
     background-color: #bcd;
 }
-#bodyHead {
-    background-color: #678;
-    box-shadow: 0 0.3rem 1.0rem rgba(0, 0, 0, 0.3);
-}
 #searchGroup {
     background-color: #fafafa;
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
@@ -21,6 +17,7 @@ a {
     color: #678;
 }
 #search {
+    color: #678;
     background-color: #ebedee;
 }
 #search:focus {
@@ -28,6 +25,13 @@ a {
 }
 #search::-webkit-input-placeholder {
     color: #abc;
+}
+#searchView {
+    color: #234;
+    background-color: #d6dde1;
+}
+#searchView:hover {
+    background-color: #b8d1df;
 }
 #searchReset {
     color: #345;
@@ -52,16 +56,13 @@ a {
     background-color: #fff;
     /*border-right: 0.1rem solid #ccc;*/
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
     opacity: 1;
 }
-#moreMenu {}
-#moreMenu:hover {}
-.menuItems {
+.menu {
     color: #345;
     transition: 0.3s all;
 }
-.menuItems:hover {
+.menu:hover {
     background-color: #ebedee;
 }
 .systemLink {
