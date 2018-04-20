@@ -50,8 +50,8 @@ li:before {
     width: 2rem;
     height: 2rem;
     opacity: 0.7;
-    padding: 0 1rem 0 0;
     margin: -0.3rem 0 0 0;
+    padding: 0 1rem 0 0;
     vertical-align: middle;
 }
 .textf {
@@ -279,7 +279,7 @@ input[type=radio]:checked + label:after {
 }
 #bodyMain {
     margin: 0 0 0 19rem;
-    padding: 0.0rem 0 2.0rem 0;
+    padding: 0.0rem 0 7.0rem 0;
 
 
     /*----- flex -----*/
@@ -298,7 +298,7 @@ input[type=radio]:checked + label:after {
     line-height: 3.2rem;
     color: #345;
     background-color: #ffffff;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
     margin: 0.0rem 5% 1.0rem 5%;
     padding: 1rem;

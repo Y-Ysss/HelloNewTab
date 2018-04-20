@@ -2,19 +2,19 @@ let ini = new class {
     constructor() {
         //Default settings
         this.settings = {
-            "toggle": {
-                "tgglIcon": -1,
-                "tgglOpenTab": -1
+                "toggle": {
+                    "tgglIcon": -1,
+                    "tgglOpenTab": -1
+                },
+                "text": {
+                    "txtScale": ""
+                },
+                "radio": {
+                    "theme": "tmLight"
+                }
             },
-            "text": {
-                "txtScale": ""
-            },
-            "radio": {
-                "theme": "tmLight"
-            }
-        },
-        this.contentsData = "",
-        this.initData()
+            this.contentsData = "",
+            this.initData()
     }
     // save
     saveData() {
@@ -148,7 +148,6 @@ let ev = new class {
     }
 
     searchView() {
-        $('progressBar').css('display', 'block');
         const words = $('#search').val();
         chrome.bookmarks.search(words, function(results) {
             let joinResult = "";
@@ -160,12 +159,11 @@ let ev = new class {
             });
             $('#searchResult').append(joinResult + '<div id="resultNum">Search Result : ' + results.length + '</div>');
         });
-        $('progressBar').css('display', 'none');
         $('#searchResult').empty();
     }
     switchTheme() {
         let tm = ini.settings.radio.theme;
-        if(tm == 'tmLight') {
+        if (tm == 'tmLight') {
             tm = 'tmDark';
         } else {
             tm = 'tmLight';
@@ -187,11 +185,11 @@ $('#search').keyup(function(e) {
 $(document).keydown(function(event) {
     if (event.altKey) { // [ Alt + B ]
         if (event.keyCode === 66 && $('#search').val() === '') {
-            ev.searchArea(0);
+            ev.searchMenu(0);
         }
     }
     if (event.keyCode === 27 && $('#search').focus()) { // [ Esc ]
-        ev.searchArea(1);
+        ev.searchMenu(1);
     }
 });
 $(document).click(function(event) {
@@ -206,7 +204,7 @@ $('.actionItems').click(function() {
 
 $('.createTabLink').click(function() {
     chrome.tabs.create({ url: $(this).attr('href') });
-    ev.linkArea(1);
+    ev.moreMenu(1);
     $('#mFilter').removeClass('filter');
 });
 

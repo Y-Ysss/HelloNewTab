@@ -57,14 +57,14 @@ a {
 
 #systemLinkArea {
     background-color: #171E22;
+    opacity: 1;
     /*border-right: 0.1rem solid #345;*/
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-    opacity: 1;
 }
 
 .menu {
-    transition: 0.3s all;
     color: #abadae;
+    transition: 0.3s all;
 }
 .menu:hover{
     background-color: #263238;
@@ -78,7 +78,7 @@ a {
     background-color: #263238;
 }
 .faviconBig {
-	fill:#fff;
+    fill:#fff;
 }
 
 #bodyMain {
@@ -92,7 +92,7 @@ a {
 }
 
 .cntntHead {
-	color: #ccc;
+    color: #ccc;
     border-bottom: 0.1rem solid #0C5073;
 }
 
@@ -144,5 +144,5 @@ a {
 
 
 .bg-searchMenu {
-	background-color: #263238;
+    background-color: #263238;
 }

@@ -14,14 +14,14 @@
 <body>
     <div id="searchGroup">
         <div id="searchHeader">Search</div>
-        <span id="inputArea">
-        <input id="search" type="text" placeholder="ブックマークの検索" required>
-        <input id="searchView" class="actionItems" type="submit" value=" 〉"></input>
-        </span>
-        <span id="searchReset" class="actionItems searchResetHidden">×</span>
-            <div id="progressBar">
-                <div id="progress"></div>
-            </div>
+        <div id="inputArea">
+            <input id="search" type="text" placeholder="ブックマークの検索" required>
+            <input id="searchView" class="actionItems" type="submit" value=" 〉"></input>
+            <span id="searchReset" class="actionItems searchResetHidden">×</span>
+        </div>
+        <div id="progressBar" class="hideModule">
+            <div id="progress"></div>
+        </div>
         <div id="searchResult">
         </div>
     </div>
@@ -37,8 +37,9 @@
         <a class="ripple systemLink createTabLink" href="chrome://settings/"><img class="faviconBig" src="img/iconSetting.svg">Setting</a>
         <a class="ripple systemLink" href="option.html" target="_blank"><img class="faviconBig" src="img/iconOption.svg">Option</a>
         <div id="switchTheme" class="ripple menu actionItems"><img class="faviconBig" src="img/iconTheme.svg">Switch Theme</div>
-        <div id="vsbltyMenu" class="ripple menu actionItems"><img class="faviconBig" src="img/iconShow.svg">Visibility<div class="form_tggl" id="tggl1"></div></div>
-
+        <div id="vsbltyMenu" class="ripple menu actionItems"><img class="faviconBig" src="img/iconShow.svg">Visibility
+            <div class="form_tggl" id="tggl1"></div>
+        </div>
     </div>
     <div id="bodyMain">
     </div>
