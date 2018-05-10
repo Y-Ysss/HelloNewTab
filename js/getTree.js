@@ -1,16 +1,15 @@
-// //call > setData( [object] );
-// let setData = function (data) {
-//     chrome.storage.local.set(data, function() {
-//         getData(Object.keys(data), console.log);
-//     });
-// }
-// // call > getData( [string, array of string, object] , [function] );
-// let getData = function(data, func) {
-//     chrome.storage.local.get(data, function(value) {
-//         func(value);
-//     });
-// }
-// ==================================
+//call > setData( [object] );
+let setData = function (data) {
+    chrome.storage.local.set(data, function() {
+        getData(Object.keys(data), console.log);
+    });
+}
+// call > getData( [string, array of string, object] , [function] );
+let getData = function(data, func) {
+    chrome.storage.local.get(data, function(value) {
+        func(value);
+    });
+}
 let joinBkmrk = "";
 let appendData = "";
 let BookmarkNode = function(bookmark) {

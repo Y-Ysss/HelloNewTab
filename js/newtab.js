@@ -54,10 +54,11 @@ let ini = new class {
                 y: 15
             },
             breakAt: {
-                1200: 5,
-                940: 3,
-                520: 2,
-                400: 1
+               1200: 5,
+                990: 4,
+                780: 3,
+                620: 2,
+                430: 1
             }
         });
     }
@@ -87,6 +88,7 @@ let ini = new class {
     // called walkJson()
     theme(a) {
         $('head').append('<link id="ssTheme" rel="stylesheet" type="text/css" href="css/theme/' + a + '.css">');
+        $('input[name="theme"]').val([a]);
     }
 
 }
@@ -97,11 +99,15 @@ let ev = new class {
         this.systemLinkArea = 0;
         this.searchArea = 0;
         this.filter = 0;
+        this.floatMenu = {
+            theme : 0
+        }
     }
     moreMenu(a = this.systemLinkArea) {
         this.modeFilter(a);
         if (a === 0) { // visible
             this.searchMenu(1);
+            this.selectTheme(1);
             $('#systemLinkArea').css('width', '19rem');
             this.systemLinkArea = 1;
         } else { // hidden
@@ -113,6 +119,7 @@ let ev = new class {
     searchMenu(a = this.searchArea) {
         if (a === 0) { // visible
             this.moreMenu(1);
+            this.selectTheme(1);
             $('#searchGroup').css('width', '30rem');
             $('#searchMenu').addClass('bg-searchMenu');
             $('#search').focus();
@@ -161,14 +168,19 @@ let ev = new class {
         });
         $('#searchResult').empty();
     }
-    switchTheme() {
-        let tm = ini.settings.radio.theme;
-        if (tm == 'tmLight') {
-            tm = 'tmDark';
+
+    selectTheme(a = this.floatMenu.theme) {
+        if(a === 0) {
+            this.moreMenu(1);
+            $('#fmTheme').css({visibility:'visible', opacity:'1'});
+            this.floatMenu.theme = 1;
         } else {
-            tm = 'tmLight';
+            $('#fmTheme').css({visibility:'hidden', opacity:'0'});
+            this.floatMenu.theme = 0;
         }
-        ini.settings.radio.theme = tm;
+    }
+
+    applyTheme() {
         ini.saveData();
         location.reload();
     }
@@ -201,7 +213,6 @@ $(document).click(function(event) {
 $('.actionItems').click(function() {
     ev[this.id]();
 });
-
 $('.createTabLink').click(function() {
     chrome.tabs.create({ url: $(this).attr('href') });
     ev.moreMenu(1);
@@ -211,8 +222,22 @@ $('.createTabLink').click(function() {
 $('#tggl1').click(function() {
     $(this).toggleClass('form_tggl_on');
     if ($(this).hasClass('form_tggl_on')) {
-        $('.hideModule').css('visibility', 'visible').css('opacity', '1');
+        $('.hideModule').css({visibility:'visible', opacity:'1'});
     } else {
-        $('.hideModule').css('visibility', 'hidden').css('opacity', '0');
+        $('.hideModule').css({visibility:'hidden', opacity:'0'});
     }
+});
+
+$('input[type="radio"]').click(function() {
+    ini.settings.radio[$(this)[0].name] = $(this)[0].id;
+});
+
+$(window).resize(function() {
+    let timer;
+    if (timer !== false) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+        ini.funcMacy();
+    }, 200);
 });

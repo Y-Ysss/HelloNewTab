@@ -36,7 +36,19 @@
         <a class="ripple systemLink createTabLink" href="chrome://extensions/"><img class="faviconBig" src="img/iconExtensions.svg">Extension</a>
         <a class="ripple systemLink createTabLink" href="chrome://settings/"><img class="faviconBig" src="img/iconSetting.svg">Setting</a>
         <a class="ripple systemLink" href="option.html" target="_blank"><img class="faviconBig" src="img/iconOption.svg">Option</a>
-        <div id="switchTheme" class="ripple menu actionItems"><img class="faviconBig" src="img/iconTheme.svg">Switch Theme</div>
+        
+        <div id="selectTheme" class="ripple menu actionItems">
+            <img class="faviconBig" src="img/iconTheme.svg">Switch Theme
+            <div id="fmTheme" class="floatMenu">
+                <div><input type="radio" name="theme" id="tmLight" value="tmLight">
+                <label for="tmLight">Light</label></div>
+                <div>
+                <input type="radio" name="theme" id="tmDark" value="tmDark">
+                <label for="tmDark">Dark</label></div>
+
+                <div id="applyTheme" class="button ripple actionItems">Apply</div>
+            </div>
+        </div>
         <div id="vsbltyMenu" class="ripple menu actionItems"><img class="faviconBig" src="img/iconShow.svg">Visibility
             <div class="form_tggl" id="tggl1"></div>
         </div>
