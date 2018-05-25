@@ -345,31 +345,6 @@ ul {
     left: 2.2rem;
 }
 
-.button {
-    color: #FFF;
-    background-color: #7190ad;
-    /*background-color: #115273;*/
-    border-radius: 0.3rem;
-    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.35);
-    margin: 1.5rem 0.5rem 1.5rem 0.5rem;
-    padding: 0.4rem 1.6rem;
-    display: inline-block;
-    cursor: pointer;
-    transition: .3s ease-out;
-    vertical-align: middle;
-    /*font-size: 1em;*/
-    letter-spacing: 0.05em;
-}
-
-.button:hover {
-    background-color: #3276A3;
-    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
-}
-
-.button:active{
-    background-color: #7190ad;
-    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.5);
-}
 
 /*======================*/
 /*Scrollbar*/
@@ -416,16 +391,41 @@ ul {
     }
 }
 
+
+.button {
+    /*color: #7190ad;*/
+    border-radius: 0.5rem;
+    /*border: #7190ad solid 1px;*/
+    margin: 1.5rem 0.5rem 1.5rem 0.5rem;
+    padding: 0.24rem 1rem;
+    display: inline-block;
+    cursor: pointer;
+    transition: .3s ease-out;
+    vertical-align: middle;
+    letter-spacing: 0.05em;
+}
+
+.button:hover {
+    /*color:#3276A3;*/
+    /*border: #3276A3 solid 1px;*/
+}
+
+.button:active{
+    /*color: #115273;*/
+    /*border: #115273 solid 1px;*/
+}
+
 .floatMenu {
-    background-color:#fff;
+    /*background-color:#fff;*/
     position: fixed;
     padding:0.6rem;
-    margin: -3rem 0 0 4rem;
+    margin: -3rem 0 0 3rem;
     border-radius: 0.5rem;
-    box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.4);
+    /*box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.4);*/
     visibility: hidden;
     opacity: 0;
     -webkit-transition: 0.14s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
+    cursor:default;
 }
 #fmTheme div {
     margin:0.6rem 0.4rem;
@@ -436,19 +436,19 @@ input[type=radio]{
 
 }
 input[type=radio] + label {
+    color:#333;
     position: relative;
     padding: 0 0.4rem 0 2.2rem;
+    cursor:pointer;
 }
-.textf:focus::-webkit-input-placeholder {
-    color: #ccc;
-}
+
 
 input[type=radio] + label::before {
     top: 0.3rem;
     left: 0.2rem;
     width: 1.6rem;
     height: 1.6rem;
-    border: 0.2rem solid #9E9E9E;
+    /*border: 0.2rem solid #9E9E9E;*/
     border-radius: 50%;
     position: absolute;
     box-sizing: border-box;
@@ -457,14 +457,14 @@ input[type=radio] + label::before {
     transition: .2s;
 }
 input[type=radio]:checked + label:before {
-    border: 0.2rem solid #42A5F5;
+    /*border: 0.2rem solid #42A5F5;*/
 }
 input[type=radio] + label:after {
     top: 0.7rem;
     left: 0.6rem;
     width: 0.8rem;
     height: 0.8rem;
-    background-color: #42A5F5;
+    /*background-color: #42A5F5;*/
     border-radius: 50%;
     position: absolute;
     box-sizing: border-box;

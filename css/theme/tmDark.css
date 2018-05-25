@@ -146,3 +146,37 @@ a {
 .bg-searchMenu {
     background-color: #263238;
 }
+
+.button {
+    color: #abc;
+    border: #abc solid 1px;
+}
+
+.button:hover {
+    color:#42A5F5;
+    border: #42A5F5 solid 1px;
+}
+
+.button:active{
+    color: #fff;
+    border: #fff solid 1px;
+}
+
+.floatMenu {
+    background-color:#263238;
+    box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.8);
+}
+input[type=radio] + label {
+    color:#fff;
+}
+
+
+input[type=radio] + label::before {
+    border: 0.2rem solid #9E9E9E;
+}
+input[type=radio]:checked + label:before {
+    border: 0.2rem solid #42A5F5;
+}
+input[type=radio] + label:after {
+    background-color: #42A5F5;
+    }

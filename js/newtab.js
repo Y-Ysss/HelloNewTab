@@ -39,6 +39,7 @@ let ini = new class {
         $('#bodyMain').append(this.contentsData);
         this.funcMacy();
         rippleEffect();
+        this.contentsData = "";
     }
 
     // called addContents()
@@ -172,10 +173,10 @@ let ev = new class {
     selectTheme(a = this.floatMenu.theme) {
         if(a === 0) {
             this.moreMenu(1);
-            $('#fmTheme').css({visibility:'visible', opacity:'1'});
+            $('#fmTheme').css({margin: '-3rem 0 0 4rem', visibility:'visible', opacity:'1'});
             this.floatMenu.theme = 1;
         } else {
-            $('#fmTheme').css({visibility:'hidden', opacity:'0'});
+            $('#fmTheme').css({margin: '-3rem 0 0 3rem', visibility:'hidden', opacity:'0'});
             this.floatMenu.theme = 0;
         }
     }
