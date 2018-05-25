@@ -12,8 +12,6 @@ body {
     /*letter-spacing: 0.1rem;*/
 }
 
-
-
 hr {
     border-color: #E2E2E2;
 }
@@ -46,15 +44,17 @@ li:before {
 .uln span {
     color: #999;
 }
+
+/*======================*/
 .icons {
     width: 2rem;
     height: 2rem;
     opacity: 0.7;
-    padding: 0 1rem 0 0;
     margin: -0.3rem 0 0 0;
+    padding: 0 1rem 0 0;
     vertical-align: middle;
 }
-input[type="text"] {
+.textf {
     width: 15.0rem;
     color: #456;
     border: none;
@@ -72,7 +72,7 @@ input[type="text"] {
     text-overflow: ellipsis;
 }
 
-input[type="text"]:focus {
+.textf:focus {
     /*width: 20.0rem;*/
     border-bottom: 0.15rem solid #678;
     /*margin-right: 1.0rem;*/
@@ -91,7 +91,7 @@ input[type=radio] + label {
     margin: 0 0 0 3rem;
     padding-left: 2.2rem;
 }
-input[type="text"]:focus::-webkit-input-placeholder {
+.textf:focus::-webkit-input-placeholder {
     color: #ccc;
 }
 
@@ -131,49 +131,8 @@ input[type=radio]:checked + label:after {
     color: #345;
     background-color: #bcd;
 }
-/*
-.colorSample {
-    width: 15rem;
-    height: 5rem;
-    border: 0.1rem solid #3295e5;
-    border-radius: 0.2rem;
-    box-sizing: border-box;
-    margin: 1rem 0 0 1rem;
-    padding: 0.2rem;
-    display: inline-block;
-    vertical-align: top;
-    text-align: center;
-}
-.colorSample div {
-    width: 4rem;
-    height: 3.2rem;
-    border-radius: 0.2rem;
-    display: inline-block;
-    margin: 0.5rem;
-    vertical-align: top;
-    text-align: center;
-}
-.colorLight {
-    background-color: #f7f7f7;
-}
-.colorLight div{
-    color: #345;
-    background-color: #fff;
-    border: 0.1rem solid #ccc;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-}
 
-.colorDark {
-    background-color: #232E34;
-}
-.colorDark div{
-    color: #ccc;
-    background-color: #171E22;
-    border: 0.1rem solid #666;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-}*/
-
-/*=================================================================================*/
+/*======================*/
 /*Button*/
 .button {
     color: #FFF;
@@ -248,7 +207,7 @@ input[type=radio]:checked + label:after {
 }
 
 
-/*=================================================================================*/
+/*======================*/
 
 #leftMenu {
     width: 19rem;
@@ -279,7 +238,7 @@ input[type=radio]:checked + label:after {
 }
 #bodyMain {
     margin: 0 0 0 19rem;
-    padding: 0.0rem 0 2.0rem 0;
+    padding: 0.0rem 0 7.0rem 0;
 
 
     /*----- flex -----*/
@@ -298,7 +257,7 @@ input[type=radio]:checked + label:after {
     line-height: 3.2rem;
     color: #345;
     background-color: #ffffff;
-    border-radius: 0.3rem;
+    border-radius: 0.5rem;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
     margin: 0.0rem 5% 1.0rem 5%;
     padding: 1rem;
@@ -342,7 +301,7 @@ input[type=radio]:checked + label:after {
     color: #5c6169;
 }
 
-/*=================================================================================*/
+/*======================*/
 /*Ripple */
 
 .ripple {
@@ -361,12 +320,17 @@ input[type=radio]:checked + label:after {
 }
 
 @-webkit-keyframes ripple {
-    to {
+    0% {
+        opacity: 0.35;
+        transform: scale(0.2);
+    }
+    100% {
         opacity: 0;
         transform: scale(2.0);
     }
 }
-/*=================================================================================*/
+
+/*======================*/
 /*Scrollbar*/
 
 ::-webkit-scrollbar {

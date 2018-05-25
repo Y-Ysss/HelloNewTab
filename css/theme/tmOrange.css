@@ -1,12 +1,12 @@
 body {
-    background-color: #f6f6f6;
+    background-color: #f6f5f4;
 }
 a {
-    color: #345;
+    color: #444;
 }
 ::selection {
-    color: #345;
-    background-color: #bcd;
+    color: #f4ad40;
+    background-color: #ccc;
 }
 #searchGroup {
     background-color: #fafafa;
@@ -14,27 +14,27 @@ a {
     -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
 }
 #searchHeader {
-    color: #678;
+    color: #f4bd50;
 }
 #search {
-    color: #678;
-    background-color: #ebedee;
+    color: #f4bd50;
+    background-color: #ffd050;
 }
 #search:focus {
-    color: #456;
+    color: #444;
 }
 #search::-webkit-input-placeholder {
-    color: #abc;
+    color: #fff0a0;
 }
 #searchView {
-    color: #234;
+    color: #222;
     background-color: #d6dde1;
 }
 #searchView:hover {
     background-color: #b8d1df;
 }
 #searchReset {
-    color: #345;
+    color: #333;
 }
 .searchResetHidden {
 }
@@ -47,10 +47,10 @@ a {
     -webkit-transition: 0.25s ease-out all;
 }
 #searchResult a:hover {
-    background: #ebedee;
+    background: #ffd050;
 }
 #resultNum {
-    color: #345;
+    color: #333;
 }
 #systemLinkArea {
     background-color: #fff;
@@ -59,18 +59,18 @@ a {
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 .menu {
-    color: #345;
+    color: #333;
     transition: 0.3s all;
 }
 .menu:hover {
-    background-color: #ebedee;
+    background-color: #fff0b0;
 }
 .systemLink {
-    color: #345;
+    color: #333;
     transition: 0.3s all;
 }
 .systemLink:hover {
-    background-color: #ebedee;
+    background-color: #fff0b0;
 }
 .faviconBig {
 }
@@ -84,15 +84,15 @@ a {
     -webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
 }
 .cntntHead {
-    color: #345;
-    border-bottom: 0.1rem solid #abc;
+    color: #333;
+    border-bottom: 0.1rem solid #ffd050;
 }
 .cntntModule ul {
 }
 .cntntModule ul li {
 }
 .cntntModule ul li:hover {
-    background: #f5f5f5;
+    background: #fff4b0;
     -webkit-transition: 0.25s ease-out all;
 }
 .cntntModule ul li a {
@@ -107,7 +107,7 @@ a {
     transition: .4s;
 }
 .form_tggl:after {
-    background-color: #ECEFF1;
+    background-color: #ffe080;
     box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.35);
     transition: .3s;
 }
@@ -115,33 +115,33 @@ a {
     box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
 }
 .form_tggl_on {
-    background-color: #BBDEFB;
+    background-color: #ffd050;
 }
 .form_tggl_on:after {
-    background-color: #42A5F5;
+    background-color: #f48d00;
 }
 .bg-searchMenu {
-    background-color: #ebedee;
+    background-color: #ffd050;
 }
 .ripple {
 }
 .ripple .rp-effect {
-    background: #37819e;
+    background: #f4ad30;
 }
 
 .button {
-    color: #7190ad;
-    border: #7190ad solid 1px;
+    color: #f48d00;
+    border: #f48d00 solid 1px;
 }
 
 .button:hover {
-    color:#3276A3;
-    border: #3276A3 solid 1px;
+    color:#f47d00;
+    border: #f47d00 solid 1px;
 }
 
 .button:active{
-    color: #115273;
-    border: #115273 solid 1px;
+    color: #f4ad30;
+    border: #f4ad30 solid 1px;
 }
 
 .floatMenu {
@@ -157,8 +157,8 @@ input[type=radio] + label::before {
     border: 0.2rem solid #9E9E9E;
 }
 input[type=radio]:checked + label:before {
-    border: 0.2rem solid #42A5F5;
+    border: 0.2rem solid #f48d00;
 }
 input[type=radio] + label:after {
-    background-color: #42A5F5;
+    background-color: #f48d00;
     }

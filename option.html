@@ -6,11 +6,6 @@
     <title>Option_Page</title>
     <base target="_blank">
     <link href="css/option.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="js/lib/jquery.js"></script>
-    <!-- <script type="text/javascript" src="js/lib/jquery.funcResizeBox.js"></script> -->
-    <!-- <script type="text/javascript" src="js/lib/masonry.min.js"></script> -->
-    <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
-    <script type="text/javascript" src="js/option.js"></script>
 </head>
 
 <body class="body">
@@ -45,24 +40,16 @@
                 <b>Page</b>
                 <br>
                 <span>ページの拡大 [%]</span>
-                <input id="txtScale" type="text" placeholder="Number (Default : 100%)">
+                <input id="txtScale" class="textf" type="text" placeholder="Number (Default : 100%)">
                 <hr noshade Size="1">
                 <span>ページのスタイル</span>
                 <div style="float: right;">
                     <input type="radio" name="theme" id="tmLight" value="tmLight">
-                    <label for="tmLight">Light
-                        <!-- <div class="colorSample colorLight">
-                            <div>text</div>
-                            <div>text</div>
-                        </div> -->
-                    </label>
+                    <label for="tmLight">Light</label>
                     <input type="radio" name="theme" id="tmDark" value="tmDark">
-                    <label for="tmDark">Dark
-                        <!-- <div class="colorSample colorDark">
-                            <div>text</div>
-                            <div>text</div>
-                        </div> -->
-                    </label>
+                    <label for="tmDark">Dark</label>
+                    <input type="radio" name="theme" id="tmOrange" value="tmOrange">
+                    <label for="tmOrange">Orange</label>
                 </div>
                 <hr noshade Size="1">
                 <!-- <hr noshade Size="1"> -->
@@ -88,15 +75,16 @@
                     <li><img class="icons" src="img/iconExtensions.svg">拡張機能ページ</li>
                     <li><img class="icons" src="img/iconSetting.svg">設定ページ</li>
                     <li><img class="icons" src="img/iconOption.svg">この拡張機能のオプションページ</li>
+                    <li><img class="icons" src="img/iconTheme.svg">テーマの切り替え</li>
                     <li><img class="icons" src="img/iconShow.svg">隠しフォルダーの表示<span> . . . . メニュー内のトグルボタンで表示・非表示の切り替えを行う</span></li>
                 </ul>
             </div>
             <div class="cardContents">
-                <b>System Link</b>
+                <b>System Links</b>
                 <br> ページ左側のサイドバーのメニューをクリックすると、ブラウザのシステムページが新規タブで開く。
             </div>
             <div class="cardContents">
-                <b>Hide BookmarkFolder</b>
+                <b>Hidden BookmarkFolders</b>
                 <br>ブックマークフォルダーの名前の最初の文字をクォーテーション(')にすると、デフォルトではリストを非表示にできる。隠しフォルダーの表示のトグルボタンをクリックすると、非表示にしたリストを表示できる。
             </div>
         </div>
@@ -145,6 +133,11 @@
             <h2>#Recently GitHub Commits</h2>
         </div>
     </div>
+    <script type="text/javascript" src="js/lib/jquery.js"></script>
+    <!-- <script type="text/javascript" src="js/lib/jquery.funcResizeBox.js"></script> -->
+    <!-- <script type="text/javascript" src="js/lib/masonry.min.js"></script> -->
+    <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
+    <script type="text/javascript" src="js/option.js"></script>
 </body>
 
 </html>

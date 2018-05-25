@@ -1,9 +1,8 @@
-chrome.runtime.onInstalled.addListener(function (){
+chrome.runtime.onInstalled.addListener(function() {
     // console.log('installed');
     // chrome.tabs.create({url:chrome.extension.getURL("hello.html")},function(){});
     createContents();
-});
-
+}),
 chrome.bookmarks.onChanged.addListener(function(a) {
     // console.log('changed');
     createContents();
@@ -19,13 +18,12 @@ chrome.bookmarks.onChildrenReordered.addListener(function(a) {
 chrome.tabs.onCreated.addListener(function(a) {
     // console.log('tabCreate');
     createContents();
-});
+}),
 chrome.bookmarks.onRemoved.addListener(function(a) {
     // console.log('Removed');
     createContents();
-}),
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-    // console.log('message : ' + message);
-    sendResponse(message);
-});
-
+})
+// chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+//     // console.log('message : ' + message);
+//     sendResponse(message);
+// });

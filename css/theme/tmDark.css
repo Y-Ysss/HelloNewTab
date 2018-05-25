@@ -1,5 +1,6 @@
 body {
-    background-color: #232E34;
+    /*background-color: #232E34;*/
+    background-color: #253036;
 }
 
 a {
@@ -22,6 +23,7 @@ a {
     color: #678;
 }
 #search {
+    color: #567;
     background-color: #263238;
 }
 
@@ -30,6 +32,14 @@ a {
 }
 #search::-webkit-input-placeholder {
     color: #89a;
+}
+
+#searchView {
+    color: #fff;
+    background-color: #004064;
+}
+#searchView:hover {
+    background-color: #105074;
 }
 #searchReset {
     color: #ccc;
@@ -47,17 +57,16 @@ a {
 
 #systemLinkArea {
     background-color: #171E22;
-    border-right: 0.1rem solid #345;
-    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
     opacity: 1;
+    /*border-right: 0.1rem solid #345;*/
+    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 
-.menuItems {
-    transition: 0.3s all;
+.menu {
     color: #abadae;
+    transition: 0.3s all;
 }
-.menuItems:hover{
+.menu:hover{
     background-color: #263238;
 }
 .systemLink{
@@ -69,21 +78,21 @@ a {
     background-color: #263238;
 }
 .faviconBig {
-	fill:#fff;
+    fill:#fff;
 }
 
 #bodyMain {
     opacity: 1;
 }
 .cntntModule {
-    border: 0.1rem solid #666;
+    /*border: 0.1rem solid #666;*/
     background-color: #171E22;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
     -webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
 }
 
 .cntntHead {
-	color: #ccc;
+    color: #ccc;
     border-bottom: 0.1rem solid #0C5073;
 }
 
@@ -135,5 +144,39 @@ a {
 
 
 .bg-searchMenu {
-	background-color: #263238;
+    background-color: #263238;
 }
+
+.button {
+    color: #abc;
+    border: #abc solid 1px;
+}
+
+.button:hover {
+    color:#42A5F5;
+    border: #42A5F5 solid 1px;
+}
+
+.button:active{
+    color: #fff;
+    border: #fff solid 1px;
+}
+
+.floatMenu {
+    background-color:#263238;
+    box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.8);
+}
+input[type=radio] + label {
+    color:#fff;
+}
+
+
+input[type=radio] + label::before {
+    border: 0.2rem solid #9E9E9E;
+}
+input[type=radio]:checked + label:before {
+    border: 0.2rem solid #42A5F5;
+}
+input[type=radio] + label:after {
+    background-color: #42A5F5;
+    }

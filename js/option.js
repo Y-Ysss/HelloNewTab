@@ -1,116 +1,100 @@
-//call >> setData( [set item data ... object] );
-function setData(data) {
-    chrome.storage.local.set(data, function() {
-        // getData(Object.keys(data), console.log);
-    });
-}
-// call >> getData( [get item name ... string, array of string, object] , [action ... function] );
-function getData(data, func) {
-    chrome.storage.local.get(data, function(value) {
-        func(value);
-    });
-}
-// call >> sendData( [sending data ... string, number, etc] , [action ... function] );
-function sendData(message, func) {
-    chrome.runtime.sendMessage(message,function(response){
-        func === undefined ? console.log('response : ' + response) : func(response);
-    });
-}
-
-// ============================
-
-// set value .toggle
-function setValueTggl(data) {
-    const key = Object.keys(data)[0];
-    if (data[key] === 1) {
-        $('#' + key).addClass('toggle_on');
+let aaa = new class {
+    constructor() {
+        //Default settings
+        this.settings = {
+                "toggle": {
+                    "tgglIcon": -1,
+                    "tgglOpenTab": -1
+                },
+                "text": {
+                    "txtScale": ""
+                },
+                "radio": {
+                    "theme": "tmLight"
+                }
+            },
+            this.initData()
     }
-}
-
-// set value input
-function setValueInput(data) {
-    const key = Object.keys(data)[0];
-    $('#' + key).val(data[key]);
-}
-
-function setValueRadio(data) {
-    const key = Object.keys(data)[0];
-    $('input[name="' + key + '"]').val([data[key]]);
-}
-// closure test
-function addContent() {
-    let str = '';
-    let num = 0;
-    return function(run) {
-        // 改善必要箇所 --> sha 取得・適用
-        // $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits?per_page=100&sha=c2a24a50ad0852f6e7cc61cfc66cf69fa6a70cc4').then(function(json) {
-        $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(json) {
-            str += '<div class="cardContents"><b>' + json[num].commit.message + '</b><br><span>' +
-                (json[num].commit.author.date).replace('T', ', ').slice(0, -1) +
-                ' (UTC)</span><br><a href="' + json[num].html_url + '"></a></div>';
-            if (run)
-                $('#gitCommitsInfo').append(str);
-            num++;
-        });
+    // save
+    saveData() {
+        chrome.storage.local.set({settings: this.settings})
     }
-}
-// =================================================================================
-$(function() {
-    // sendData('aaaa');
-    $.getJSON('manifest.json').then(function(manifest) {
-        let str = '<div class="cardContents"><b>Installed Version</b><br>' + manifest.version + '</div>';
-        $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/releases/latest').then(function(data) {
-            if (manifest.version !== data.name) {
-                str += '<h2>#Latest Release</h2><div class="cardContents"><b>Version</b><br>' +
-                    data.name + '</div><div class="cardContents"><b>What\'s New</b><br>' +
-                    data.body + '</div><div class="cardContents"><b>URL</b><br><a href="' + data.html_url + '"></a></div>';
-                str = str.replace(/\r?\n/g, '<br>');
+    // load
+    initData() {
+        chrome.storage.local.get((a) => {
+            a.settings === undefined ? (this.saveData(), this.init()) : (this.settings = a.settings, this.init())
+        })
+    }
+    // called initData()
+    // Initialization
+    init() {
+        this.walkJson(this.settings)
+        this.pageFunc()
+        this.versionInfo()
+        this.gitCommitsInfo()
+        rippleEffect();
+    }
+    // called init() 
+    walkJson(data) {
+        for (var key in data) {
+            if (typeof data[key] === "object") {
+                this.setState(key, data[key])
             }
-            $('#ExtensionInfo').append(str);
-        });
-    });
-
-    let func = addContent();
-    for (let i = 0; i < 7; i++) {
-        func(0);
+        }
     }
-    func(1);
+    // called walkJson()
+    setState(type, data) {
+        for (const key in data) {
+            if (type === 'toggle' && data[key] === 1) {
+                $('#' + key).addClass('toggle_on');
+            } else if (type === 'text') {
+                $('#' + key).val(data[key]);
+            } else if (type === 'radio') {
+                $('input[name="' + key + '"]').val([data[key]]);
+            }
+        }
+    }
+    // called init()
+    pageFunc() {
+        $('.toggle').click(function() {
+            $(this).toggleClass('toggle_on');
+            aaa.settings.toggle[$(this)[0].id] *= -1;
+            aaa.saveData();
+        });
+        $('.textf').blur(function() {
+            aaa.settings.text[$(this)[0].id] = $(this)[0].value;
+            aaa.saveData();
+        });
+        $('input[type="radio"]').click(function() {
+            aaa.settings.radio[$(this)[0].name] = $(this)[0].id;
+            aaa.saveData();
+        });
+    }
 
-    $(".toggle").each(function() {
-        getData($(this).attr('id'), setValueTggl);
-    });
-    $('input[type="text"]').each(function() {
-        getData($(this).attr('id'), setValueInput);
-    });
-    $('input[type="radio"]').each(function() {
-        getData($(this).attr('name'), setValueRadio);
-    });
-    $('input[type="text"]').blur(function() {
-        setData({[$(this)[0].id]: $(this)[0].value});
-    });
-    $('input[type="radio"]').click(function() {
-        setData({[$(this)[0].name]: $(this).val()});
-    });
-    $('.button').click(function() {
-        if ($(this).attr("id") === 'btnTest1') {
-            chrome.storage.local.get(null, function(items) {
-                let allKeys = Object.keys(items);
-                allKeys.forEach(function(key){
-                    console.log(key +' : ' + items[key]);
-                })
+    versionInfo() {
+        $.getJSON('manifest.json').then(function(manifest) {
+            let str = '<div class="cardContents"><b>Installed Version</b><br>' + manifest.version + '</div>';
+            $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/releases/latest').then(function(data) {
+                if (manifest.version !== data.name) {
+                    str += '<h2>#Latest Release</h2><div class="cardContents"><b>Version</b><br>' +
+                        data.name + '</div><div class="cardContents"><b>What\'s New</b><br>' +
+                        data.body + '</div><div class="cardContents"><b>URL</b><br><a href="' + data.html_url + '"></a></div>';
+                    str = str.replace(/\r?\n/g, '<br>');
+                }
+                $('#ExtensionInfo').append(str);
             });
-        }
-    });
+        });
+    }
 
-    $('.toggle').click(function() {
-        const id = $(this)[0].id;
-        $(this).toggleClass('toggle_on');
-        if ($(this).hasClass('toggle_on')) {
-            setData({[id]: 1});
-        } else {
-            setData({[id]: -1});
-        }
-    });
-
-    rippleEffect();
-});
+    gitCommitsInfo() {
+        let str = '';
+        $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(json) {
+            for (let i = 0; i < 5; i++) {
+                str += '<div class="cardContents"><b>' + json[i].commit.message + '</b><br><span>' +
+                    (json[i].commit.author.date).replace('T', ', ').slice(0, -1) +
+                    ' (UTC)</span><br><a href="' + json[i].html_url + '"></a></div>';
+            }
+            $('#gitCommitsInfo').append(str);
+        });
+    }
+}
