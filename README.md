@@ -1,19 +1,24 @@
 Hello New Tab
 ====
 新規タブ
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_003.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_001.png">
 
 メニュー
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_004.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_002.png">
 
 ブックマーク検索
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_007.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_003.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_004.png">
 
 ダークテーマ
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_005.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_006.png">
+ライトテーマ(オレンジ)
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_007.png">
+テーマの変更
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_008.png">
 
 オプションページ
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_006.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_4.x_004.png">
 
 ## 使用方法
 ###
@@ -45,20 +50,24 @@ Hello New Tab
 This is Google Chrome Extension. Startpage giving instant access to bookmarks.
 
 New tab
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_003.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_001.png">
 
 Menu
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_004.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_002.png">
 
-Search Bookmarks
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_007.png">
+Search bookmarks
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_003.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_004.png">
 
-Dark Theme
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_005.png">
+Dark theme
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_006.png">
+Light theme (Orange)
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_007.png">
+Theme change
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_008.png">
 
-Options Page
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_006.png">
-
+Option page
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_4.x_004.png">
 
 ## Description
 For all those who are in search for a cool way to access your bookmarks, this sleek-looking extension is what you've been looking for.  
