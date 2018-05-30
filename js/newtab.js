@@ -101,7 +101,8 @@ let ev = new class {
         this.searchArea = 0;
         this.filter = 0;
         this.floatMenu = {
-            theme : 0
+            theme : 0,
+            visible : 0
         }
     }
     moreMenu(a = this.systemLinkArea) {
@@ -109,6 +110,7 @@ let ev = new class {
         if (a === 0) { // visible
             this.searchMenu(1);
             this.selectTheme(1);
+            this.vsbltyMenu(1);
             $('#systemLinkArea').css('width', '19rem');
             this.systemLinkArea = 1;
         } else { // hidden
@@ -121,6 +123,7 @@ let ev = new class {
         if (a === 0) { // visible
             this.moreMenu(1);
             this.selectTheme(1);
+            this.vsbltyMenu(1);
             $('#searchGroup').css('width', '30rem');
             $('#searchMenu').addClass('bg-searchMenu');
             $('#search').focus();
@@ -132,10 +135,6 @@ let ev = new class {
             this.searchArea = 0
             this.searchReset();
         }
-    }
-
-    vsbltyMenu() {
-        this.moreMenu();
     }
 
     modeFilter(a = this.filter) {
@@ -173,6 +172,7 @@ let ev = new class {
     selectTheme(a = this.floatMenu.theme) {
         if(a === 0) {
             this.moreMenu(1);
+            this.vsbltyMenu(1);
             $('#fmTheme').css({margin: '-3rem 0 0 4rem', visibility:'visible', opacity:'1'});
             this.floatMenu.theme = 1;
         } else {
@@ -184,6 +184,19 @@ let ev = new class {
     applyTheme() {
         ini.saveData();
         location.reload();
+    }
+
+    vsbltyMenu(a = this.floatMenu.visible) {
+        // this.moreMenu();
+        if(a === 0) {
+            this.moreMenu(1);
+            this.selectTheme(1);
+            $('#fmVsblty').css({margin: '-3rem 0 0 4rem', visibility:'visible', opacity:'1'});
+            this.floatMenu.visible = 1;
+        } else {
+            $('#fmVsblty').css({margin: '-3rem 0 0 3rem', visibility:'hidden', opacity:'0'});
+            this.floatMenu.visible = 0;
+        }
     }
 }
 

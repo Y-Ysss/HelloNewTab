@@ -50,7 +50,6 @@ let createContents = function() {
     if(appendData !== "") {
         // setData({'contentsData' : appendData});
         chrome.storage.local.set({contentsData: appendData})
-        
         appendData = "";
     }
 

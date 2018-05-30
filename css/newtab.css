@@ -317,9 +317,9 @@ ul {
     width: 4.0rem;
     height: 1.2rem;
     border-radius: 3.0rem;
-    position: absolute;
+    /*position: absolute;*/
     margin: 0 0.5rem 0 0.5rem;
-    margin: 0.5rem 0.5rem 0.5rem 4.5rem;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     display: inline-block;
     cursor: pointer;
     vertical-align: middle;
@@ -418,7 +418,7 @@ ul {
 .floatMenu {
     /*background-color:#fff;*/
     position: fixed;
-    padding:0.6rem;
+    padding:0.8rem;
     margin: -3rem 0 0 3rem;
     border-radius: 0.5rem;
     /*box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.4);*/
