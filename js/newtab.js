@@ -36,8 +36,8 @@ let ini = new class {
 
     // called init() 
     addContents() {
-        $('#bodyMain').append(this.contentsData);
         this.funcMacy();
+        $('#bodyMain').append(this.contentsData);
         rippleEffect();
         this.contentsData = "";
     }
