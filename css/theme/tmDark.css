@@ -17,7 +17,7 @@ a {
 #searchGroup {
     background-color: #162228;
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
-    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
+    /*-webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;*/
 }
 #searchHeader {
     color: #678;
@@ -48,11 +48,11 @@ a {
     color: #789;
 }
 #searchResult {
-    -webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;
+    /*-webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;*/
 }
 #searchResult a:hover {
     background: #263238;
-    -webkit-transition: 0.25s ease-out all;
+    /*-webkit-transition: 0.25s ease-out all;*/
 }
 
 #systemLinkArea {
@@ -88,7 +88,7 @@ a {
     /*border: 0.1rem solid #666;*/
     background-color: #171E22;
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
-    -webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
+    /*-webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;*/
 }
 
 .cntntHead {
@@ -98,7 +98,7 @@ a {
 
 .cntntModule ul li:hover {
     background: #263238;
-    -webkit-transition: 0.25s ease-out all;
+    /*-webkit-transition: 0.25s ease-out all;*/
 }
 
 .bkmrkNum {

@@ -25,12 +25,14 @@ ul {
 /*======================*/
 /*SearchArea*/
 #searchGroup {
-    left: 4rem;
-    width: 0rem;
+    left: -34rem;
+    width:30rem;
+    /*width: 0rem;*/
     height: 100%;
     position: fixed;
     z-index: 14;
     overflow: hidden;
+    -webkit-transition: 0.4s cubic-bezier(0.49, 0.1, 0.2, 1) all;
 }
 
 #searchHeader {
@@ -118,6 +120,8 @@ ul {
     vertical-align: middle;
     white-space: nowrap;
     text-overflow: ellipsis;
+
+    -webkit-transition: 0.12s ease-out all;
 }
 
 #searchResult a:hover {
@@ -128,7 +132,7 @@ ul {
     margin: 1rem 0.5rem 1rem 1.2rem;
 }
 
-#progressBar {
+/*#progressBar {
     top: 4.2rem;
     width: 100%;
     height: 0.3rem;
@@ -141,7 +145,7 @@ ul {
     background-color: #26c5ff;
     position: absolute;
     -webkit-animation: load 1s linear infinite;
-}
+}*/
 
 @-webkit-keyframes load {
     0% {
@@ -257,6 +261,7 @@ ul {
     float: left;
     overflow: hidden;
     white-space: nowrap;
+    -webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
 }
 
 .cntntHead {
@@ -275,6 +280,8 @@ ul {
     position: relative;
     display: block;
     cursor: pointer;
+    /*-webkit-transition: 0.02s ease-out all;*/
+    -webkit-transition: 0.12s ease-out all;
 }
 
 .cntntModule ul li:hover {

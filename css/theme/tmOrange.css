@@ -11,7 +11,7 @@ a {
 #searchGroup {
     background-color: #fafafa;
     box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
-    -webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;
+    /*-webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;*/
 }
 #searchHeader {
     color: #f4bd50;
@@ -41,10 +41,10 @@ a {
 .searchResetView {
 }
 #searchResult {
-    -webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;
+    /*-webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;*/
 }
 #searchResult a {
-    -webkit-transition: 0.25s ease-out all;
+    /*-webkit-transition: 0.25s ease-out all;*/
 }
 #searchResult a:hover {
     background: #ffd050;
@@ -81,7 +81,7 @@ a {
     background-color: #fff;
     /*border: 0.1rem solid #ccc;*/
     box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
-    -webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;
+    /*-webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;*/
 }
 .cntntHead {
     color: #333;
@@ -93,7 +93,7 @@ a {
 }
 .cntntModule ul li:hover {
     background: #fff4b0;
-    -webkit-transition: 0.25s ease-out all;
+    /*-webkit-transition: 0.25s ease-out all;*/
 }
 .cntntModule ul li a {
 }

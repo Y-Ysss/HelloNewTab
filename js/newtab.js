@@ -1,25 +1,12 @@
 let ini = new class {
     constructor() {
         //Default settings
-        this.settings = {
-                "toggle": {
-                    "tgglIcon": -1,
-                    "tgglOpenTab": -1
-                },
-                "text": {
-                    "txtScale": ""
-                },
-                "radio": {
-                    "theme": "tmLight"
-                }
-            },
-            this.contentsData = "",
-            this.initData()
+        this.settings = { "toggle": {"tgglIcon": -1, "tgglOpenTab": -1}, "text": {"txtScale": ""}, "radio": {"theme": "tmLight"}},
+        this.contentsData = "",
+        this.initData()
     }
     // save
-    saveData() {
-        chrome.storage.local.set({ settings: this.settings })
-    }
+    saveData() {chrome.storage.local.set({ settings: this.settings })}
     // load
     initData() {
         chrome.storage.local.get((a) => {
@@ -50,17 +37,8 @@ let ini = new class {
             trueOrder: false,
             waitForImages: true,
             columns: mw,
-            margin: {
-                x: 30,
-                y: 15
-            },
-            breakAt: {
-               1200: 5,
-                990: 4,
-                780: 3,
-                620: 2,
-                430: 1
-            }
+            margin: {x: 30, y: 15},
+            breakAt: {1200: 5, 990: 4, 780: 3, 620: 2, 430: 1}
         });
     }
 
@@ -100,10 +78,7 @@ let ev = new class {
         this.systemLinkArea = 0;
         this.searchArea = 0;
         this.filter = 0;
-        this.floatMenu = {
-            theme : 0,
-            visible : 0
-        }
+        this.floatMenu = {theme : 0, visible : 0}
     }
     moreMenu(a = this.systemLinkArea) {
         this.modeFilter(a);
@@ -124,12 +99,14 @@ let ev = new class {
             this.moreMenu(1);
             this.selectTheme(1);
             this.vsbltyMenu(1);
-            $('#searchGroup').css('width', '30rem');
+            $('#searchGroup').css('left', '4rem');
+            // $('#searchGroup').css('width', '30rem');
             $('#searchMenu').addClass('bg-searchMenu');
             $('#search').focus();
             this.searchArea = 1;
         } else { // hidden
-            $('#searchGroup').css('width', '0rem');
+            $('#searchGroup').css('left', '-34rem');
+            // $('#searchGroup').css('width', '0rem');
             $('#searchMenu').removeClass('bg-searchMenu');
             $('#search').blur();
             this.searchArea = 0
