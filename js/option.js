@@ -1,4 +1,4 @@
-let aaa = new class {
+let ev = new class {
     constructor() {
         //Default settings
         this.settings = {
@@ -17,7 +17,8 @@ let aaa = new class {
     }
     // save
     saveData() {
-        chrome.storage.local.set({settings: this.settings})
+        chrome.storage.local.set({settings: this.settings});
+        this.toast();
     }
     // load
     initData() {
@@ -58,16 +59,16 @@ let aaa = new class {
     pageFunc() {
         $('.toggle').click(function() {
             $(this).toggleClass('toggle_on');
-            aaa.settings.toggle[$(this)[0].id] *= -1;
-            aaa.saveData();
+            ev.settings.toggle[$(this)[0].id] *= -1;
+            ev.saveData();
         });
         $('.textf').blur(function() {
-            aaa.settings.text[$(this)[0].id] = $(this)[0].value;
-            aaa.saveData();
+            ev.settings.text[$(this)[0].id] = $(this)[0].value;
+            ev.saveData();
         });
         $('input[type="radio"]').click(function() {
-            aaa.settings.radio[$(this)[0].name] = $(this)[0].id;
-            aaa.saveData();
+            ev.settings.radio[$(this)[0].name] = $(this)[0].id;
+            ev.saveData();
         });
     }
 
@@ -97,4 +98,11 @@ let aaa = new class {
             $('#gitCommitsInfo').append(str);
         });
     }
+
+    toast() {
+        $('#toast').css('bottom', '1rem');
+        // setTimeout("this.toasted()", 1500);
+        setTimeout(function() {$('#toast').css('bottom', '-5rem');}, 3000);
+    }
 }
+

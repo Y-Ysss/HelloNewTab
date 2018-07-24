@@ -186,10 +186,10 @@ $('#search').keyup(function(e) {
     this.value !== "" ? $('#searchReset').addClass('searchResetView') : $('#searchReset').removeClass('searchResetView');
 });
 $(document).keydown(function(event) {
-    if (event.altKey) { // [ Alt + B ]
-        if (event.keyCode === 66 && $('#search').val() === '') {
-            ev.searchMenu(0);
-        }
+    if (event.altKey && event.keyCode === 66) { // [ Alt + B ]
+        // if ($('#search').val() === '') {
+            ev.searchMenu(ev.searchArea);
+        // }
     }
     if (event.keyCode === 27 && $('#search').focus()) { // [ Esc ]
         ev.searchMenu(1);

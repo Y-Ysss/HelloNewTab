@@ -18,7 +18,7 @@ Hello New Tab
 <img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_008.png">
 
 オプションページ
-<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_4.x_004.png">
+<img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_5.x_009.png">
 
 ## 使用方法
 ###

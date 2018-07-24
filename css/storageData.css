@@ -60,26 +60,45 @@ td:first-child:after{
     content: counter(num);
     counter-increment:num;
 }
+
 input[type=text] {
-    width: 15.0rem;
-    color: #456;
+    width: 15rem;
+    color: #222;
     border: none;
-    border-bottom: 0.2rem solid #9ab;
+    /*border-bottom: 0.15rem solid #9ab;*/
     outline: none;
     /*margin: 1.5rem 0.5rem 1.5rem 0.5rem;*/
-    margin-right: 6.0rem;
-    padding: 0.5rem;
+    /*margin-right: 6.0rem;*/
+    padding: 0.9rem;
+    background-color: #f5f5f5;
+    /*float: right;*/
+    border-radius: 0.5rem;
+    padding: 1rem;
     overflow: hidden;
+    cursor: pointer;
     -webkit-transition: 0.6s ease all;
     vertical-align: middle;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-input[type=text]:focus {
-    width: 20.0rem;
-    border-bottom: 0.2rem solid #678;
-    margin-right: 1.0rem;
+input[type=text]:focus{
+    cursor: text;
+}
+input[type=text]:focus + .underline {
+    transform: scaleX(1);
+}
+
+.underline {
+    width: 17rem;
+    height: 0.2rem;
+    margin-top: -0.2rem;
+    background: #42A5F5;
+    border-radius: 0 0 0.5rem 0.5rem;
+    margin-left: auto;
+    transform-origin: center center;
+    transform: scaleX(0);
+    transition: transform 0.18s ease-out;
 }
 
 ::-webkit-input-placeholder {
