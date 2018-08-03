@@ -47,7 +47,7 @@ let ev = new class {
       } else if(type === 'text') {
         if(key === 'range') {
         for(const a in data[key]){
-          $('#' + a).val([data[key][a]]);
+          $('.' + a).val([data[key][a]]);
           $('#' + a + 'Range').val([data[key][a]]);
         }
       }else{
@@ -76,7 +76,7 @@ let ev = new class {
     });
     $('input[type="range"]').change(function() {
       ev.settings.text.range[$(this)[0].name] = $(this)[0].value;
-      $('#' + $(this)[0].name).val($(this)[0].value);
+      $('.' + $(this)[0].name).val($(this)[0].value);
       ev.saveData();
     });
     $('.textTime').blur(function() {

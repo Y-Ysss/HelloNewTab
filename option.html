@@ -46,11 +46,13 @@
         <span>ページのスタイル</span>
         <div class="opdiv">
           <input type="radio" name="theme" id="tmLight" value="tmLight">
-          <label for="tmLight">Light</label>
+          <label for="tmLight">Modern Light</label>
           <input type="radio" name="theme" id="tmDark" value="tmDark">
-          <label for="tmDark">Dark</label>
+          <label for="tmDark">Modern Dark</label>
           <input type="radio" name="theme" id="tmOrange" value="tmOrange">
-          <label for="tmOrange">Orange</label>
+          <label for="tmOrange">Modern Orange</label>
+          <input type="radio" name="theme" id="tmFlatLight" value="tmFlatLight">
+          <label for="tmFlatLight">Flat Light</label>
         </div>
       </div>
       <div class="cardContents">
@@ -60,10 +62,34 @@
             <input type="range" name="sliderLower" class="slider" id="sliderLowerRange" min="0" max="24" setp="1">
             <input type="range" name="sliderUpper" class="slider" id="sliderUpperRange" min="0" max="24" setp="1">
           </div>
-          <span>時間 : 
-            <input id="sliderLower" class="textf textTime" type="text" placeholder="Hours">時 ～ 
-            <input id="sliderUpper" class="textf textTime" type="text" placeholder="Hours">時
+          <div class="inopdiv">
+          <label>
+          <select name="autoThemeMode1">
+            <option value="tmLight">Modern Light</option>
+            <option value="tmDark">Modern Dark</option>
+            <option value="tmOrange">Modern Orange</option>
+            <option value="tmFlatLight">Flat Light</option>
+          </select>
+          </label>
+          <span>&ensp;:&ensp;
+            <input class="sliderLower textf textTime" type="text" placeholder="Hours">時 ～ 
+            <input class="sliderUpper textf textTime" type="text" placeholder="Hours">時
           </span>
+          </div>
+          <div class="inopdiv">
+          <label>
+          <select name="autoThemeMode2">
+            <option value="tmLight">Modern Light</option>
+            <option value="tmDark">Modern Dark</option>
+            <option value="tmOrange">Modern Orange</option>
+            <option value="tmFlatLight">Flat Light</option>
+          </select>
+          </label>
+          <span>&ensp;:&ensp;
+            <input class="sliderUpper textf textTime" type="text" placeholder="Hours">時 ～
+            <input class="sliderLower textf textTime" type="text" placeholder="Hours">時 
+          </span>
+          </div>
         </div>
       </div>
     </div>
