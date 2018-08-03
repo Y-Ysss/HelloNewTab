@@ -73,8 +73,10 @@ let ini = new class {
     $('head').append('<link id="ssTheme" rel="stylesheet" type="text/css" href="css/theme/' + a + '.css">');
     $('input[name="theme"]').val([a]);
   }
-  sliderLower() {}
-  sliderUpper() {}
+  sliderLower(a) {}
+  sliderUpper(a) {}
+  autoThemeMode1(a) {}
+  autoThemeMode2(a) {}
 }
 
 let ev = new class {

@@ -1,11 +1,12 @@
+try {
 let ev = new class {
   constructor() {
     //Default settings
     this.settings = {
-      "toggle": {"tgglIcon": -1,"tgglOpenTab": -1},
-      "text": { "txtScale": "", "range":{ "sliderLower": "0", "sliderUpper": "0"}},
-      "radio": {"theme": "tmLight"
-      }
+      "toggle": {"tgglIcon": -1, "tgglOpenTab": -1},
+      "text": { "txtScale": "", "range":{ "sliderLower": "", "sliderUpper": ""}},
+      "radio": {"theme": "tmLight"},
+      "select": {"autoThemeMode1": "", "autoThemeMode2": ""}
     },
     this.initData()
   }
@@ -33,32 +34,44 @@ let ev = new class {
   }
   // called init() 
   walkJson(data) {
-    for(var key in data) {
-      if(typeof data[key] === "object") {
-        this.setState(key, data[key])
+    for(var type in data) {
+      if(typeof data[type] === "object") {
+        this.setState(type, data[type])
       }
     }
   }
   // called walkJson()
   setState(type, data) {
     for(const key in data) {
-      if(type === 'toggle' && data[key] === 1) {
-        $('#' + key).addClass('toggle_on');
-      } else if(type === 'text') {
-        if(key === 'range') {
-        for(const a in data[key]){
-          $('.' + a).val([data[key][a]]);
-          $('#' + a + 'Range').val([data[key][a]]);
-        }
-      }else{
-        $('#' + key).val(data[key]);
-      }
-      } else if(type === 'radio') {
-        $('input[name="' + key + '"]').val([data[key]]);
-      }
-      
+      this[type](data, key);
     }
   }
+  // called setState()
+  toggle(data, key) {
+    if(data[key] === 1) {
+      $('#' + key).addClass('toggle_on');
+    }
+  }
+  // called setState()
+  text(data, key) {
+    if(key === 'range') {
+          for(const a in data[key]){
+            $('.' + a).val([data[key][a]]);
+            $('#' + a + 'Range').val([data[key][a]]);
+          }
+        }else{
+          $('#' + key).val(data[key]);
+        }
+  }
+  // called setState()
+  radio(data, key) {
+    $('input[name="' + key + '"]').val([data[key]]);
+  }
+  // called setState()
+  select(data, key) {
+    $('select[name="' + key + '"]').val([data[key]]);
+  }
+
   // called init()
   pageFunc() {
     $('.toggle').click(function() {
@@ -79,10 +92,15 @@ let ev = new class {
       $('.' + $(this)[0].name).val($(this)[0].value);
       ev.saveData();
     });
-    $('.textTime').blur(function() {
-      let id = $(this)[0].id;
-      $('#' + id + 'Range').val($(this)[0].value);
-      ev.settings.text.range[$(this)[0].id] = $(this)[0].value;
+    $('.textTime').change(function() {
+      let value = $(this)[0].value;
+      $('.' + $(this)[0].name).val();
+      $('#' + $(this)[0].id + 'Range').val(value);
+      ev.settings.text.range[$(this)[0].name] = value;
+      ev.saveData();
+    });
+    $('select').change(function() {
+      ev.settings.select[$(this)[0].name] = $(this)[0].value;
       ev.saveData();
     });
   }
@@ -118,4 +136,7 @@ let ev = new class {
     $('#toast').css('bottom', '1rem');
     setTimeout(function() { $('#toast').css('bottom', '-5rem'); }, 3000);
   }
+}
+} catch(e) {
+console.log(e)
 }
