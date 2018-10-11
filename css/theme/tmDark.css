@@ -180,3 +180,24 @@ input[type=radio]:checked + label:before {
 input[type=radio] + label:after {
     background-color: #42A5F5;
     }
+
+
+.textf {
+  color: #fff;
+  background-color: #354046;
+  box-shadow: 0 .2rem .5rem rgba(0, 0, 0, .3);
+}
+
+::-webkit-input-placeholder {
+  color: #89a;
+}
+
+.textf:focus::-webkit-input-placeholder {
+  color: #999;
+}
+.textSubmit{
+  background-color: #465258;
+}
+.textSubmit:hover{
+  background-color: #0C5073;
+}

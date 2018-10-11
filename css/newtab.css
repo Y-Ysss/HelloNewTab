@@ -78,6 +78,9 @@ ul {
   border: none;
   outline: none;
   transition: .3s;
+  background-image: url('../img/iconRefresh.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
 #searchView:hover {
   padding-left: .9rem;
@@ -251,7 +254,7 @@ ul {
   float: left;
   overflow: hidden;
   white-space: nowrap;
-  border-radius: .5rem;
+  border-radius: 1rem;
   -webkit-transition: .48s cubic-bezier(.58, .11, .2, 1.00) all;
 }
 
@@ -363,8 +366,8 @@ ul {
 .ripple .rp-effect {
   position: absolute;
   pointer-events: none;
-  opacity: .35;
   border-radius: 50%;
+  opacity: .35;
   transform: scale(0);
   animation: ripple .8s;
 }
@@ -405,18 +408,18 @@ ul {
 
 .floatMenu {
   margin: -3rem 0 0 3rem;
-  padding: .8rem;
+  padding: 1rem;
   /*background-color:#fff;*/
   position: fixed;
   /*box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.4);*/
   visibility: hidden;
   cursor: default;
+  border-radius: 1rem;
   opacity: 0;
-  border-radius: .5rem;
   -webkit-transition: .14s cubic-bezier(.58, .11, .2, 1.05) all;
 }
 #fmTheme div {
-  margin: .6rem .4rem;
+  margin: .2rem .4rem .8rem 0;
 }
 input[type=radio] {
   margin: .4rem 0;
@@ -461,4 +464,60 @@ input[type=radio] + label:after {
 }
 input[type=radio]:checked + label:after {
   transform: scale(1);
+}
+
+#sArea{
+  /*width: 100%;*/
+  padding:2rem 2rem .5rem 6rem; 
+  vertical-align: middle;
+  text-align: center;
+  -webkit-transition: .12s ease-out all;
+}
+
+.textf {
+  width: 80%;
+  height: 1.6rem;
+  padding: .9rem 1rem .9rem 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /*color: #444;*/
+  /*background-color: #fff;*/
+  margin-top: -.2rem;
+  border: none;
+  border-radius: .5rem;
+  outline: none;
+  /*-webkit-transition: .6s ease all;*/
+}
+
+.textf:focus {
+  cursor: text;
+}
+
+::-webkit-input-placeholder {
+  /*color: #89a;*/
+  -webkit-transition: .6s ease all;
+}
+
+.textf:focus::-webkit-input-placeholder {
+  /*color: #999;*/
+}
+
+.textSubmit {
+  height: 3.4rem;
+  width: 3.5rem;
+  margin-left: -3.9rem;
+  /*box-shadow: 0 .2rem .5rem rgba(0, 0, 0, .3);*/
+  border-radius: 0 .5rem .5rem 0;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  outline: none;
+  -webkit-transition: .12s ease-out all;
+}
+
+.displayNone {
+  display: none;
 }

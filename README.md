@@ -70,7 +70,7 @@ Option page
 <img src="https://raw.githubusercontent.com/Yoseatlly/Data/master/HelloNewTab/img_4.x_004.png">
 
 ## Description
-For all those who are in search for a cool way to access your bookmarks, this sleek-looking extension is what you've been looking for.  
+For all those who are in search for a cool way to access your bookmarks, this sleek-looking extension is what you've been looking for.
 
 ## Usage
 ###
@@ -80,12 +80,12 @@ Open New Tab in Google Chrome (or Chromium based Browser). Now you will see a "H
 If first letter of folder name is " ' "(single quotation mark), hide this folder in "Hello New Tab" page. When click the button in the upper right, display this hidden folder.
 
 ## Install
-1. Open Google Chrome (or Chromium based Browser), type “chrome://extensions” in the address bar and press the “Enter” key.
+1. Open Google Chrome (or Chromium based Browser), type "chrome://extensions" in the address bar and press the "Enter" key.
 Enable developer mode extensions.
-2. Now you will see a checkbox with the label “developer mode”. Check the checkbox and now you can easily install any extension that’s not coming from the Chrome Web Store.
+2. Now you will see a checkbox with the label "developer mode". Check the checkbox and now you can easily install any extension that's not coming from the Chrome Web Store.
 3. Open File Explorer and find the zipped folder.To unzip the folder, select the zipped folder and right-click it, select Extract All, and then follow the instructions.
 4. Save the expanded folder in any place.
-5. Click the “Pack extension” button. A dialog appears.
+5. Click the "Pack extension" button. A dialog appears.
 6. finished install.
 
 ## Bug
@@ -93,6 +93,6 @@ If you use Vivaldi or Google Chrome, Performance of bookmark search decreases. K
 
 ### Notes
 If you use Vivaldi browser before version 1.11 : 
-1. Enable “developer mode”.
+1. Enable "developer mode".
 2. Copy Extension ID and add to the asterisk of the this URL (chrome-extension://************/newtab.html).
-3. Type “chrome-extension://************/newtab.html” in address bar and press the “Enter” key.
+3. Type "chrome-extension://************/newtab.html" in address bar and press the "Enter" key.

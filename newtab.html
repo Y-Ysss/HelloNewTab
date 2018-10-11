@@ -16,7 +16,7 @@
     <div id="searchHeader">Search</div>
     <div id="inputArea">
       <input id="search" type="text" placeholder="ブックマークの検索" required>
-      <input id="searchView" class="actionItems" type="submit" value=" 〉"></input>
+      <input id="searchView" class="actionItems" type="submit" value="">
       <span id="searchReset" class="actionItems searchResetHidden">×</span>
     </div>
     <!-- <div id="progressBar" class="hideModule">
@@ -56,6 +56,10 @@
           <input type="radio" name="theme" id="tmFlatLight" value="tmFlatLight">
           <label for="tmFlatLight">Flat Light</label>
         </div>
+        <div>
+          <input type="radio" name="theme" id="tmFullFlatLight" value="tmFullFlatLight">
+          <label for="tmFullFlatLight">FullFlat Light</label>
+        </div>
         <div id="applyTheme" class="button actionItems">Apply</div>
       </div>
     </div>
@@ -67,6 +71,10 @@
       </div>
     </div>
   </div>
+    <div id="sArea" class="displayNone">
+      <input id="s" class="textf" type="text" placeholder="Google Search">
+      <input id="sEnter" class="textSubmit" type="submit" value=" 〉"></input>
+    </div>
   <div id="bodyMain">
   </div>
   <script type="text/javascript" src="js/lib/jquery.js"></script>
@@ -74,7 +82,7 @@
   <script type="text/javascript" src="js/lib/desvg.js"></script>
   <script type="text/javascript" src="js/lib/macy.js"></script>
   <script type="text/javascript" src="js/newtab.js"></script>
-  <script type="text/javascript" src="js/getTree.js"></script>
+  <!-- <script type="text/javascript" src="js/getTree.js"></script> -->
 </body>
 
 </html>

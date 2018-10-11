@@ -3,10 +3,10 @@ let ev = new class {
   constructor() {
     //Default settings
     this.settings = {
-      "toggle": {"tgglIcon": -1, "tgglOpenTab": -1},
-      "text": { "txtScale": "", "range":{ "sliderLower": "", "sliderUpper": ""}},
+      "toggle": {"tgglIcon": -1, "tgglOpenTab": -1, "tgglWebSearch":-1},
       "radio": {"theme": "tmLight"},
-      "select": {"autoThemeMode1": "", "autoThemeMode2": ""}
+      "text": { "txtScale": "", "range":{ "sliderLower": "", "sliderUpper": ""}},
+      "select": {"autoThemeMode1": "tmLight", "autoThemeMode2": "tmDark"}
     },
     this.initData()
   }
@@ -94,7 +94,7 @@ let ev = new class {
     });
     $('.textTime').change(function() {
       let value = $(this)[0].value;
-      $('.' + $(this)[0].name).val();
+      $('.' + $(this)[0].name).val(value);
       $('#' + $(this)[0].id + 'Range').val(value);
       ev.settings.text.range[$(this)[0].name] = value;
       ev.saveData();
@@ -134,7 +134,7 @@ let ev = new class {
 
   toast() {
     $('#toast').css('bottom', '1rem');
-    setTimeout(function() { $('#toast').css('bottom', '-5rem'); }, 3000);
+    setTimeout(()=> { $('#toast').css('bottom', '-5rem'); }, 3000);
   }
 }
 } catch(e) {

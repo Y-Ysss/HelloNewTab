@@ -1,15 +1,3 @@
-//call > setData( [object] );
-let setData = function (data) {
-    chrome.storage.local.set(data, function() {
-        getData(Object.keys(data), console.log);
-    });
-}
-// call > getData( [string, array of string, object] , [function] );
-let getData = function(data, func) {
-    chrome.storage.local.get(data, function(value) {
-        func(value);
-    });
-}
 let joinBkmrk = "";
 let appendData = "";
 let BookmarkNode = function(bookmark) {
@@ -52,6 +40,21 @@ let createContents = function() {
         chrome.storage.local.set({contentsData: appendData})
         appendData = "";
     }
-
+    chrome.storage.local.get((a) => {
+        if(a !== undefined) {
+            let nowTime = new  Date().getHours();
+            let range = [a.settings.text.range.sliderLower, a.settings.text.range.sliderUpper];
+            if(range[0] !== "" && range[1] !== "") {
+                if(range[0] <= nowTime && nowTime < range[1]){
+                    a.settings.radio.theme = a.settings.select.autoThemeMode1;
+                } else {
+                    a.settings.radio.theme = a.settings.select.autoThemeMode2;
+                }
+                chrome.storage.local.set({settings: a.settings})
+            }
+        }
+    })
+    // 設定変更時 バックグラウンド更新
+    // chrome.runtime.sendMessage({type: 'reload'}, function(response) {});
 }
 
