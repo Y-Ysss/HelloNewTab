@@ -37,11 +37,12 @@ summary {
 }
 
 .opdiv {
-  margin: -3rem 0 0 0;
+  margin: -3rem 0 1rem 0;
   text-align: right;
 }
 .inopdiv {
-  margin-top: 1.5rem ;
+  /*margin-top: 1.5rem ;*/
+  padding: 0 0 1.5rem 0;
 }
 
 ul {
@@ -112,6 +113,11 @@ li:before {
   /*border-bottom: 0.15rem solid #9ab;*/
   outline: none;
   -webkit-transition: .6s ease all;
+}
+
+#txtRegExpPattern{
+  width: 50rem;
+  text-align: left;
 }
 
 .textf:focus {

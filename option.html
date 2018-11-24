@@ -67,7 +67,7 @@
         <details>
           <summary>詳細な設定</summary>
           <span>テーマの時間設定</span>
-          <div class="opdiv">
+          <div class="opdiv boderb">
             <div class="ranges">
               <input type="range" name="sliderLower" class="slider" id="sliderLowerRange" min="0" max="24" setp="1">
               <input type="range" name="sliderUpper" class="slider" id="sliderUpperRange" min="0" max="24" setp="1">
@@ -103,6 +103,12 @@
               </span>
             </div>
           </div>
+
+        <span>除外フォルダ指定（正規表現）</span>
+        <div class="opdiv">
+          <input id="txtRegExpPattern" class="textf" type="text" placeholder="Regular Expression Pattern ( example : /^begin|end$/ )">
+        </div>
+
         </details>
       </div>
     </div>

@@ -6,7 +6,9 @@ let BookmarkNode = function(bookmark) {
             BookmarkNode(subBookmark);
         });
         if(joinBkmrk !== "") {
-            if(bookmark.title.slice(0, 1) === "'") {
+            if(bookmark.title.match(/'$|^#/)){
+
+            } else if(bookmark.title.match(/^'/)) {
                 appendData += ('<div class="cntntModule hideModule"><div class="cntntHead">' + bookmark.title + '</div><ul>' + joinBkmrk + '<li class="bkmrkNum">' + bookmark.children.length + ' bookmarks</li></ul></div>');
             } else {
                 appendData += ('<div class="cntntModule"><div class="cntntHead">' + bookmark.title + '</div><ul>' + joinBkmrk + '<span class="bkmrkNum">' + bookmark.children.length + ' bookmarks</span></ul></div>');
@@ -15,7 +17,7 @@ let BookmarkNode = function(bookmark) {
         }
     } else if(bookmark.url !== undefined) {
         let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
-        joinBkmrk += '<li class="ripple"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' +
+        joinBkmrk += '<li><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' +
             bookmark.url + '">' + title + '</a></li>';
     }
 }
@@ -44,7 +46,6 @@ let BookmarkNode = function(bookmark) {
 let autoTheme = ()=> {
     chrome.storage.local.get((a) => {
         if(a !== undefined) {
-            console.log(a);
             let nowTime = new Date().getHours();
             let range = [a.settings.text.range.sliderLower, a.settings.text.range.sliderUpper];
             if(range[0] !== "" && range[1] !== "") {
@@ -88,8 +89,8 @@ let createContents = function() {
 chrome.runtime.onInstalled.addListener(function() {
         // chrome.tabs.create({url:chrome.extension.getURL("hello.html")},function(){});
         let settings = {
-            "toggle": { "tgglIcon": -1, "tgglOpenTab": -1, "tgglWebSearch":-1},
-            "radio": { "theme": "tmLight" },
+            "toggle": { "tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
+            "radio": { "theme": "tmFlatLight" },
             "text": { "txtScale": "", "range": { "sliderLower": "", "sliderUpper": "" } },
             "select": { "autoThemeMode1": "tmLight", "autoThemeMode2": "tmDark" }
         }

@@ -3,7 +3,7 @@ let ev = new class {
   constructor() {
     //Default settings
     this.settings = {
-      "toggle": {"tgglIcon": -1, "tgglOpenTab": -1, "tgglWebSearch":-1},
+      "toggle": {"tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
       "radio": {"theme": "tmLight"},
       "text": { "txtScale": "", "range":{ "sliderLower": "", "sliderUpper": ""}},
       "select": {"autoThemeMode1": "tmLight", "autoThemeMode2": "tmDark"}
@@ -81,6 +81,17 @@ let ev = new class {
     });
     $('#txtScale').blur(function() {
       ev.settings.text[$(this)[0].id] = $(this)[0].value;
+      ev.saveData();
+    });
+    $('#txtRegExpPattern').blur(function() {
+      let pattern = $(this)[0].value;
+      if(!pattern.match(/^[\/]/)) {
+        pattern = "/" + pattern;
+      }
+      if(!pattern.match(/.\/$/)) {
+        pattern = pattern + "/";
+      }
+      ev.settings.text[$(this)[0].id] = pattern;
       ev.saveData();
     });
     $('input[type="radio"]').click(function() {
