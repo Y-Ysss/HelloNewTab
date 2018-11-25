@@ -9,7 +9,7 @@ let BookmarkNode = function(bookmark) {
             if(bookmark.title.match(/'$|^#/)){
 
             } else if(bookmark.title.match(/^'/)) {
-                appendData += ('<div class="cntntModule hideModule"><div class="cntntHead">' + bookmark.title + '</div><ul>' + joinBkmrk + '<li class="bkmrkNum">' + bookmark.children.length + ' bookmarks</li></ul></div>');
+                appendData += ('<div class="cntntModule hideModule hide"><div class="cntntHead">' + bookmark.title + '</div><ul>' + joinBkmrk + '<li class="bkmrkNum">' + bookmark.children.length + ' bookmarks</li></ul></div>');
             } else {
                 appendData += ('<div class="cntntModule"><div class="cntntHead">' + bookmark.title + '</div><ul>' + joinBkmrk + '<span class="bkmrkNum">' + bookmark.children.length + ' bookmarks</span></ul></div>');
             }

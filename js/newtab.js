@@ -23,13 +23,13 @@ let ini = new class {
     init() {
         this.addContents()
         this.walkJson(this.settings)
+        this.evListener()
     }
 
     // called init() 
     addContents() {
         this.funcMacy();
-        let bdyMain = document.getElementById('bodyMain');
-        bdyMain.innerHTML = this.contentsData;
+        document.getElementById('bodyMain').innerHTML = this.contentsData;
         rippleEffect();
         this.contentsData = "";
     }
@@ -58,19 +58,15 @@ let ini = new class {
         }
     }
 
-    // called walkJson()
     tgglIcon(a) {
         a === 1 ? $('.favicon').css('border-radius', '0%') : $('.favicon').css('border-radius', '50%');
     }
-    // called walkJson()
     tgglOpenTab(a) {
         if (a === 1) { $('head').append('<base target="_blank">'); }
     }
-    // called walkJson()
     txtScale(a) {
         if (!isNaN(a) && a !== '') { $('html').css('zoom', a + '%'); }
     }
-    // called walkJson()
     theme(a) {
         $('head').append('<link id="ssTheme" rel="stylesheet" type="text/css" href="css/theme/' + a + '.css">');
         $('input[name="theme"]').val([a]);
@@ -83,6 +79,18 @@ let ini = new class {
     sliderUpper() {}
     autoThemeMode1() {}
     autoThemeMode2() {}
+
+    // Dynamic Elements AddEventListener
+    evListener() {
+        document.getElementById('tggl1').addEventListener('click', (event)=>{
+            const element = event.target;
+            element.classList.toggle('form_tggl_on');
+            const items = document.getElementsByClassName('hideModule');
+            for (let i = items.length - 1 ; i >= 0; i--) {
+                items[i].classList.toggle('hide');
+            }
+        });
+    }
 }
 
 let ev = new class {
@@ -161,11 +169,12 @@ let ev = new class {
                         joinResult += '<a href="' + item.url + '"><img class="favicon" src="chrome://favicon/' + item.url + '">' + title + '</a>';
                     }
                 });
-                $('#searchResult').append(joinResult + '<div id="resultNum">Search Result : ' + results.length + '</div>');
+                // $('#searchResult').append(joinResult + '<div id="resultNum">Search Result : ' + results.length + '</div>');
+                document.getElementById('searchResult').innerHTML = joinResult + '<div id="resultNum">Search Result : ' + results.length + '</div>';
             });
         }
-        $('#searchResult').empty();
-        // document.getElementById('searchResult').innerHTML = '';
+        // $('#searchResult').empty();
+        document.getElementById('searchResult').innerHTML = '';
     }
     cssFloatMenu(obj, a) {
         obj.style.margin = a === 0 ? '-3rem 0 0 3rem' : '-3rem 0 0 4rem';
@@ -238,15 +247,7 @@ $('.createTabLink').click(function() {
     document.getElementById('mFilter').classList.remove('filter');
 });
 
-document.getElementById('tggl1').addEventListener('click', (event)=>{
-    const element = event.target;
-    element.classList.toggle('form_tggl_on');
-    if (element.classList.contains('form_tggl_on')) {
-        $('.hideModule').css({ visibility: 'visible', opacity: '1' });
-    } else {
-        $('.hideModule').css({ visibility: 'hidden', opacity: '0' });
-    }
-});
+
 
 $('input[type="radio"]').click(function() {
     ini.settings.radio[$(this)[0].name] = $(this)[0].id;

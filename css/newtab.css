@@ -306,7 +306,7 @@ ul {
   position: relative;
 }
 
-.hideModule {
+.hide {
   visibility: hidden;
   opacity: 0;
 }
