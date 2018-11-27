@@ -3,10 +3,15 @@ let ev = new class {
   constructor() {
     //Default settings
     this.settings = {
-      "toggle": {"tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
-      "radio": {"theme": "tmLight"},
-      "text": { "txtScale": "", "range":{ "sliderLower": "", "sliderUpper": ""}},
-      "select": {"autoThemeMode1": "tmLight", "autoThemeMode2": "tmDark"}
+      "common" : {
+        "toggle": {"tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
+        "radio": {"theme": "tmFlatLight"},
+        "text": { "txtScale": ""},
+      },
+      "sub" : {
+        "text" : {"txtRegExpPattern":"", "range":{ "sliderLower": "", "sliderUpper": ""}},
+        "select": {"autoThemeMode1": "tmFlatLight", "autoThemeMode2": "tmFlatDark"}
+      }
     },
     this.initData()
   }
@@ -34,10 +39,12 @@ let ev = new class {
   }
   // called init() 
   walkJson(data) {
-    for(var type in data) {
-      if(typeof data[type] === "object") {
-        this.setState(type, data[type])
+    for(const s in data) {
+      for(const type in data[s]){
+      if(typeof data[s][type] === "object") {
+        this.setState(type, data[s][type])
       }
+    }
     }
   }
   // called walkJson()
@@ -55,13 +62,13 @@ let ev = new class {
   // called setState()
   text(data, key) {
     if(key === 'range') {
-          for(const a in data[key]){
-            $('.' + a).val([data[key][a]]);
-            $('#' + a + 'Range').val([data[key][a]]);
-          }
-        }else{
-          $('#' + key).val(data[key]);
-        }
+      for(const a in data[key]){
+        $('.' + a).val([data[key][a]]);
+        $('#' + a + 'Range').val([data[key][a]]);
+      }
+    }else{
+      $('#' + key).val(data[key]);
+    }
   }
   // called setState()
   radio(data, key) {
@@ -76,13 +83,18 @@ let ev = new class {
   pageFunc() {
     $('.toggle').click(function() {
       $(this).toggleClass('toggle_on');
-      ev.settings.toggle[$(this)[0].id] *= -1;
+      ev.settings.common.toggle[$(this)[0].id] *= -1;
       ev.saveData();
     });
     $('#txtScale').blur(function() {
-      ev.settings.text[$(this)[0].id] = $(this)[0].value;
+      ev.settings.common.text[$(this)[0].id] = $(this)[0].value;
       ev.saveData();
     });
+    $('input[type="radio"]').click(function() {
+      ev.settings.common.radio[$(this)[0].name] = $(this)[0].id;
+      ev.saveData();
+    });
+    //
     $('#txtRegExpPattern').blur(function() {
       let pattern = $(this)[0].value;
       if(!pattern.match(/^[\/]/)) {
@@ -91,15 +103,12 @@ let ev = new class {
       if(!pattern.match(/.\/$/)) {
         pattern = pattern + "/";
       }
-      ev.settings.text[$(this)[0].id] = pattern;
+      ev.settings.sub.text[$(this)[0].id] = pattern;
       ev.saveData();
     });
-    $('input[type="radio"]').click(function() {
-      ev.settings.radio[$(this)[0].name] = $(this)[0].id;
-      ev.saveData();
-    });
+    //
     $('input[type="range"]').change(function() {
-      ev.settings.text.range[$(this)[0].name] = $(this)[0].value;
+      ev.settings.sub.text.range[$(this)[0].name] = $(this)[0].value;
       $('.' + $(this)[0].name).val($(this)[0].value);
       ev.saveData();
     });
@@ -107,11 +116,12 @@ let ev = new class {
       let value = $(this)[0].value;
       $('.' + $(this)[0].name).val(value);
       $('#' + $(this)[0].id + 'Range').val(value);
-      ev.settings.text.range[$(this)[0].name] = value;
+      ev.settings.sub.text.range[$(this)[0].name] = value;
       ev.saveData();
     });
+    //
     $('select').change(function() {
-      ev.settings.select[$(this)[0].name] = $(this)[0].value;
+      ev.settings.sub.select[$(this)[0].name] = $(this)[0].value;
       ev.saveData();
     });
   }

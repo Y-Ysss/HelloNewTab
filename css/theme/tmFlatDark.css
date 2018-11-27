@@ -16,7 +16,6 @@ a {
 
 #searchGroup {
     background-color: #162228;
-    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.5);
     /*-webkit-transition: 0.35s cubic-bezier(0.58, 0.11, 0.2, 1.05) all;*/
 }
 #searchHeader {
@@ -24,7 +23,6 @@ a {
 }
 #search {
     color: #567;
-    color: #fff;
     background-color: #284250;
 }
 
@@ -52,7 +50,6 @@ a {
     /*-webkit-transition: 0.5s cubic-bezier(0.31, 1.2, 0.87, 0.86) all;*/
 }
 #searchResult a:hover {
-    color: #fff;
     background: #284250;
     /*-webkit-transition: 0.25s ease-out all;*/
 }
@@ -61,7 +58,6 @@ a {
     background-color: #171E22;
     opacity: 1;
     /*border-right: 0.1rem solid #345;*/
-    box-shadow: 0rem 0.2rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 
 .menu {
@@ -69,7 +65,7 @@ a {
     transition: 0.3s all;
 }
 .menu:hover{
-    color: #fff;
+    background-color: #284250;
 }
 .systemLink{
     color: #abadae;
@@ -77,7 +73,6 @@ a {
 }
 
 .systemLink:hover {
-    color: #fff;
     background-color: #284250;
 }
 .faviconBig {
@@ -90,7 +85,6 @@ a {
 .cntntModule {
     /*border: 0.1rem solid #666;*/
     background-color: #171E22;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.8);
 /*-webkit-transition: 0.48s cubic-bezier(0.58, 0.11, 0.2, 1.00) all;*/
 }
 
@@ -100,7 +94,6 @@ a {
 }
 
 .cntntModule ul li:hover {
-    color: #fff;
     background: #284250;
     /*-webkit-transition: 0.25s ease-out all;*/
 }
@@ -116,12 +109,10 @@ a {
 
 .form_tggl:after {
     background-color: #ECEFF1;
-    box-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.35);
     transition: .3s;
 }
 
 .form_tggl:hover:after {
-    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.4);
 }
 
 .form_tggl_on {
@@ -134,12 +125,10 @@ a {
 
 ::-webkit-scrollbar-thumb {
     background: rgb(109, 112, 114);
-    box-shadow: 0 0 0.4rem rgba(0, 0, 0, 0.9);
 }
 
 ::-webkit-scrollbar-thumb:active {
     background: rgb(99, 102, 104);
-    box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.95);
 }
 
 .ripple .rp-effect {
@@ -148,7 +137,6 @@ a {
 
 
 .bg-searchMenu {
-    color: #fff;
     background-color: #284250;
 }
 
@@ -170,7 +158,6 @@ a {
 .floatMenu {
     color: #ddd;
     background-color:#284250;
-    box-shadow: 0 0.1rem 0.8rem rgba(0, 0, 0, 0.8);
 }
 input[type=radio] + label {
     color:#ddd;
@@ -191,7 +178,6 @@ input[type=radio] + label:after {
 .textf {
   color: #fff;
   background-color: #354046;
-  box-shadow: 0 .2rem .5rem rgba(0, 0, 0, .3);
 }
 
 ::-webkit-input-placeholder {

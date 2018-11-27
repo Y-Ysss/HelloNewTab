@@ -2,10 +2,15 @@ let ini = new class {
     constructor() {
         //Default settings
         this.settings = {
-            "toggle": { "tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch": -1 },
-            "radio": { "theme": "tmLight" },
-            "text": { "txtScale": "", "range": { "sliderLower": "0", "sliderUpper": "0" } },
-            "select": { "autoThemeMode1": "tmLight", "autoThemeMode2": "tmLight" }
+            "common" : {
+        "toggle": {"tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
+        "radio": {"theme": "tmFlatLight"},
+        "text": { "txtScale": ""},
+      },
+      "sub" : {
+        "text" : {"txtRegExpPattern":"", "range":{ "sliderLower": "", "sliderUpper": ""}},
+        "select": {"autoThemeMode1": "tmFlatLight", "autoThemeMode2": "tmFlatDark"}
+      }
         },
         this.contentsData = "",
         this.initData()
@@ -22,7 +27,7 @@ let ini = new class {
     // Initialization
     init() {
         this.addContents()
-        this.walkJson(this.settings)
+        this.walkJson(this.settings.common)
         this.evListener()
     }
 
@@ -54,6 +59,7 @@ let ini = new class {
                 this.walkJson(data[key])
             } else {
                 this[key](data[key])
+                console.log(key, data[key])
             }
         }
     }
@@ -75,10 +81,11 @@ let ini = new class {
         a === 1 ? $('#sArea').removeClass('displayNone') : $('#sArea').addClass('displayNone');
         // a === 1 ? $('#sArea').css('display', 'block') : $('#sArea').css('display', 'none');
     }
-    sliderLower() {}
-    sliderUpper() {}
-    autoThemeMode1() {}
-    autoThemeMode2() {}
+    // sliderLower() {}
+    // sliderUpper() {}
+    // autoThemeMode1() {}
+    // autoThemeMode2() {}
+    // txtRegExpPattern(){}
 
     // Dynamic Elements AddEventListener
     evListener() {
@@ -250,7 +257,7 @@ $('.createTabLink').click(function() {
 
 
 $('input[type="radio"]').click(function() {
-    ini.settings.radio[$(this)[0].name] = $(this)[0].id;
+    ini.settings.common.radio[$(this)[0].name] = $(this)[0].id;
 });
 
 $(window).resize(function() {

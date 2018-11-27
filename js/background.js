@@ -47,12 +47,12 @@ let autoTheme = ()=> {
     chrome.storage.local.get((a) => {
         if(a !== undefined) {
             let nowTime = new Date().getHours();
-            let range = [a.settings.text.range.sliderLower, a.settings.text.range.sliderUpper];
+            let range = [a.settings.sub.text.range.sliderLower, a.settings.sub.text.range.sliderUpper];
             if(range[0] !== "" && range[1] !== "") {
                 if(range[0] <= nowTime && nowTime < range[1]) {
-                    a.settings.radio.theme = a.settings.select.autoThemeMode1;
+                    a.settings.common.radio.theme = a.settings.sub.select.autoThemeMode1;
                 } else {
-                    a.settings.radio.theme = a.settings.select.autoThemeMode2;
+                    a.settings.common.radio.theme = a.settings.sub.select.autoThemeMode2;
                 }
                 chrome.storage.local.set({ settings: a.settings })
             }
@@ -89,11 +89,15 @@ let createContents = function() {
 chrome.runtime.onInstalled.addListener(function() {
         // chrome.tabs.create({url:chrome.extension.getURL("hello.html")},function(){});
         let settings = {
-            "toggle": { "tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
-            "radio": { "theme": "tmFlatLight" },
-            "text": { "txtScale": "", "range": { "sliderLower": "", "sliderUpper": "" } },
-            "select": { "autoThemeMode1": "tmLight", "autoThemeMode2": "tmDark" }
-        }
+            "common" : {
+        "toggle": {"tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
+        "radio": {"theme": "tmLight"},
+        "text": { "txtScale": ""},
+      },
+      "sub" : {
+        "text" : {"txtRegExpPattern":"", "range":{ "sliderLower": "", "sliderUpper": ""}},
+        "select": {"autoThemeMode1": "tmFlatLight", "autoThemeMode2": "tmFlatDark"}
+      }}
         chrome.storage.local.set({ settings: settings });
         createContents();
 
