@@ -70,6 +70,7 @@ a {
 }
 .menu:hover{
     color: #fff;
+    background-color: #284250;
 }
 .systemLink{
     color: #abadae;
