@@ -115,7 +115,7 @@ let ev = new class {
     $('.textTime').change(function() {
       let value = $(this)[0].value;
       $('.' + $(this)[0].name).val(value);
-      $('#' + $(this)[0].id + 'Range').val(value);
+      $('#' + $(this)[0].name + 'Range').val(value);
       ev.settings.sub.text.range[$(this)[0].name] = value;
       ev.saveData();
     });
