@@ -94,7 +94,6 @@ let ev = new class {
       ev.settings.common.radio[$(this)[0].name] = $(this)[0].id;
       ev.saveData();
     });
-    //
     $('#txtRegExpPattern').blur(function() {
       let pattern = $(this)[0].value;
       if(!pattern.match(/^[\/]/)) {
@@ -106,7 +105,6 @@ let ev = new class {
       ev.settings.sub.text[$(this)[0].id] = pattern;
       ev.saveData();
     });
-    //
     $('input[type="range"]').change(function() {
       ev.settings.sub.text.range[$(this)[0].name] = $(this)[0].value;
       $('.' + $(this)[0].name).val($(this)[0].value);
@@ -119,7 +117,6 @@ let ev = new class {
       ev.settings.sub.text.range[$(this)[0].name] = value;
       ev.saveData();
     });
-    //
     $('select').change(function() {
       ev.settings.sub.select[$(this)[0].name] = $(this)[0].value;
       ev.saveData();
@@ -129,7 +126,7 @@ let ev = new class {
   versionInfo() {
     $.getJSON('manifest.json').then(function(manifest) {
       let str = '<div class="cardContents"><b>Installed Version</b><br>' + manifest.version + '</div>';
-      $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/releases/latest').then(function(data) {
+      $.getJSON('https://api.github.com/repos/Y-Ysss/HelloNewTab/releases/latest').then(function(data) {
         if(manifest.version !== data.name) {
           str += '<h2>#Latest Release</h2><div class="cardContents"><b>Version</b><br>' +
             data.name + '</div><div class="cardContents"><b>What\'s New</b><br>' +
@@ -143,7 +140,7 @@ let ev = new class {
 
   gitCommitsInfo() {
     let str = '';
-    $.getJSON('https://api.github.com/repos/Yoseatlly/HelloNewTab/commits').then(function(json) {
+    $.getJSON('https://api.github.com/repos/Y-Ysss/HelloNewTab/commits').then(function(json) {
       for(let i = 0; i < 5; i++) {
         str += '<div class="cardContents"><b>' + json[i].commit.message + '</b><br><span>' +
           (json[i].commit.author.date).replace('T', ', ').slice(0, -1) +
@@ -159,5 +156,5 @@ let ev = new class {
   }
 }
 } catch(e) {
-console.log(e)
+console.error(e)
 }

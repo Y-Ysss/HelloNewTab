@@ -138,8 +138,8 @@ a {
 }
 
 .button:hover {
-  color: #3276a3;
-  border: #3276a3 solid 1px;
+  color: #42a5f5;
+  border: #42a5f5 solid 1px;
 }
 
 .button:active {
@@ -154,7 +154,9 @@ a {
 input[type=radio] + label {
   color: #333;
 }
-
+input[type=radio]:hover + label::before {
+  border: .2rem solid #42a5f5;
+}
 
 input[type=radio] + label::before {
   border: .2rem solid #9e9e9e;

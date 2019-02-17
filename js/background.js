@@ -1,14 +1,14 @@
 let joinBkmrk = "";
 let appendData = "";
-let BookmarkNode = function(bookmark) {
+let BookmarkNode = (bookmark) => {
     if("children" in bookmark && bookmark.children.length > 0) {
-        bookmark.children.forEach(function(subBookmark) {
+        bookmark.children.forEach((subBookmark) => {
             BookmarkNode(subBookmark);
         });
         if(joinBkmrk !== "") {
-            if(bookmark.title.match(/'$|^#/)){
-
-            } else if(bookmark.title.match(/^'/)) {
+            // if(bookmark.title.match(/'$|^#/)){
+            // } else 
+            if(bookmark.title.match(/^'/)) {
                 appendData += ('<div class="cntntModule hideModule hide"><div class="cntntHead">' + bookmark.title + '</div><ul>' + joinBkmrk + '<li class="bkmrkNum">' + bookmark.children.length + ' bookmarks</li></ul></div>');
             } else {
                 appendData += ('<div class="cntntModule"><div class="cntntHead">' + bookmark.title + '</div><ul>' + joinBkmrk + '<span class="bkmrkNum">' + bookmark.children.length + ' bookmarks</span></ul></div>');
@@ -17,8 +17,8 @@ let BookmarkNode = function(bookmark) {
         }
     } else if(bookmark.url !== undefined) {
         let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
-        joinBkmrk += '<li><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' +
-            bookmark.url + '">' + title + '</a></li>';
+        joinBkmrk += '<li><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' + bookmark.url + '">' + title + '</a></li>';
+        // joinBkmrk += '<li data-bookmarks-id="' + bookmark.id + '"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' + bookmark.url + '">' + title + '</a></li>';
     }
 }
 
@@ -39,11 +39,11 @@ let autoTheme = ()=> {
     })
 }
 
-let createContents = function() {
-    chrome.bookmarks.getTree(function(itemTree) {
-        itemTree.forEach(function(items) {
+let createContents = () => {
+    chrome.bookmarks.getTree((itemTree) => {
+        itemTree.forEach((items) => {
             if ("children" in items) {
-                items.children.forEach(function(bookmark) { BookmarkNode(bookmark); });
+                items.children.forEach((bookmark) => { BookmarkNode(bookmark); });
             }
         });
         chrome.storage.local.set({ 'contentsData': appendData });
@@ -54,8 +54,7 @@ let createContents = function() {
     // chrome.runtime.sendMessage({type: 'reload'}, function(response) {});
 }
 
-
-chrome.runtime.onInstalled.addListener(function() {
+chrome.runtime.onInstalled.addListener(() => {
         let settings = {
             "common" : {
         "toggle": {"tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
@@ -70,10 +69,10 @@ chrome.runtime.onInstalled.addListener(function() {
         createContents();
 
     }),
-    chrome.tabs.onCreated.addListener(function(a) {autoTheme();}),
-    chrome.bookmarks.onChanged.addListener(function(a) {createContents();}),
-    chrome.bookmarks.onMoved.addListener(function(a) {createContents();}),
-    chrome.bookmarks.onChildrenReordered.addListener(function(a) {createContents();}),
-    chrome.bookmarks.onRemoved.addListener(function(a) {createContents();})
+    chrome.tabs.onCreated.addListener((a) => {autoTheme();}),
+    chrome.bookmarks.onChanged.addListener((a) => {createContents();}),
+    chrome.bookmarks.onMoved.addListener((a) => {createContents();}),
+    chrome.bookmarks.onChildrenReordered.addListener((a) => {createContents();}),
+    chrome.bookmarks.onRemoved.addListener((a) => {createContents();})
 
     // chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) { if(request.type === 'create') { createContents(); } });

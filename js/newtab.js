@@ -64,21 +64,26 @@ let ini = new class {
   }
 
   tgglIcon(a) {
-    a === 1 ? $('.favicon').css('border-radius', '0%') : $('.favicon').css('border-radius', '50%');
+    // a === 1 ? $('.favicon').css('border-radius', '0%') : $('.favicon').css('border-radius', '50%');
+    const items = document.getElementsByClassName('favicon');
+    const br = a === 1 ? '0%' : '50%';
+    for(let i = items.length - 1; i >= 0; i--) {
+      items[i].style.borderRadius = br;
+    }
   }
   tgglOpenTab(a) {
     if (a === 1) { $('head').append('<base target="_blank">'); }
   }
   txtScale(a) {
-    if (!isNaN(a) && a !== '') { $('html').css('zoom', a + '%'); }
+    if (isFinite(a) && a !== '') { $('html').css('zoom', a + '%'); }
   }
   theme(a) {
     $('head').append('<link id="ssTheme" rel="stylesheet" type="text/css" href="css/theme/' + a + '.css">');
     $('input[name="theme"]').val([a]);
   }
   tgglWebSearch(a) {
-    a === 1 ? $('#sArea').removeClass('displayNone') : $('#sArea').addClass('displayNone');
-    // a === 1 ? $('#sArea').css('display', 'block') : $('#sArea').css('display', 'none');
+    // a === 1 ? $('#sArea').removeClass('displayNone') : $('#sArea').addClass('displayNone');
+    a === 1 ? document.getElementById('sArea').classList.remove('displayNone') : document.getElementById('sArea').classList.add('displayNone');
   }
   // sliderLower() {}
 // sliderUpper() {}
@@ -172,14 +177,12 @@ let ev = new class {
         results.forEach(function(item) {
           if (item.url) {
             const title = item.title == "" ? item.url : item.title;
-            joinResult += '<a href="' + item.url + '"><img class="favicon" src="chrome://favicon/' + item.url + '">' + title + '</a>';
+            joinResult += '<a href="' + item.url + '" title="' + title + '"><img class="favicon" src="chrome://favicon/' + item.url + '">' + title + '</a>';
           }
         });
-        // $('#searchResult').append(joinResult + '<div id="resultNum">Search Result : ' + results.length + '</div>');
-        document.getElementById('searchResult').innerHTML = joinResult + '<div id="resultNum">Search Result : ' + results.length + '</div>';
+        document.getElementById('searchResult').innerHTML = joinResult + '<div id="resultNum">' + results.length + ' bookmarks</div>';
       });
     }
-    // $('#searchResult').empty();
     document.getElementById('searchResult').innerHTML = '';
   }
   cssFloatMenu(obj, a) {

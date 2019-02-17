@@ -247,7 +247,13 @@ ul {
   opacity: 0;
   -webkit-transition: .5s cubic-bezier(.49, .03, .12, 1.00) all;
 }
-
+#bodyMain:empty{
+  background-image: url(../img/emptyState_0.svg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  -webkit-transition: none;
+  background-position: center center;
+}
 .cntntModule {
   margin: 1.8rem 1.6rem;
   padding: 0;

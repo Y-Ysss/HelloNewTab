@@ -177,6 +177,9 @@ input[type=radio] + label {
     color:#ddd;
 }
 
+input[type=radio]:hover + label::before {
+  border: .2rem solid #42a5f5;
+}
 
 input[type=radio] + label::before {
     border: 0.2rem solid #9E9E9E;
