@@ -102,6 +102,7 @@ let ini = new class {
       }
     });
   }
+
 }
 
 let ev = new class {
@@ -255,6 +256,9 @@ $('.createTabLink').click(function() {
   ev.moreMenu(1);
   document.getElementById('mFilter').classList.remove('filter');
 });
+// document.querySelector('.cntntModule ul li a').oncontextmenu = ()=>{
+//   console.log(this)
+// };
 
 $('input[type="radio"]').click(function() {
   ini.settings.common.radio[$(this)[0].name] = $(this)[0].id;
