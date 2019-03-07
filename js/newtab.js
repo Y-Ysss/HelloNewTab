@@ -55,7 +55,7 @@ let ini = new class {
   // called init() 
   walkJson(data) {
     for (var key in data) {
-      if (typeof data[key] === "object") {
+      if (typeof data[key] === 'object') {
         this.walkJson(data[key])
       } else {
         this[key](data[key])

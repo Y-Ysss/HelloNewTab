@@ -1,19 +1,21 @@
 class bgService {
     constructor() {
-        this.joinBkmrk = "";
-        this.appendData = "";
-        this.regExpPattern = "";
-        this.createContents();
+        this.joinBkmrk = '';
+        this.appendData = '';
+        this.regExpPattern = '';
+        // this.createContents();
     }
     createContents() {
         (async () => {
-            await chrome.storage.local.get('settings', (data) => {
-                this.regExpPattern = data.settings.sub.text.txtRegExpPattern;
+            await chrome.storage.local.get((data) => {
+                if(data !== undefined) {
+                    this.regExpPattern = data.settings.sub.text.txtRegExpPattern;
+                }
             });
         })();
         chrome.bookmarks.getTree((itemTree) => {
             itemTree.forEach((items) => {
-                if ("children" in items) {
+                if ('children' in items) {
                     items.children.forEach((bookmark) => { this.BookmarkNode(bookmark); });
                 }
             });
@@ -44,7 +46,7 @@ class bgService {
             }
         } else if(bookmark.url !== undefined) {
             let title = bookmark.title.length > 0 ? bookmark.title : bookmark.url;
-            this.joinBkmrk += '<li><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' + bookmark.url + '">' + title + '</a></li>';
+            this.joinBkmrk += '<li><a href="' + bookmark.url + '" title=" ' + title + ' "><img class="favicon" src="chrome://favicon/' + bookmark.url + '">' + title + '</a></li>';
             // this.joinBkmrk += '<li data-bookmarks-id="' + bookmark.id + '"><a href="' + bookmark.url + '"><img class="favicon" src="chrome://favicon/' +  bookmark.url + '">' + title + '</a></li>';
         }
     }
@@ -82,8 +84,7 @@ chrome.runtime.onInstalled.addListener(() => {
             "select": {"autoThemeMode1": "tmFlatLight", "autoThemeMode2": "tmFlatDark"}
         }
     }
-    chrome.storage.local.set({ settings: settings });
-    bgservice.createContents();
+    chrome.storage.local.set({ settings: settings }, ()=>{bgservice.createContents();});
 }),
 chrome.tabs.onCreated.addListener((a) => {bgservice.autoTheme();}),
 chrome.bookmarks.onChanged.addListener((a) => {bgservice.createContents();}),
