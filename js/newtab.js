@@ -34,7 +34,8 @@ let ini = new class {
   // called init() 
   addContents() {
     this.funcMacy();
-    document.getElementById('bodyMain').innerHTML = this.contentsData;
+    // document.getElementById('bodyMain').innerHTML = this.contentsData;
+    document.getElementById('bodyMain').insertAdjacentHTML('afterbegin', this.contentsData);
     rippleEffect();
     this.contentsData = "";
   }

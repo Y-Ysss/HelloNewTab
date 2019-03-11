@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Hello New Tab",
-    "version": "6.0.8",
+    "version": "6.0.9",
     "description": "Startpage giving instant access to bookmarks.",
     "permissions": [
         "bookmarks",
@@ -12,7 +12,7 @@
     "incognito":"split",
     "background": {
         "scripts": [
-            "js/lib/jquery.js",
+            // "js/lib/jquery.js",
             "js/background.js"
         ],
         "persistent": false
