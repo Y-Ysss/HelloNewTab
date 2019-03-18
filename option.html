@@ -18,45 +18,58 @@
     <a href="#attribution" class="ripple" target="_self">Attribution</a>
     <a href="#exinfo" class="ripple" target="_self">Extension Info</a>
     <a href="#githubcmmt" class="ripple" target="_self">GitHub Commits</a>
+    <a href="" id="testReload" target="_self">TestReload</a>
   </div>
   <div id="bodyMain">
     <a name="option">　</a>
     <div class="cardArea">
-      <h2>#Option</h2>
-      <div class="cardContents">
+      <h2>#Options</h2>
+      <div class="cardContents contentGrid boderb">
+        <div>
         <b>Open in new tab</b>
         <br>
         <span>ブックマークを新しいタブで開く</span>
+      </div><div>
         <div id="tgglOpenTab" class="toggle"></div>
       </div>
-      <div class="cardContents">
+      </div>
+      <div class="cardContents contentGrid boderb">
+        <div>
         <b>Web Search Bar</b>
         <br>
         <span>Google 検索バーを表示する</span>
+      </div><div>
         <div id="tgglWebSearch" class="toggle"></div>
       </div>
-      <div class="cardContents boderb">
+      </div>
+      <div class="cardContents contentGrid boderb">
+        <div>
         <b>Page</b>
         <br>
         <span>デフォルトのファビコン（Webページのアイコン）を使用する</span>
+      </div><div>
         <div id="tgglIcon" class="toggle"></div>
       </div>
-      <div class="cardContents boderb">
+      </div>
+      <div class="cardContents contentGrid boderb">
+        <div>
         <span>ページの拡大（Default : 100）[%]</span>
-        <div class="opdiv">
+        </div><div>
           <input id="txtScale" class="textf" type="text" placeholder="Number">
-          <div class="underline"></div>
         </div>
       </div>
-      <div class="cardContents boderb">
+      <div class="cardContents contentGrid boderb">
+        <div>
         <span>ページのスタイル</span>
-        <div class="opdiv">
+      </div>
+        <div>
           <input type="radio" name="theme" id="tmLight" value="tmLight">
           <label for="tmLight">Modern Light</label>
           <input type="radio" name="theme" id="tmDark" value="tmDark">
           <label for="tmDark">Modern Dark</label>
           <input type="radio" name="theme" id="tmOrange" value="tmOrange">
           <label for="tmOrange">Modern Orange</label>
+          <br>
           <input type="radio" name="theme" id="tmFlatLight" value="tmFlatLight">
           <label for="tmFlatLight">Flat Light</label>
           <input type="radio" name="theme" id="tmFlatDark" value="tmFlatDark">
@@ -68,8 +81,11 @@
       <div class="cardContents">
         <details>
           <summary>詳細な設定</summary>
+          <div class="contentGrid">
+          <div>
           <span>テーマの時間設定</span>
-          <div class="opdiv">
+        </div>
+          <div>
             <div class="ranges">
               <input type="range" name="sliderLower" class="slider" id="sliderLowerRange" min="0" max="24" setp="1">
               <input type="range" name="sliderUpper" class="slider" id="sliderUpperRange" min="0" max="24" setp="1">
@@ -107,14 +123,58 @@
               </span>
             </div>
           </div>
+        </div>
         </details>
+      </div>
+      <div class="cardContents">
         <details>
           <summary>実験的機能</summary>
-        <span>[Unimplemented] 除外フォルダ指定（正規表現）</span>
-        <div class="opdiv">
-          <input id="txtRegExpPattern" class="textf" type="text" placeholder="Regular Expression Pattern ( example : /^begin|end$/ )">
+          <div class="contentGrid">
+            <div>
+              <span>[Unimplemented] 除外フォルダ指定（正規表現）</span>
+            </div>
+          <div>
+            <input id="txtRegExpPattern" class="textf" type="text" placeholder="Regular Expression Pattern ( example : /^begin|end$/ )">
+          </div>
+          <div class="cardContents">
+            <details>
+            <summary>正規表現パターン</summary>
+            <table border="0" cellspacing="0">
+              <!-- <caption>文字種</caption> -->
+              <tr>
+                <th>パターン</th><th>説明</th>
+              </tr>
+              <tr><td>^<span class="fBlue">...</span></td><td>直後の文字が先頭にある場合</td></tr>
+              <tr><td><span class="fBlue">...</span>$</td><td>直前の文字が末尾にある場合</td></tr>
+              <tr><td>.</td><td>任意の1文字</td></tr>
+              <tr><td><span class="fBlue">_</span>*</td><td>直前の文字が0回以上繰り返す場合の最長一致</td></tr>
+              <tr><td><span class="fBlue">_</span>+</td><td>直前の文字が1回以上繰り返す場合の最長一致</td></tr>
+              <tr><td><span class="fBlue">_</span>?</td><td>直前の文字が0または1回の場合の最長一致</td></tr>
+              <tr><td><span class="fBlue">_</span>+?</td><td>直前の文字が1回以上繰り返す場合の最短一致</td></tr>
+              <tr><td><span class="fBlue">_</span>*?</td><td>直前の文字が0回以上繰り返す場合の最短一致</td></tr>
+              <tr><td><span class="fBlue">_</span>??</td><td>直前の文字が0または1回の場合の最短一致</td></tr>
+              <tr><td><span class="fBlue">_</span>|<span class="fBlue">_</span></td><td>左右のいずれかの条件（OR）</td></tr>
+              <tr><td>[<span class="fBlue">...</span>]</td><td>角括弧内のいずれか1文字</td></tr>
+              <tr><td>[^<span class="fBlue">...</span>]</td><td>角括弧内の文字以外</td></tr>
+              <tr><td>(<span class="fBlue">...</span>)</td><td>パターンのグループ化</td></tr>
+              <tr><td>{<span class="fBlue">n</span>}</td><td>桁数指定</td></tr>
+              <tr><td>{<span class="fBlue">min</span>, }</td><td>最小桁数のみ指定</td></tr>
+              <tr><td>{<span class="fBlue">min</span>,<span class="fBlue">max</span>}</td><td>最小と最大桁数指定の最長一致</td></tr>
+              <tr><td>{<span class="fBlue">min</span>,<span class="fBlue">max</span>}?</td><td>最小と最大桁数指定の最短一致</td></tr>
+            </table>
+            <!-- <table border="0" cellspacing="0">
+              <caption>位置</caption>
+              <tr>
+                <th>記法</th><th>説明</th>
+              </tr>
+              <tr><td>\<</td><td>単語の先頭</td></tr>
+              <tr><td>\></td><td>単語の末尾</td></tr>
+              <tr><td>\b</td><td>単語の先頭か末尾</td></tr>
+              <tr><td>\B</td><td>単語の先頭か末尾以外</td></tr>
+            </table> -->
+          </details>
+          </div>
         </div>
-
         </details>
       </div>
         

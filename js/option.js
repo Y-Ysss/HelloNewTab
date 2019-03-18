@@ -19,8 +19,6 @@ let ev = new class {
   saveData() {
     chrome.storage.local.set({ settings: this.settings });
     this.toast();
-    // 設定変更時 バックグラウンド更新
-    // chrome.runtime.sendMessage({type: 'reload'}, function(response) {});
   }
   // load
   initData() {
@@ -95,14 +93,14 @@ let ev = new class {
       ev.saveData();
     });
     $('#txtRegExpPattern').blur(function() {
-      let pattern = $(this)[0].value;
-      if(!pattern.match(/^[\/]/)) {
-        pattern = "/" + pattern;
-      }
-      if(!pattern.match(/.\/$/)) {
-        pattern = pattern + "/";
-      }
-      ev.settings.sub.text[$(this)[0].id] = pattern;
+      // let pattern = ;
+      // if(!pattern.match(/^[\/]/)) {
+      //   pattern = "/" + pattern;
+      // }
+      // if(!pattern.match(/.\/$/)) {
+      //   pattern = pattern + "/";
+      // }
+      ev.settings.sub.text[$(this)[0].id] = $(this)[0].value;
       ev.saveData();
     });
     $('input[type="range"]').change(function() {
@@ -121,32 +119,37 @@ let ev = new class {
       ev.settings.sub.select[$(this)[0].name] = $(this)[0].value;
       ev.saveData();
     });
+
+    $('#testReload').click(function(){
+      // 設定変更時 バックグラウンド更新
+      chrome.runtime.sendMessage({type: 'reload'}, function(response) {});
+    })
   }
 
   versionInfo() {
-    $.getJSON('manifest.json').then(function(manifest) {
-      let str = '<div class="cardContents"><b>Installed Version</b><br>' + manifest.version + '</div>';
-      $.getJSON('https://api.github.com/repos/Y-Ysss/HelloNewTab/releases/latest').then(function(data) {
-        if(manifest.version !== data.name) {
-          str += '<h2>#Latest Release</h2><div class="cardContents"><b>Version</b><br>' +
-            data.name + '</div><div class="cardContents"><b>What\'s New</b><br>' +
-            data.body + '</div><div class="cardContents"><b>URL</b><br><a href="' + data.html_url + '"></a></div>';
-          str = str.replace(/\r?\n/g, '<br>');
-        }
-        $('#ExtensionInfo').append(str);
-      });
+    const manifestData = chrome.runtime.getManifest();
+    document.getElementById('ExtensionInfo').insertAdjacentHTML('beforeend', '<div class="cardContents"><b>Installed Version</b><br>' + manifestData.version + '</div>');
+    fetch('https://api.github.com/repos/Y-Ysss/HelloNewTab/releases/latest').then(resp => {return resp.json();})
+    .then(latestRelease => {
+      let str = ''; 
+      if(manifestData.version !== latestRelease.name) {
+        str += '<h2>#Latest Release</h2><div class="cardContents"><b>Version</b><br>' + latestRelease.name + '</div><div class="cardContents"><b>What\'s New</b><br>' + latestRelease.body + '</div><div class="cardContents"><b>URL</b><br><a href="' + latestRelease.html_url + '"></a></div>';
+        str = str.replace(/\r?\n/g, '<br>');
+      }
+    document.getElementById('ExtensionInfo').insertAdjacentHTML('beforeend', str);
     });
   }
 
   gitCommitsInfo() {
     let str = '';
-    $.getJSON('https://api.github.com/repos/Y-Ysss/HelloNewTab/commits').then(function(json) {
+    fetch('https://api.github.com/repos/Y-Ysss/HelloNewTab/commits').then(resp => {return resp.json();})
+    .then(commitsData => {
       for(let i = 0; i < 5; i++) {
-        str += '<div class="cardContents"><b>' + json[i].commit.message + '</b><br><span>' +
-          (json[i].commit.author.date).replace('T', ', ').slice(0, -1) +
-          ' (UTC)</span><br><a href="' + json[i].html_url + '"></a></div>';
+        str += '<div class="cardContents"><b>' + commitsData[i].commit.message + '</b><br><span>' +
+          (commitsData[i].commit.author.date).replace('T', ', ').slice(0, -1) +
+          ' (UTC)</span><br><a href="' + commitsData[i].html_url + '"></a></div>';
       }
-      $('#gitCommitsInfo').append(str);
+      document.getElementById('gitCommitsInfo').insertAdjacentHTML('beforeend', str);
     });
   }
 

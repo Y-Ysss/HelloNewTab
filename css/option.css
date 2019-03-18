@@ -36,13 +36,9 @@ summary {
   margin: 3.2rem 0 3.2rem 0;
 }
 
-.opdiv {
-  margin: -3rem 0 1rem 0;
-  text-align: right;
-}
 .inopdiv {
   /*margin-top: 1.5rem ;*/
-  padding: 0 0 1.5rem 0;
+  padding: 0 0 .6rem 0;
 }
 
 ul {
@@ -67,7 +63,34 @@ li:before {
 .uln span {
   color: #999;
 }
-
+table {
+  padding: 1rem 1rem 0 1rem;
+  border-radius: .5rem;
+  background-color: #f7f7f7;
+  text-align: left;
+}
+table th,
+table td{
+  padding: .5rem 3rem;
+  border-bottom: solid .05rem #ccc;
+}
+table tr:last-child td{
+  border-bottom: none;
+}
+.fBlue, .fRed, .fGreen {
+  padding: 0 .5rem;
+  margin: 0 .3rem;
+  border-radius: .2rem;
+}
+.fBlue {
+  background-color: #d7e9f5;
+}
+.fRed {
+  background-color: #ffcfcf;
+}
+.fGreen {
+  background-color: #cff3ce;
+}
 #toast {
   bottom: -5rem;
   left: 50%;
@@ -116,7 +139,7 @@ li:before {
 }
 
 #txtRegExpPattern{
-  width: 50rem;
+  width: 38rem;
   text-align: left;
 }
 
@@ -156,7 +179,7 @@ input[type=radio] {
 }
 
 input[type=radio] + label {
-  margin: 0 0 0 3rem;
+  margin: 1rem 2rem 1rem 0;
   padding-left: 2.2rem;
   position: relative;
 }
@@ -356,9 +379,10 @@ select {
 .toggle {
   height: 1.2rem;
   width: 4.0rem;
-  margin: 1.5rem .5rem 0 .5rem;
+  margin-top: 4.2rem;
+  /*margin: 4.1rem 0 0 0;*/
   display: inline-block;
-  float: right;
+  /*float: right;*/
   cursor: pointer;
   line-height: 1rem;
   vertical-align: middle;
@@ -401,6 +425,7 @@ select {
   height: 100%;
   width: 20rem;
   position: fixed;
+  z-index: 5;
   cursor: default;
   background-color: #fff;
   box-shadow: 0rem .2rem .5rem rgba(0, 0, 0, .3);
@@ -438,8 +463,9 @@ select {
 
 .cardArea {
   /*height: 100%;*/
-  min-width: 75rem;
-  margin: .0rem 5% 1.0rem 5%;
+  max-width: 100rem;
+  /*margin: .0rem 5% 1.0rem 5%;*/
+  margin: 0 auto;
   padding: 1rem;
   overflow: hidden;
   line-height: 3.2rem;
@@ -473,6 +499,24 @@ select {
 
 .cardContents > span {
   color: #5c6169;
+}
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.contentGrid div {
+  position: relative;
+}
+.contentGrid div:first-child {
+  grid-column: 1/2;
+}
+.contentGrid div:nth-child(2) {
+  grid-column: 2/3;
+  /*padding: 3.1rem 0 0 0;*/
+}
+.contentGrid div:nth-child(3) {
+  grid-column: 1/3;
+  /*padding: 3.1rem 0 0 0;*/
 }
 
 .boderb {
