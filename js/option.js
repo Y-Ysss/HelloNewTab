@@ -102,6 +102,7 @@ let ev = new class {
       // }
       ev.settings.sub.text[$(this)[0].id] = $(this)[0].value;
       ev.saveData();
+      chrome.runtime.sendMessage({type: 'reload'});
     });
     $('input[type="range"]').change(function() {
       ev.settings.sub.text.range[$(this)[0].name] = $(this)[0].value;
