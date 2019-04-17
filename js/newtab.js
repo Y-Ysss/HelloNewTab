@@ -175,11 +175,11 @@ let ev = new class {
     else{
       document.getElementById('searchReset').classList.add('searchResetView');
       chrome.bookmarks.search(words, function(results) {
-        let joinResult = "";
+        let joinResult = '';
         results.forEach(function(item) {
           if (item.url) {
             const title = item.title == "" ? item.url : item.title;
-            joinResult += '<a href="' + item.url + '" title="' + title + '"><img class="favicon" src="chrome://favicon/' + item.url + '">' + title + '</a>';
+            joinResult += '<a class="searchResultItems" href="' + item.url + '" title="' + title + '"><img class="favicon" src="chrome://favicon/' + item.url + '">' + title + '</a>';
           }
         });
         document.getElementById('searchResult').innerHTML = joinResult + '<div id="resultNum">' + results.length + ' bookmarks</div>';
@@ -233,6 +233,21 @@ let ev = new class {
 
 deSVG('.faviconBig', true);
 
+// document.getElementById('search').addEventListener('focus', (event) => {
+//   let focusNum = 0;
+//   // console.log(focusNum)
+//   event.target.addEventListener('keydown', (el) => {
+//     if(el.keyCode === 13) {
+//       document.getElementById('searchResult').firstChild.focus();
+//       // focusNum+=1;
+//       // console.log(focusNum);
+//     } else if(el.keyCode === 41) {
+//       // document.getElementById('searchResult').childNodes[focusNum].focus();
+//       // focusNum-=1;
+//       // console.log(focusNum)
+//     }
+//   });
+// });
 document.getElementById('search').addEventListener('keyup',ev.searchView);
 document.addEventListener('keydown', (event) => {
   if (event.altKey && event.keyCode === 66) { // [ Alt + B ]
@@ -241,6 +256,14 @@ document.addEventListener('keydown', (event) => {
   if (event.keyCode === 27 && $('#search').focus()) { // [ Esc ]
     ev.searchMenu(1);
   }
+  // const activeEl = document.activeElement;
+  // if(event.keyCode === 39 && activeEl.classList.contains('searchResultItems')) {
+  //   console.log('next');
+  //   activeEl.nextElementSibling.focus();
+  // } else if(event.keyCode === 37 && activeEl.classList.contains('searchResultItems')) {
+  //   console.log('prev');
+  //   activeEl.previousElementSibling.focus();
+  // }
 });
 
 document.addEventListener('click', ()=>{
