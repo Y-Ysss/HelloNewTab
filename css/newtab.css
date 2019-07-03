@@ -203,15 +203,15 @@ ul {
 }
 
 .systemLink {
-  height: 2.2rem;
+  /*height: 2.2rem;*/
   /*color: #345;*/
-  padding: 1rem;
+  /*padding: 1rem;*/
   display: block;
   overflow: hidden;
   /*transition: 0.3s all;*/
-  vertical-align: middle;
-  white-space: nowrap;
-  text-decoration: none;
+  /*vertical-align: middle;*/
+  /*white-space: nowrap;*/
+  /*text-decoration: none;*/
 }
 
 /*.systemLink:after {
