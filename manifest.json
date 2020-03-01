@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "Hello New Tab",
+    "name": "newtab",
     "version": "6.1.2",
     "description": "Startpage giving instant access to bookmarks.",
     "permissions": [
@@ -26,5 +26,6 @@
     "chrome_url_overrides": {
         "newtab": "newtab.html"
     },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "options_page": "option.html"
 }

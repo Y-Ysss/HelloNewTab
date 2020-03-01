@@ -3,12 +3,21 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Hello_NewTab</title>
+  <title>Dev</title>
   <!-- <base target="_blank"> -->
   <link rel="stylesheet" type="text/css" href="css/newtab.css">
   <link rel="icon" type="image/png" href="img/icon_016.png" sizes="16x16">
   <link rel="icon" type="image/png" href="img/icon_032.png" sizes="32x32">
   <link rel="icon" type="image/png" href="img/icon_096.png" sizes="96x96">
+  <template id="contentModuleTemplate">
+    <div class="cntntModule">
+      <div class="cntntHead ripple"></div>
+        <ul></ul>
+    </div>
+  </template>
+  <template id="liTemplate">
+    <li><a><img class="favicon"></a></li>
+  </template>
 </head>
 
 <body>
@@ -64,6 +73,10 @@
           <input type="radio" name="theme" id="tmFullFlatLight" value="tmFullFlatLight">
           <label for="tmFullFlatLight">FullFlat Light</label>
         </div>
+        <div>
+          <input type="radio" name="theme" id="tmNeumorphismLight" value="tmNeumorphismLight">
+          <label for="tmNeumorphismLight">tmNeumorphism Light</label>
+        </div>
         <div id="applyTheme" class="button actionItems">Apply</div>
       </div>
     </div>
@@ -71,7 +84,7 @@
       <!-- <div class="form_tggl" id="tggl1"></div> -->
       <div id="fmVsblty" class="floatMenu">
         Visible Folders
-        <div class="form_tggl" id="tggl1"></div>
+        <div class="form_tggl" id="tggl_visible"></div>
       </div>
     </div>
   </div>
@@ -82,11 +95,13 @@
   <div id="bodyMain">
   </div>
   <script type="text/javascript" src="js/lib/jquery.js"></script>
+  <script type="text/javascript" src="js/lib/underscore-min.js"></script>
   <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
   <script type="text/javascript" src="js/lib/desvg.js"></script>
   <script type="text/javascript" src="js/lib/macy.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
   <script type="text/javascript" src="js/newtab.js"></script>
-  <!-- <script type="text/javascript" src="js/getTree.js"></script> -->
+  <!-- <script type="text/javascript" src="js/test.js"></script> -->
 </body>
 
 </html>

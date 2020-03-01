@@ -11,7 +11,7 @@
 <body class="body">
   <div id="toast">設定を保存しました</div>
   <div id="leftMenu">
-    <div>HelloNewTab_Option</div>
+    <div>Options</div>
     <a href="#option" class="ripple" target="_self">Option</a>
     <a href="#howtouse" class="ripple" target="_self">How To Use</a>
     <a href="#about" class="ripple" target="_self">About</a>
@@ -29,7 +29,7 @@
         <br>
         <span>ブックマークを新しいタブで開く</span>
       </div><div>
-        <div id="tgglOpenTab" class="toggle"></div>
+        <div id="tggl_open_tab" class="toggle"></div>
       </div>
       </div>
       <div class="cardContents contentGrid boderb">
@@ -38,7 +38,7 @@
         <br>
         <span>Google 検索バーを表示する</span>
       </div><div>
-        <div id="tgglWebSearch" class="toggle"></div>
+        <div id="tggl_web_search" class="toggle"></div>
       </div>
       </div>
       <div class="cardContents contentGrid boderb">
@@ -47,14 +47,14 @@
         <br>
         <span>デフォルトのファビコン（Webページのアイコン）を使用する</span>
       </div><div>
-        <div id="tgglIcon" class="toggle"></div>
+        <div id="tggl_icon" class="toggle"></div>
       </div>
       </div>
       <div class="cardContents contentGrid boderb">
         <div>
         <span>ページの拡大（Default : 100）[%]</span>
         </div><div>
-          <input id="txtScale" class="textf" type="text" placeholder="Number">
+          <input id="txt_scale" class="text textf" type="text" placeholder="Number">
         </div>
       </div>
       <div class="cardContents contentGrid boderb">
@@ -86,12 +86,12 @@
         </div>
           <div>
             <div class="ranges">
-              <input type="range" name="sliderLower" class="slider" id="sliderLowerRange" min="0" max="24" setp="1">
-              <input type="range" name="sliderUpper" class="slider" id="sliderUpperRange" min="0" max="24" setp="1">
+              <input type="range" name="slider_lower" class="slider" id="slider_lowerRange" min="0" max="24" setp="1">
+              <input type="range" name="slider_upper" class="slider" id="slider_upperRange" min="0" max="24" setp="1">
             </div>
             <div class="inopdiv">
               <label>
-              <select name="autoThemeMode1">
+              <select name="auto_theme_mode_primary">
                 <option value="tmLight">Modern Light</option>
                 <option value="tmDark">Modern Dark</option>
                 <option value="tmOrange">Modern Orange</option>
@@ -101,13 +101,13 @@
               </select>
               </label>
               <span>&ensp;:&ensp;
-                <input name="sliderLower" class="sliderLower textf textTime" type="number" min="0" max="24">時 ～ 
-                <input name="sliderUpper" class="sliderUpper textf textTime" type="number" min="0" max="24">時
+                <input name="slider_lower" class="slider_lower textf textTime" type="number" min="0" max="24">時 ～ 
+                <input name="slider_upper" class="slider_upper textf textTime" type="number" min="0" max="24">時
               </span>
             </div>
             <div class="inopdiv">
               <label>
-              <select name="autoThemeMode2">
+              <select name="auto-theme-mode-secondary">
                 <option value="tmLight">Modern Light</option>
                 <option value="tmDark">Modern Dark</option>
                 <option value="tmOrange">Modern Orange</option>
@@ -117,8 +117,8 @@
               </select>
               </label>
               <span>&ensp;:&ensp;
-                <input name="sliderUpper" class="sliderUpper textf textTime" type="number" min="0" max="24">時 ～
-                <input name="sliderLower" class="sliderLower textf textTime" type="number" min="0" max="24">時 
+                <input name="slider_upper" class="slider_upper textf textTime" type="number" min="0" max="24">時 ～
+                <input name="slider_lower" class="slider_lower textf textTime" type="number" min="0" max="24">時 
               </span>
             </div>
           </div>
@@ -133,7 +133,7 @@
               <span>[Unimplemented] 除外フォルダ指定（正規表現）</span>
             </div>
           <div>
-            <input id="txtRegExpPattern" class="textf" type="text" placeholder="Regular Expression Pattern">
+            <input id="txt_regexp_pattern" class="text textf" type="text" placeholder="Regular Expression Pattern">
           </div>
           <div class="cardContents">
             <details>
@@ -256,9 +256,11 @@
       <h2>#Recently GitHub Commits</h2>
     </div>
   </div>
-  <script type="text/javascript" src="js/lib/jquery.js"></script>
+  <!-- <script type="text/javascript" src="js/lib/jquery.js"></script> -->
   <script type="text/javascript" src="js/lib/rippleEffect.js"></script>
-  <script type="text/javascript" src="js/option.js"></script>
+  <!-- <script type="text/javascript" src="js/option.js"></script> -->
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/test.js"></script>
 </body>
 
 </html>
