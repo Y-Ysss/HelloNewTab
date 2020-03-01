@@ -8,7 +8,7 @@ body {
   margin: 0;
   font-size: 1.5rem;
   background-color: #f7f7f7;
-  transition: 1s;
+  /*transition: 1s;*/
 }
 
 hr {
@@ -138,7 +138,7 @@ table tr:last-child td{
   -webkit-transition: .6s ease all;
 }
 
-#txtRegExpPattern{
+#txt_regexp_pattern{
   width: 38rem;
   text-align: left;
 }
@@ -251,11 +251,11 @@ input[type=radio]:checked + label:after {
   transition: .2s;
   -webkit-appearance: none;
 }
-#sliderLowerRange {
+#slider_lowerRange {
   vertical-align: middle;
   border-radius: .5rem .5rem 0 0 ;
 }
-#sliderUpperRange {
+#slider_upperRange {
   margin-top: -1.3rem;
   vertical-align: top;
   border-radius: 0 0 .5rem .5rem;
@@ -279,22 +279,22 @@ input[type=radio]:checked + label:after {
   width: 2.1rem;
 }
 
-#sliderLowerRange::-webkit-slider-thumb {
+#slider_lowerRange::-webkit-slider-thumb {
   margin-bottom: 2rem;
   border-radius: 50% 50% 35% 50%;
 }
 
-#sliderUpperRange::-webkit-slider-thumb {
+#slider_upperRange::-webkit-slider-thumb {
   margin-top: 2rem;
   border-radius: 35% 50% 50% 50%;
 }
-#sliderLowerRange::-webkit-slider-thumb:hover,
-#sliderLowerRange::-webkit-slider-thumb:active {
+#slider_lowerRange::-webkit-slider-thumb:hover,
+#slider_lowerRange::-webkit-slider-thumb:active {
   margin-bottom: 3rem;
   border-radius: 50% 50% 10% 50%;
 }
-#sliderUpperRange::-webkit-slider-thumb:hover,
-#sliderUpperRange::-webkit-slider-thumb:active {
+#slider_upperRange::-webkit-slider-thumb:hover,
+#slider_upperRange::-webkit-slider-thumb:active {
   margin-top: 3rem;
   border-radius: 10% 50% 50% 50%;
 }
