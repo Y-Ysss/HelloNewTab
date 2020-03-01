@@ -4,13 +4,13 @@ let ev = new class {
     //Default settings
     this.settings = {
       "common" : {
-        "toggle": {"tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
+        "toggle": {"tggl_icon": -1, "tggl_open_tab": 1, "tggl_web_search":-1},
         "radio": {"theme": "tmFlatLight"},
-        "text": { "txtScale": ""},
+        "text": { "txt_scale": ""},
       },
       "sub" : {
-        "text" : {"txtRegExpPattern":"", "range":{ "sliderLower": "", "sliderUpper": ""}},
-        "select": {"autoThemeMode1": "tmFlatLight", "autoThemeMode2": "tmFlatDark"}
+        "text" : {"txt_regexp_pattern":"", "range":{ "slider_lower": "", "slider_upper": ""}},
+        "select": {"auto_theme_mode_primary": "tmFlatLight", "auto-theme-mode-secondary": "tmFlatDark"}
       }
     },
     this.initData()
@@ -84,7 +84,7 @@ let ev = new class {
       ev.settings.common.toggle[$(this)[0].id] *= -1;
       ev.saveData();
     });
-    $('#txtScale').blur(function() {
+    $('#txt_scale').blur(function() {
       ev.settings.common.text[$(this)[0].id] = $(this)[0].value;
       ev.saveData();
     });
@@ -92,7 +92,7 @@ let ev = new class {
       ev.settings.common.radio[$(this)[0].name] = $(this)[0].id;
       ev.saveData();
     });
-    $('#txtRegExpPattern').blur(function() {
+    $('#txt_regexp_pattern').blur(function() {
       // let pattern = ;
       // if(!pattern.match(/^[\/]/)) {
       //   pattern = "/" + pattern;

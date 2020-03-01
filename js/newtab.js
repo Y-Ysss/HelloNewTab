@@ -1,323 +1,256 @@
-let ini = new class {
-  constructor() {
-    //Default settings
-    this.settings = {
-      "common" : {
-        "toggle": {"tgglIcon": -1, "tgglOpenTab": 1, "tgglWebSearch":-1},
-        "radio": {"theme": "tmFlatLight"},
-        "text": { "txtScale": ""},
-      },
-      "sub" : {
-        "text" : {"txtRegExpPattern":"", "range":{ "sliderLower": "", "sliderUpper": ""}},
-        "select": {"autoThemeMode1": "tmFlatLight", "autoThemeMode2": "tmFlatDark"}
-      }
-    },
-    this.contentsData = "",
-    this.initData()
-  }
-  // save
-  saveData() { chrome.storage.local.set({ settings: this.settings }) }
-  // load
-  initData() {
-    chrome.storage.local.get((a) => {
-      a.settings === undefined ? (this.saveData(), this.init()) : (this.settings = a.settings, this.contentsData = a.contentsData, this.init())
-    })
-  }
-  // called initData()
-  // Initialization
-  init() {
-    this.addContents()
-    this.walkJson(this.settings.common)
-    this.evListener()
-  }
-
-  // called init() 
-  addContents() {
-    this.funcMacy();
-    // document.getElementById('bodyMain').innerHTML = this.contentsData;
-    document.getElementById('bodyMain').insertAdjacentHTML('afterbegin', this.contentsData);
-    rippleEffect();
-    this.contentsData = "";
-  }
-
-  // called addContents()
-  funcMacy() {
-    let mw = parseInt($('#bodyMain').width() / 190);
-    let macy = Macy({
-      container: '#bodyMain',
-      trueOrder: false,
-      waitForImages: true,
-      columns: mw,
-      margin: { x: 30, y: 15 },
-      breakAt: { 1200: 5, 990: 4, 780: 3, 620: 2, 430: 1 }
-    });
-  }
-
-  // called init() 
-  walkJson(data) {
-    for (var key in data) {
-      if (typeof data[key] === 'object') {
-        this.walkJson(data[key])
-      } else {
-        this[key](data[key])
-      }
-    }
-  }
-
-  tgglIcon(a) {
-    // a === 1 ? $('.favicon').css('border-radius', '0%') : $('.favicon').css('border-radius', '50%');
-    const items = document.getElementsByClassName('favicon');
-    const br = a === 1 ? '0%' : '50%';
-    for(let i = items.length - 1; i >= 0; i--) {
-      items[i].style.borderRadius = br;
-    }
-  }
-  tgglOpenTab(a) {
-    if (a === 1) { $('head').append('<base target="_blank">'); }
-  }
-  txtScale(a) {
-    if (isFinite(a) && a !== '') { $('html').css('zoom', a + '%'); }
-  }
-  theme(a) {
-    $('head').append('<link id="ssTheme" rel="stylesheet" type="text/css" href="css/theme/' + a + '.css">');
-    $('input[name="theme"]').val([a]);
-  }
-  tgglWebSearch(a) {
-    // a === 1 ? $('#sArea').removeClass('displayNone') : $('#sArea').addClass('displayNone');
-    a === 1 ? document.getElementById('sArea').classList.remove('displayNone') : document.getElementById('sArea').classList.add('displayNone');
-  }
-  // sliderLower() {}
-// sliderUpper() {}
-// autoThemeMode1() {}
-// autoThemeMode2() {}
-// txtRegExpPattern(){}
-
-  // Dynamic Elements AddEventListener
-  evListener() {
-    document.getElementById('tggl1').addEventListener('click', (event)=>{
-      const element = event.target;
-      element.classList.toggle('form_tggl_on');
-      const items = document.getElementsByClassName('hideModule');
-      for (let i = items.length - 1 ; i >= 0; i--) {
-        items[i].classList.toggle('hide');
-      }
-    });
-  }
-
+class Reflector {
+	tggl_icon(value) {
+		const br = value ? '0%' : '50%';
+		for(const item of document.getElementsByClassName('favicon')) {
+			item.style.borderRadius = br;
+		}
+	}
+	tggl_open_tab(value) {
+		if(value){document.head.insertAdjacentHTML('beforeend', '<base target="_blank">')}
+	}
+	txt_scale(value) {
+		if(isFinite(value) && value !== '') {document.documentElement.style.zoom = value + '%'}
+	}
+	theme(value) {
+		document.head.insertAdjacentHTML('beforeend', `<link id="ssTheme" rel="stylesheet" type="text/css" href="css/theme/${value}.css">`)
+		document.getElementById(value).checked = true
+	}
+	tggl_web_search(value) {
+		value ? document.getElementById('sArea').classList.remove('displayNone') : document.getElementById('sArea').classList.add('displayNone');
+	}
 }
 
-let ev = new class {
-  // data
-  constructor() {
-    this.systemLinkArea = 0;
-    this.searchArea = 0;
-    this.filter = 0;
-    this.floatMenu = { theme: 0, visible: 0 }
-  }
-  moreMenu(a = this.systemLinkArea) {
-    this.modeFilter(a);
-    const sla = document.getElementById('systemLinkArea');
-    if (a === 0) { // visible
-      this.searchMenu(1);
-      this.selectTheme(1);
-      this.vsbltyMenu(1);
-      sla.style.width = '19rem';
-      this.systemLinkArea = 1;
-    } else { // hidden
-      sla.style.width = '4rem';
-      this.systemLinkArea = 0;
-    }
-  }
+class AddContents extends DefaultSettings {
+	constructor() {
+		super()
+		this.contentModule = document.getElementById('contentModuleTemplate')
+		this.contentModuleList = document.getElementById('liTemplate')
+		this.fragment = document.createDocumentFragment()
+	}
+	init() {
+		console.log('{loaded}')
+		this.addContents()
+		deSVG('.faviconBig', true);
+	}
+	async addContents() {
+		const data = await getStorage('jsonBookmarks');
+		for(let i in data.jsonBookmarks) {
+			this.generate(data.jsonBookmarks[i].children);
+		}
+		this.funcMacy();
+		document.getElementById('bodyMain').appendChild(this.fragment);
 
-  searchMenu(a = this.searchArea) {
+		this.reflect()
+		this.addElementsEventListener()
+	}
+
+	generate(items, listData) {
+		items.forEach((item) => {
+			if("children" in item) {
+				let contentModuleClone = document.importNode(this.contentModule.content, true),
+				cntntModule = contentModuleClone.querySelector('.cntntModule'),
+				header = contentModuleClone.querySelector('.cntntHead'),
+				ul = contentModuleClone.querySelector('ul'),
+				listData = document.createDocumentFragment();
+				if(!item.visible) {
+					cntntModule.classList.add('hideModule', 'hide');
+				}
+				header.textContent = item.title;
+				this.generate(item.children, listData);
+				const count = listData.childElementCount;
+				if(count > 0) {
+					let span = document.createElement('span');
+					span.className = "bkmrkNum"
+					span.textContent = `${count} bookmarks`;
+					listData.appendChild(span)
+					ul.appendChild(listData);
+					this.fragment.appendChild(contentModuleClone);
+				}
+			} else {
+				let liClone = document.importNode(this.contentModuleList.content, true),
+				img = liClone.querySelector('img'),
+				a = liClone.querySelector('a');
+				a.appendChild(document.createTextNode(item.title));
+				a.href = item.url;
+				img.src = `chrome://favicon/${item.url}`;
+				listData.appendChild(liClone);
+			}
+		})
+	}
+
+	reflect() {
+		const data = this.settings
+		for(const type in data){
+			if(typeof data[type] === "object") {
+				this.setState(type, data[type])
+			}
+		}
+	}
+	setState(type, data) {
+		const reflector = new Reflector()
+		for(const key in data) {
+			const func = reflector[key]
+			if(typeof func === 'function') {
+				func(data[key])
+			}
+		}
+	}
+
+	wrapper(key, action, func) {
+		const all = document.querySelectorAll(key)
+		for(const item of all) {
+			item.addEventListener(action, (event) => {func(event), this.saveData()})
+		}
+	}
+
+	addElementsEventListener() {
+		this.wrapper('.actionItems', 'click', (event) => {
+			console.log(event)
+			EventFunctions[event.target.id]()
+		})
+		this.wrapper('.createTabLink', 'click', (event) => {
+			chrome.tabs.create({ url: $(this).attr('data-href') });
+  // ev.moreMenu(1);
+  		document.getElementById('mFilter').classList.remove('filter');
+		})
+		this.wrapper('#tggl_visible', 'click', (event) => {
+			console.log(event)
+			const element = event.target;
+			element.classList.toggle('form_tggl_on');
+			const items = document.getElementsByClassName('hideModule');
+			for (let i = items.length - 1 ; i >= 0; i--) {
+				items[i].classList.toggle('hide');
+			}
+		})
+		this.wrapper('#search', 'keyup', (event) => {
+			EventFunctions.searchView()
+		})
+		this.wrapper('html', 'click', (event) => {
+
+		})
+		this.wrapper('html', 'keydown', (event) => {
+			if (event.altKey && event.keyCode === 66) { // [ Alt + B ]
+				console.log('Alt + B')
+			}
+			if (event.keyCode === 27 && $('#search').focus()) { // [ Esc ]
+				console.log('Esc')
+			}
+		})
+	}
+
+	funcMacy() {
+		let mw = parseInt($('#bodyMain').width() / 190);
+		let macy = Macy({
+			container: '#bodyMain',
+			trueOrder: false,
+			waitForImages: true,
+			columns: mw,
+			margin: { x: 30, y: 15 },
+			breakAt: { 1200: 5, 990: 4, 780: 3, 620: 2, 430: 1 }
+		});
+	}
+}
+const NOW_OPEN = true
+const NOW_CLOSE = false
+const TO_OPEN = false
+const TO_CLOSE = true
+class EventFunctions {
+  constructor() {
+    this.linkArea = NOW_CLOSE
+    this.searchArea = NOW_CLOSE
+    this.filter = NOW_CLOSE
+    this.themePopup = NOW_CLOSE
+  }
+  static moreMenu(state = this.linkArea) {
+  	console.log(state)
+  	this.filtering(state);
+    const sla = document.getElementById('systemLinkArea');
+    if(state) {
+      sla.style.width = '4rem';
+    } else {
+      sla.style.width = '19rem';
+      this.searchMenu(TO_CLOSE);
+      // this.selectTheme(1);
+      // this.vsbltyMenu(1);
+    }
+    this.linkArea = !state
+  }
+  static filtering(state = this.filter) {
+    const mF = document.getElementById('mFilter');
+    if (state) {
+      mF.classList.remove('filter');
+    } else {
+      mF.classList.add('filter');
+    }
+    this.filter = !state
+  }
+  static searchMenu(state = this.searchArea) {
     const searchGroup = document.getElementById('searchGroup');
     const searchMenu = document.getElementById('searchMenu');
     const search = document.getElementById('search');
-    if (a === 0) { // visible
-      this.moreMenu(1);
-      this.selectTheme(1);
-      this.vsbltyMenu(1);
-      searchGroup.style.left = '4rem';
-      searchMenu.classList.add('bg-searchMenu');
-      search.focus();
-      this.searchArea = 1;
-    } else { // hidden
+    if(state) {
       searchGroup.style.left = '-34rem';
       searchMenu.classList.remove('bg-searchMenu');
       search.blur();
-      this.searchArea = 0
       this.searchReset();
-    }
-  }
-
-  modeFilter(a = this.filter) {
-    const mF = document.getElementById('mFilter');
-    if (a === 0) {
-      mF.classList.add('filter');
-      this.filter = 1;
     } else {
-      mF.classList.remove('filter');
-      this.filter = 0;
+      this.moreMenu(TO_CLOSE);
+      // this.selectTheme(1);
+      // this.vsbltyMenu(1);
+      searchGroup.style.left = '4rem';
+      searchMenu.classList.add('bg-searchMenu');
+      search.focus();
     }
+    this.searchArea = !state;
   }
-
-  searchReset() {
+  static searchReset() {
     document.getElementById('search').value = "";
     document.getElementById('searchReset').classList.remove('searchResetView');
     document.getElementById('searchResult').innerHTML = '';
   }
-
-  searchView() {
+  static searchView() {
     const words = document.getElementById('search').value;
-    if (words == "") {
+    if(words == "") {
       document.getElementById('searchReset').classList.remove('searchResetView');
     }
     else{
       document.getElementById('searchReset').classList.add('searchResetView');
-      chrome.bookmarks.search(words, function(results) {
+      chrome.bookmarks.search(words, (results) => {
         let joinResult = '';
-        results.forEach(function(item) {
-          if (item.url) {
+        for(const item of results) {
+          if(item.url) {
             const title = item.title == "" ? item.url : item.title;
-            joinResult += '<a class="searchResultItems" href="' + item.url + '" title="' + title + '"><img class="favicon" src="chrome://favicon/' + item.url + '">' + title + '</a>';
+            joinResult += `<a class="searchResultItems" href="${item.url}" title="${title}"><img class="favicon" src="chrome://favicon/${item.url}">${title}</a>`;
           }
-        });
-        document.getElementById('searchResult').innerHTML = joinResult + '<div id="resultNum">' + results.length + ' bookmarks</div>';
+        }
+        document.getElementById('searchResult').innerHTML = `${joinResult}<div id="resultNum">${results.length}bookmarks</div>`;
       });
     }
     document.getElementById('searchResult').innerHTML = '';
   }
-  cssFloatMenu(obj, a) {
-    obj.style.margin = a === 0 ? '-3rem 0 0 3rem' : '-3rem 0 0 4rem';
-    obj.style.visibility = a === 0 ? 'hidden' : 'visible';
-    obj.style.opacity = a;
+  static cssFloatMenu(obj, state) {
+    obj.style.margin = state ? '-3rem 0 0 4rem' : '-3rem 0 0 3rem';
+    obj.style.visibility = state ? 'visible' : 'hidden';
+    obj.style.opacity = state ? 1 : 0;
   }
-  selectTheme(a = this.floatMenu.theme) {
+  static selectTheme(state = this.themePopup) {
+  	console.log(state)
     const fmTheme = document.getElementById('fmTheme');
 
-    if (a === 0) {
-      this.moreMenu(1);
-      this.vsbltyMenu(1);
+    if (state) {
+      this.cssFloatMenu(fmTheme, TO_CLOSE);
+      // $('#fmTheme').css({ margin: '-3rem 0 0 3rem', visibility: 'hidden', opacity: '0' });   
+    } else {
+    	this.moreMenu(TO_CLOSE);
+      // this.vsbltyMenu(1);
 
-      this.cssFloatMenu(fmTheme, 1);
+      this.cssFloatMenu(fmTheme, TO_OPEN);
       // $('#fmTheme').css({ margin: '-3rem 0 0 4rem', visibility: 'visible', opacity: '1' });
-      this.floatMenu.theme = 1;
-    } else {
-      this.cssFloatMenu(fmTheme, 0);
-      // $('#fmTheme').css({ margin: '-3rem 0 0 3rem', visibility: 'hidden', opacity: '0' });
-      this.floatMenu.theme = 0;
     }
-  }
-
-  applyTheme() {
-    ini.saveData();
-    location.reload();
-  }
-
-  vsbltyMenu(a = this.floatMenu.visible) {
-    // this.moreMenu();
-    const fmVsblty = document.getElementById('fmVsblty');
-    if (a === 0) {
-      this.moreMenu(1);
-      this.selectTheme(1);
-      this.cssFloatMenu(fmVsblty, 1);
-      // $('#fmVsblty').css({ margin: '-3rem 0 0 4rem', visibility: 'visible', opacity: '1' });
-      this.floatMenu.visible = 1;
-    } else {
-      this.cssFloatMenu(fmVsblty, 0);
-      // $('#fmVsblty').css({ margin: '-3rem 0 0 3rem', visibility: 'hidden', opacity: '0' });
-      this.floatMenu.visible = 0;
-    }
+      this.themePopup = !state;
   }
 }
 
-deSVG('.faviconBig', true);
+const add = new AddContents()
 
-// document.getElementById('search').addEventListener('focus', (event) => {
-//   let focusNum = 0;
-//   // console.log(focusNum)
-//   event.target.addEventListener('keydown', (el) => {
-//     if(el.keyCode === 13) {
-//       document.getElementById('searchResult').firstChild.focus();
-//       // focusNum+=1;
-//       // console.log(focusNum);
-//     } else if(el.keyCode === 41) {
-//       // document.getElementById('searchResult').childNodes[focusNum].focus();
-//       // focusNum-=1;
-//       // console.log(focusNum)
-//     }
-//   });
-// });
-document.getElementById('search').addEventListener('keyup',ev.searchView);
-document.addEventListener('keydown', (event) => {
-  if (event.altKey && event.keyCode === 66) { // [ Alt + B ]
-    ev.searchMenu(ev.searchArea);
-  }
-  if (event.keyCode === 27 && $('#search').focus()) { // [ Esc ]
-    ev.searchMenu(1);
-  }
-  // const activeEl = document.activeElement;
-  // if(event.keyCode === 39 && activeEl.classList.contains('searchResultItems')) {
-  //   console.log('next');
-  //   activeEl.nextElementSibling.focus();
-  // } else if(event.keyCode === 37 && activeEl.classList.contains('searchResultItems')) {
-  //   console.log('prev');
-  //   activeEl.previousElementSibling.focus();
-  // }
-});
 
-document.addEventListener('click', ()=>{
-  if ($(event.target).closest('#mFilter').length) {
-    ev.moreMenu(1);
-  }
-});
-
-$('.actionItems').click(function() {
-  ev[this.id]();
-});
-$('.createTabLink').click(function() {
-  chrome.tabs.create({ url: $(this).attr('data-href') });
-  ev.moreMenu(1);
-  document.getElementById('mFilter').classList.remove('filter');
-});
-// document.querySelector('.cntntModule ul li a').oncontextmenu = ()=>{
-//   console.log(this)
-// };
-
-$('input[type="radio"]').click(function() {
-  ini.settings.common.radio[$(this)[0].name] = $(this)[0].id;
-});
-
-$(window).resize(function() {
-  let timer;
-  if (timer !== false) {
-    clearTimeout(timer);
-  }
-  timer = setTimeout(function() {
-    ini.funcMacy();
-  }, 200);
-});
-
-// window.addEventListener('click', e => {
-//   const eD = e.srcElement;
-//   // console.log(eD)
-// });
-// chrome.runtime.sendMessage({type: 'create'}, function(response) {});
-// 設定変更時 バックグラウンド更新
-// chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-//   if (request.type === 'reload') {
-//     location.reload(true)
-//   }
-// });
-
-$('#s').keyup(function(e) {
-  if ((e.which && e.which == 13) || (e.keyCode && e.keyCode == 13)) {
-    chrome.tabs.create({ url: "https://www.google.com/search?q=" + $('#s').val()});
-    $('#s').val("");
-  }
-});
-
-$('#sEnter').click(function() {
-  chrome.tabs.create({ url: "https://www.google.com/search?q=" + $('#s').val()});
-  $('#s').val("");
-});

@@ -1,6 +1,7 @@
 let joinBkmrk = "";
 let appendData = "";
 let BookmarkNode = function(bookmark) {
+    console.log(bookmark)
     if ("children" in bookmark && bookmark.children.length > 0) {
         // if () {
             bookmark.children.forEach(function(subBookmark) {
@@ -43,12 +44,12 @@ let createContents = function() {
     chrome.storage.local.get((a) => {
         if(a !== undefined) {
             let nowTime = new  Date().getHours();
-            let range = [a.settings.text.range.sliderLower, a.settings.text.range.sliderUpper];
+            let range = [a.settings.text.range.slider_lower, a.settings.text.range.slider_upper];
             if(range[0] !== "" && range[1] !== "") {
                 if(range[0] <= nowTime && nowTime < range[1]){
-                    a.settings.radio.theme = a.settings.select.autoThemeMode1;
+                    a.settings.radio.theme = a.settings.select.auto_theme_mode_primary;
                 } else {
-                    a.settings.radio.theme = a.settings.select.autoThemeMode2;
+                    a.settings.radio.theme = a.settings.select.auto-theme-mode-secondary;
                 }
                 chrome.storage.local.set({settings: a.settings})
             }
