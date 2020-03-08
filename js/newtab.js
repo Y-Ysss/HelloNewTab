@@ -106,17 +106,15 @@ class AddContents extends DefaultSettings {
 
 	addElementsEventListener() {
 		this.wrapper('.actionItems', 'click', (event) => {
-			console.log(event.target.id)
 			this.eventFunc[event.target.id]()
 		})
 		this.wrapper('input[type=radio]', 'click', (event) => {
-			console.log(event.target.id)
 			this.settings.radio.theme = event.target.id
 		})
 		this.wrapper('.createTabLink', 'click', (event) => {
-			chrome.tabs.create({ url: $(this).attr('data-href') });
+			chrome.tabs.create({ url: event.target.dataset.href });
   // ev.moreMenu(1);
-  		document.getElementById('mFilter').classList.remove('filter');
+  			document.getElementById('mFilter').classList.remove('filter');
 		})
 		// this.wrapper('#tgglVisible', 'click', (event) => {
 		// 	console.log(event)
@@ -168,7 +166,6 @@ class EventFunctions {
     this.fmVsblty = NOW_CLOSE
   }
   moreMenu(state = this.linkArea) {
-  	console.log(state)
   	this.filtering(state);
     const sla = document.getElementById('systemLinkArea');
     if(state) {
@@ -194,7 +191,6 @@ class EventFunctions {
     const searchGroup = document.getElementById('searchGroup');
     const searchMenu = document.getElementById('searchMenu');
     const search = document.getElementById('search');
-    console.log(state)
     if(state) {
       searchGroup.style.left = '-34rem';
       searchMenu.classList.remove('bg-searchMenu');
@@ -241,7 +237,6 @@ class EventFunctions {
     obj.style.opacity = state ? 0 : 1;
   }
   selectThemeMenu(state = this.themePopup) {
-  	console.log(state)
     const fmTheme = document.getElementById('fmTheme');
 
     if (state) {
