@@ -21,8 +21,9 @@ class Reflector {
 }
 
 class AddContents extends DefaultSettings {
-	constructor() {
+	constructor(classEventFunctions) {
 		super()
+		this.eventFunc = classEventFunctions
 		this.contentModule = document.getElementById('contentModuleTemplate')
 		this.contentModuleList = document.getElementById('liTemplate')
 		this.fragment = document.createDocumentFragment()
@@ -105,25 +106,29 @@ class AddContents extends DefaultSettings {
 
 	addElementsEventListener() {
 		this.wrapper('.actionItems', 'click', (event) => {
-			console.log(event)
-			EventFunctions[event.target.id]()
+			console.log(event.target.id)
+			this.eventFunc[event.target.id]()
+		})
+		this.wrapper('input[type=radio]', 'click', (event) => {
+			console.log(event.target.id)
+			this.settings.radio.theme = event.target.id
 		})
 		this.wrapper('.createTabLink', 'click', (event) => {
 			chrome.tabs.create({ url: $(this).attr('data-href') });
   // ev.moreMenu(1);
   		document.getElementById('mFilter').classList.remove('filter');
 		})
-		this.wrapper('#tggl_visible', 'click', (event) => {
-			console.log(event)
-			const element = event.target;
-			element.classList.toggle('form_tggl_on');
-			const items = document.getElementsByClassName('hideModule');
-			for (let i = items.length - 1 ; i >= 0; i--) {
-				items[i].classList.toggle('hide');
-			}
-		})
+		// this.wrapper('#tgglVisible', 'click', (event) => {
+		// 	console.log(event)
+		// 	const element = event.target;
+		// 	element.classList.toggle('form_tggl_on');
+		// 	const items = document.getElementsByClassName('hideModule');
+		// 	for (let i = items.length - 1 ; i >= 0; i--) {
+		// 		items[i].classList.toggle('hide');
+		// 	}
+		// })
 		this.wrapper('#search', 'keyup', (event) => {
-			EventFunctions.searchView()
+			this.eventFunc.searchView()
 		})
 		this.wrapper('html', 'click', (event) => {
 
@@ -160,8 +165,9 @@ class EventFunctions {
     this.searchArea = NOW_CLOSE
     this.filter = NOW_CLOSE
     this.themePopup = NOW_CLOSE
+    this.fmVsblty = NOW_CLOSE
   }
-  static moreMenu(state = this.linkArea) {
+  moreMenu(state = this.linkArea) {
   	console.log(state)
   	this.filtering(state);
     const sla = document.getElementById('systemLinkArea');
@@ -170,12 +176,12 @@ class EventFunctions {
     } else {
       sla.style.width = '19rem';
       this.searchMenu(TO_CLOSE);
-      // this.selectTheme(1);
-      // this.vsbltyMenu(1);
+      this.selectThemeMenu(TO_CLOSE);
+      this.vsbltyMenu(TO_CLOSE);
     }
     this.linkArea = !state
   }
-  static filtering(state = this.filter) {
+  filtering(state = this.filter) {
     const mF = document.getElementById('mFilter');
     if (state) {
       mF.classList.remove('filter');
@@ -184,10 +190,11 @@ class EventFunctions {
     }
     this.filter = !state
   }
-  static searchMenu(state = this.searchArea) {
+  searchMenu(state = this.searchArea) {
     const searchGroup = document.getElementById('searchGroup');
     const searchMenu = document.getElementById('searchMenu');
     const search = document.getElementById('search');
+    console.log(state)
     if(state) {
       searchGroup.style.left = '-34rem';
       searchMenu.classList.remove('bg-searchMenu');
@@ -195,20 +202,20 @@ class EventFunctions {
       this.searchReset();
     } else {
       this.moreMenu(TO_CLOSE);
-      // this.selectTheme(1);
-      // this.vsbltyMenu(1);
+      this.selectThemeMenu(TO_CLOSE);
+      this.vsbltyMenu(TO_CLOSE);
       searchGroup.style.left = '4rem';
       searchMenu.classList.add('bg-searchMenu');
       search.focus();
     }
     this.searchArea = !state;
   }
-  static searchReset() {
+  searchReset() {
     document.getElementById('search').value = "";
     document.getElementById('searchReset').classList.remove('searchResetView');
     document.getElementById('searchResult').innerHTML = '';
   }
-  static searchView() {
+  searchView() {
     const words = document.getElementById('search').value;
     if(words == "") {
       document.getElementById('searchReset').classList.remove('searchResetView');
@@ -228,12 +235,12 @@ class EventFunctions {
     }
     document.getElementById('searchResult').innerHTML = '';
   }
-  static cssFloatMenu(obj, state) {
-    obj.style.margin = state ? '-3rem 0 0 4rem' : '-3rem 0 0 3rem';
-    obj.style.visibility = state ? 'visible' : 'hidden';
-    obj.style.opacity = state ? 1 : 0;
+  cssFloatMenu(obj, state) {
+    obj.style.margin = state ? '-4rem 0 0 3rem' : '-4rem 0 0 5rem';
+    obj.style.visibility = state ? 'hidden' : 'visible';
+    obj.style.opacity = state ? 0 : 1;
   }
-  static selectTheme(state = this.themePopup) {
+  selectThemeMenu(state = this.themePopup) {
   	console.log(state)
     const fmTheme = document.getElementById('fmTheme');
 
@@ -242,15 +249,36 @@ class EventFunctions {
       // $('#fmTheme').css({ margin: '-3rem 0 0 3rem', visibility: 'hidden', opacity: '0' });   
     } else {
     	this.moreMenu(TO_CLOSE);
-      // this.vsbltyMenu(1);
-
+      this.vsbltyMenu(TO_CLOSE);
       this.cssFloatMenu(fmTheme, TO_OPEN);
       // $('#fmTheme').css({ margin: '-3rem 0 0 4rem', visibility: 'visible', opacity: '1' });
     }
       this.themePopup = !state;
   }
+  applyTheme() {
+    location.reload();
+  }
+  vsbltyMenu(state = this.fmVsblty) {
+  	const fmVsblty = document.getElementById('fmVsblty');
+  	if (state) {
+      this.cssFloatMenu(fmVsblty, TO_CLOSE);
+    } else {
+    	this.moreMenu(TO_CLOSE);
+      this.selectThemeMenu(TO_CLOSE);
+      this.cssFloatMenu(fmVsblty, TO_OPEN);
+    }
+      this.fmVsblty = !state;
+  }
+  tgglVisible(state) {
+  		const tgVsblty = document.getElementById('tgglVisible');
+		tgVsblty.classList.toggle('form_tggl_on');
+		const items = document.getElementsByClassName('hideModule');
+		for (let i = items.length - 1 ; i >= 0; i--) {
+			items[i].classList.toggle('hide');
+		}
+  }
 }
-
-const add = new AddContents()
+// const eventFunc = 
+const add = new AddContents(new EventFunctions())
 
 
