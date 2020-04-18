@@ -41,6 +41,10 @@ summary {
   padding: 0 0 .6rem 0;
 }
 
+.button_area{
+  text-align: right;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -105,7 +109,7 @@ table tr:last-child td{
   background-color: #444;
   box-shadow: 0rem .1rem 1.6rem rgba(0, 0, 0, .4);
   border-radius: .4rem;
-  -webkit-transition: .14s ease-out;
+  -webkit-transition: .14s ease-in-out;
 }
 
 .icons {
@@ -349,28 +353,29 @@ select {
 /*Button*/
 
 .button {
-  margin: 1.5rem .5rem 1.5rem .5rem;
-  padding: .4rem 1.6rem;
+  margin: 0 1.5rem 0 1.5rem;
+  padding: .1rem 1.6rem;
   display: inline-block;
   cursor: pointer;
   vertical-align: middle;
   /*font-size: 1em;*/
   letter-spacing: .05em;
   color: #fff;
-  background-color: #7190ad;
+  background-color: #42a5f5;
   box-shadow: 0 0 .3rem rgba(0, 0, 0, .35);
   /*background-color: #115273;*/
-  border-radius: .3rem;
-  transition: .3s ease-out;
+  border-radius: .5rem;
+  transition: .2s ease-out;
 }
 
 .button:hover {
-  background-color: #3276a3;
+  color: #345;
+  background-color: #f0f2f5;
   box-shadow: 0 0 .6rem rgba(0, 0, 0, .4);
 }
 
 .button:active {
-  background-color: #7190ad;
+  background-color: #bbdefb;
   box-shadow: 0 0 .8rem rgba(0, 0, 0, .5);
 }
 
@@ -491,7 +496,7 @@ select {
 }
 
 .cardContents {
-  margin: 1.2rem;
+  margin: 1.2rem 1.5rem;
   padding: .8rem;
   position: relative;
   display: block;

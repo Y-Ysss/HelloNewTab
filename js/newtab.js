@@ -30,7 +30,6 @@ class AddContents extends DefaultSettings {
 		this.xx_module
 	}
 	init() {
-		console.log('{loaded}')
 		this.addContents()
 		deSVG('.faviconBig', true);
 	}
@@ -277,4 +276,8 @@ class EventFunctions {
 // const eventFunc = 
 const add = new AddContents(new EventFunctions())
 
-
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+	if(request.newtab === 'reload') {
+		window.location.reload()
+	}
+});

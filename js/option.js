@@ -1,164 +1,130 @@
-try {
-let ev = new class {
-  constructor() {
-    //Default settings
-    this.settings = {
-      "common" : {
-        "toggle": {"tggl_icon": -1, "tggl_open_tab": 1, "tggl_web_search":-1},
-        "radio": {"theme": "tmFlatLight"},
-        "text": { "txt_scale": ""},
-      },
-      "sub" : {
-        "text" : {"txt_regexp_pattern":"", "range":{ "slider_lower": "", "slider_upper": ""}},
-        "select": {"auto_theme_mode_primary": "tmFlatLight", "auto-theme-mode-secondary": "tmFlatDark"}
-      }
-    },
-    this.initData()
-  }
-  // save
-  saveData() {
-    chrome.storage.local.set({ settings: this.settings });
-    this.toast();
-  }
-  // load
-  initData() {
-    chrome.storage.local.get((a) => {
-      a.settings === undefined ? (this.saveData(), this.init()) : (this.settings = a.settings, this.init())
-    })
-  }
-  // called initData()
-  // Initialization
-  init() {
-    this.walkJson(this.settings)
-    this.pageFunc()
-    this.versionInfo()
-    this.gitCommitsInfo()
-    rippleEffect();
-  }
-  // called init() 
-  walkJson(data) {
-    for(const s in data) {
-      for(const type in data[s]){
-      if(typeof data[s][type] === "object") {
-        this.setState(type, data[s][type])
-      }
-    }
-    }
-  }
-  // called walkJson()
-  setState(type, data) {
-    for(const key in data) {
-      this[type](data, key);
-    }
-  }
-  // called setState()
-  toggle(data, key) {
-    if(data[key] === 1) {
-      $('#' + key).addClass('toggle_on');
-    }
-  }
-  // called setState()
-  text(data, key) {
-    if(key === 'range') {
-      for(const a in data[key]){
-        $('.' + a).val([data[key][a]]);
-        $('#' + a + 'Range').val([data[key][a]]);
-      }
-    }else{
-      $('#' + key).val(data[key]);
-    }
-  }
-  // called setState()
-  radio(data, key) {
-    $('input[name="' + key + '"]').val([data[key]]);
-  }
-  // called setState()
-  select(data, key) {
-    $('select[name="' + key + '"]').val([data[key]]);
-  }
-
-  // called init()
-  pageFunc() {
-    $('.toggle').click(function() {
-      $(this).toggleClass('toggle_on');
-      ev.settings.common.toggle[$(this)[0].id] *= -1;
-      ev.saveData();
-    });
-    $('#txt_scale').blur(function() {
-      ev.settings.common.text[$(this)[0].id] = $(this)[0].value;
-      ev.saveData();
-    });
-    $('input[type="radio"]').click(function() {
-      ev.settings.common.radio[$(this)[0].name] = $(this)[0].id;
-      ev.saveData();
-    });
-    $('#txt_regexp_pattern').blur(function() {
-      // let pattern = ;
-      // if(!pattern.match(/^[\/]/)) {
-      //   pattern = "/" + pattern;
-      // }
-      // if(!pattern.match(/.\/$/)) {
-      //   pattern = pattern + "/";
-      // }
-      ev.settings.sub.text[$(this)[0].id] = $(this)[0].value;
-      ev.saveData();
-      chrome.runtime.sendMessage({type: 'reload'});
-    });
-    $('input[type="range"]').change(function() {
-      ev.settings.sub.text.range[$(this)[0].name] = $(this)[0].value;
-      $('.' + $(this)[0].name).val($(this)[0].value);
-      ev.saveData();
-    });
-    $('.textTime').change(function() {
-      let value = $(this)[0].value;
-      $('.' + $(this)[0].name).val(value);
-      $('#' + $(this)[0].name + 'Range').val(value);
-      ev.settings.sub.text.range[$(this)[0].name] = value;
-      ev.saveData();
-    });
-    $('select').change(function() {
-      ev.settings.sub.select[$(this)[0].name] = $(this)[0].value;
-      ev.saveData();
-    });
-
-    $('#testReload').click(function(){
-      // 設定変更時 バックグラウンド更新
-      chrome.runtime.sendMessage({type: 'reload'}, function(response) {});
-    })
-  }
-
-  versionInfo() {
-    const manifestData = chrome.runtime.getManifest();
-    document.getElementById('ExtensionInfo').insertAdjacentHTML('beforeend', '<div class="cardContents"><b>Installed Version</b><br>' + manifestData.version + '</div>');
-    fetch('https://api.github.com/repos/Y-Ysss/HelloNewTab/releases/latest').then(resp => {return resp.json();})
-    .then(latestRelease => {
-      let str = ''; 
-      if(manifestData.version !== latestRelease.name) {
-        str += '<h2>#Latest Release</h2><div class="cardContents"><b>Version</b><br>' + latestRelease.name + '</div><div class="cardContents"><b>What\'s New</b><br>' + latestRelease.body + '</div><div class="cardContents"><b>URL</b><br><a href="' + latestRelease.html_url + '"></a></div>';
-        str = str.replace(/\r?\n/g, '<br>');
-      }
-    document.getElementById('ExtensionInfo').insertAdjacentHTML('beforeend', str);
-    });
-  }
-
-  gitCommitsInfo() {
-    let str = '';
-    fetch('https://api.github.com/repos/Y-Ysss/HelloNewTab/commits').then(resp => {return resp.json();})
-    .then(commitsData => {
-      for(let i = 0; i < 5; i++) {
-        str += '<div class="cardContents"><b>' + commitsData[i].commit.message + '</b><br><span>' +
-          (commitsData[i].commit.author.date).replace('T', ', ').slice(0, -1) +
-          ' (UTC)</span><br><a href="' + commitsData[i].html_url + '"></a></div>';
-      }
-      document.getElementById('gitCommitsInfo').insertAdjacentHTML('beforeend', str);
-    });
-  }
-
-  toast() {
-    $('#toast').css('bottom', '1rem');
-    setTimeout(()=> { $('#toast').css('bottom', '-5rem'); }, 3000);
-  }
+class Reflector {
+	static toggle(key, value) {
+		if(value) {
+			document.getElementById(key).classList.add('toggle_on')
+		}
+	}
+	static text(key, value) {
+		document.getElementById(key).value = value
+	}
+	static range(key, value) {
+		for(const item of document.querySelectorAll(`.${key}`)) {
+			item.value = value
+		}
+		document.getElementById(`${key}Range`).value = value
+	}
+	static radio(key, value) {
+		document.getElementById(value).checked = true
+	}
+	static select(key, value) {
+		for(const item of document.querySelectorAll(`select[name="${key}"]`)) {
+			item.value = value
+		}
+	}
 }
-} catch(e) {
-console.error(e)
+
+class ReflectSettings extends DefaultSettings {
+	constructor() {
+		super()
+	}
+	init() {
+		this.reflect()
+		this.addElementsEventListener()
+		rippleEffect()
+	}
+	reflect() {
+		const data = this.settings
+		console.log(data)
+		for(const type in data){
+			if(typeof data[type] === "object") {
+				this.setState(type, data[type])
+			}
+		}
+	}
+	setState(type, data) {
+		for(const key in data) {
+			Reflector[type](key, data[key])
+		}
+	}
+	// toast() {
+	// }
+	wrapper(key, action, func) {
+		const all = document.querySelectorAll(key)
+		for(const item of all) {
+			item.addEventListener(action, (event) => {func(event)})
+		}
+	}
+	addElementsEventListener() {
+		this.wrapper('#save', 'click', (event) => {
+			this.saveData()
+			chrome.runtime.sendMessage({newtab: 'reload'})
+
+			let t = document.getElementById('toast')
+			t.style.transform  = 'translateY(-6rem)'
+			setTimeout((a) => {a.style.transform  = 'translateY(6rem)'}, 2000, t)
+		})
+		this.wrapper('.toggle', 'click', (event) => {
+			event.target.classList.toggle('toggle_on')
+			this.settings.toggle[event.target.id] = event.target.classList.contains('toggle_on')
+		})
+		this.wrapper('.text', 'blur', (event) => {
+			this.settings.text[event.target.id] = event.target.value
+		})
+		this.wrapper('input[type="radio"]', 'click', (event) => {
+			this.settings.radio[event.target.name] = event.target.id
+		})
+		this.wrapper('input[type="range"]', 'change', (event) => {
+			this.settings.range[event.target.name] = event.target.value
+			for(const item of document.querySelectorAll(`.${event.target.name}`)) {
+				item.value = event.target.value
+			}
+		})
+		this.wrapper('.textTime', 'change', (event) => {
+			const value = event.target.value;
+			for(const item of document.querySelectorAll(`.${event.target.name}`)) {
+				item.value = value
+			}
+			for(const item of document.querySelectorAll(`#${event.target.name}Range`)) {
+				item.value = event.target.value
+			}
+		})
+		this.wrapper('select', 'change', (event) => {
+			this.settings.select[event.target.name] = event.target.value
+		})
+	}
 }
+
+class ExtensionInfo {
+	constructor() {
+		this.wrapper('https://api.github.com/repos/Y-Ysss/HelloNewTab/releases/latest', this.versionInfo)
+		this.wrapper('https://api.github.com/repos/Y-Ysss/HelloNewTab/commits', this.gitCommitsInfo)
+	}
+	wrapper(url, func) {
+		fetch(url).then((response) => response.json()).then((data) => {
+			func(data)
+		})
+	}
+
+	versionInfo(data) {
+		const manifestData = chrome.runtime.getManifest();
+		let str = `<div class="cardContents"><b>Installed Version</b><br>${manifestData.version}</div>`
+		if(manifestData.version !== data.name) {
+			str += `<h2>#Latest Release</h2><div class="cardContents"><b>Version</b><br>${data.name}</div><div class="cardContents"><b>What\'s New</b><br>${data.body}</div><div class="cardContents"><b>URL</b><br><a href="${data.html_url}"></a></div>`
+			str = str.replace(/\r?\n/g, '<br>')
+		}
+		document.getElementById('ExtensionInfo').insertAdjacentHTML('beforeend', str);
+	}
+
+	gitCommitsInfo(data) {
+		let str = ''
+		for(let i = 0; i < 5; i++) {
+			str += `<div class="cardContents"><b>${data[i].commit.message}</b><br><span>${
+				(data[i].commit.author.date).replace('T', ', ').slice(0, -1)} (UTC)</span><br><a href="${data[i].html_url}"></a></div>`;
+		}
+		document.getElementById('gitCommitsInfo').insertAdjacentHTML('beforeend', str);
+	}
+}
+
+const opt = new ReflectSettings()
+const info = new ExtensionInfo()
+

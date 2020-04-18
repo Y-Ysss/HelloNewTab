@@ -31,7 +31,7 @@ class DefaultSettings {
   }
   async loadData() {
     const data = await getStorage(null)
-    data.settings === undefined ? this.saveData() : this.settings = data.settings
+    data.settings !== undefined ? this.settings = data.settings : this.saveData()
     this.init()
   }
   saveData() {
