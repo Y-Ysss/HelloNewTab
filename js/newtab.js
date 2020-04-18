@@ -27,6 +27,7 @@ class AddContents extends DefaultSettings {
 		this.contentModule = document.getElementById('contentModuleTemplate')
 		this.contentModuleList = document.getElementById('liTemplate')
 		this.fragment = document.createDocumentFragment()
+		this.xx_module
 	}
 	init() {
 		console.log('{loaded}')
@@ -45,26 +46,26 @@ class AddContents extends DefaultSettings {
 		this.addElementsEventListener()
 	}
 
-	generate(items, listData) {
+	generate(items) {
 		items.forEach((item) => {
 			if("children" in item) {
 				let contentModuleClone = document.importNode(this.contentModule.content, true),
 				cntntModule = contentModuleClone.querySelector('.cntntModule'),
 				header = contentModuleClone.querySelector('.cntntHead'),
-				ul = contentModuleClone.querySelector('ul'),
-				listData = document.createDocumentFragment();
+				ul = contentModuleClone.querySelector('ul');
+				this.xx_module = document.createDocumentFragment();
 				if(!item.visible) {
 					cntntModule.classList.add('hideModule', 'hide');
 				}
 				header.textContent = item.title;
-				this.generate(item.children, listData);
-				const count = listData.childElementCount;
+				this.generate(item.children);
+				const count = this.xx_module.childElementCount;
 				if(count > 0) {
 					let span = document.createElement('span');
 					span.className = "bkmrkNum"
 					span.textContent = `${count} bookmarks`;
-					listData.appendChild(span)
-					ul.appendChild(listData);
+					this.xx_module.appendChild(span)
+					ul.appendChild(this.xx_module);
 					this.fragment.appendChild(contentModuleClone);
 				}
 			} else {
@@ -74,10 +75,11 @@ class AddContents extends DefaultSettings {
 				a.appendChild(document.createTextNode(item.title));
 				a.href = item.url;
 				img.src = `chrome://favicon/${item.url}`;
-				listData.appendChild(liClone);
+				this.xx_module.appendChild(liClone);
 			}
 		})
 	}
+
 
 	reflect() {
 		const data = this.settings
@@ -142,12 +144,11 @@ class AddContents extends DefaultSettings {
 	}
 
 	funcMacy() {
-		let mw = parseInt($('#bodyMain').width() / 190);
 		let macy = Macy({
 			container: '#bodyMain',
 			trueOrder: false,
 			waitForImages: true,
-			columns: mw,
+			columns: 8,
 			margin: { x: 30, y: 15 },
 			breakAt: { 1200: 5, 990: 4, 780: 3, 620: 2, 430: 1 }
 		});
