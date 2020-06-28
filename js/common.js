@@ -23,9 +23,9 @@ class DefaultSettings {
     this.settings = {
       "toggle": {"tggl_icon": false, "tggl_open_tab": true, "tggl_web_search":false},
       "radio": {"theme": "tmFlatLight"},
-      "text": { "txt_scale": "", "txt_regexp_pattern":""},
+      "text": { "txt_scale": "", "txt_regexp_pattern":"", "txt_macy_columns":"", "txt_macy_marginX":"", "txt_macy_marginY":"", "txt_macy_break":""},
       "range":{ "slider_lower": "", "slider_upper": ""},
-      "select": {"auto_theme_mode_primary": "tmFlatLight", "auto-theme-mode-secondary": "tmFlatDark"}
+      "select": {"auto_theme_mode_primary": "tmFlatLight", "auto_theme_mode_secondary": "tmFlatDark"}
     }
     this.loadData()
   }

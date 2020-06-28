@@ -55,7 +55,7 @@
         <div>
         <span>ページの拡大（Default : 100）[%]</span>
         </div><div>
-          <input id="txt_scale" class="text textf" type="text" placeholder="Number">
+          <input id="txt_scale" class="text textf" type="number" placeholder="Number">
         </div>
       </div>
       <div class="cardContents contentGrid boderb">
@@ -108,7 +108,7 @@
             </div>
             <div class="inopdiv">
               <label>
-              <select name="auto-theme-mode-secondary">
+              <select name="auto_theme_mode_secondary">
                 <option value="tmLight">Modern Light</option>
                 <option value="tmDark">Modern Dark</option>
                 <option value="tmOrange">Modern Orange</option>
@@ -134,9 +134,9 @@
               <span>[Unimplemented] 除外フォルダ指定（正規表現）</span>
             </div>
           <div>
-            <input id="txt_regexp_pattern" class="text textf" type="text" placeholder="Regular Expression Pattern">
+            <input id="txt_regexp_pattern" class="text textf textfLong" type="text" placeholder="Regular Expression Pattern">
           </div>
-          <div class="cardContents">
+          <div class="cardContents boderb">
             <details>
             <summary>正規表現パターン</summary>
             <table border="0" cellspacing="0">
@@ -175,6 +175,35 @@
           </details>
           </div>
         </div>
+
+              <b>[Unimplemented] メイソンリーレイアウト</b><br>
+          <div class="cardContents contentGrid">
+            <div>
+              <span>列数 (Default:8)</span>
+            </div>
+            <div>
+              <input id="txt_macy_columns" class="text textf" type="number" placeholder="Number">
+            </div>
+          </div>
+          <div class="cardContents contentGrid">
+            <div>
+              <span>マージン</span>
+            </div>
+            <div>
+              X (Default:30): <input id="txt_macy_marginX" class="text textf" type="number" placeholder="Number">
+              Y (Default:15): <input id="txt_macy_marginY" class="text textf" type="number" placeholder="Number">
+            </div>
+          </div>
+          <div class="cardContents contentGrid">
+            <div>
+              <span>ブレークポイント (Default: { 1200:5, 990:4, 780:3, 620:2, 430:1 })</span>
+            </div>
+            <div>
+              <input id="txt_macy_break" class="text textf" type="text" placeholder="{key:value}">
+            </div>
+          </div>
+
+
         </details>
       </div>
         

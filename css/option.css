@@ -126,7 +126,6 @@ table tr:last-child td{
   padding: .9rem 1rem;
   overflow: hidden;
   cursor: pointer;
-  text-align: right;
   vertical-align: middle;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -142,10 +141,10 @@ table tr:last-child td{
   -webkit-transition: .6s ease all;
 }
 
-#txt_regexp_pattern{
-  width: 38rem;
-  text-align: left;
+.textfLong {
+  width: 40rem;
 }
+
 
 .textf:focus {
   cursor: text;
